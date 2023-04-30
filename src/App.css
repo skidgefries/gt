@@ -36,3 +36,61 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face{
+  font-family: bebas;
+  src: url(../public/font/BebasNeue.ttf);
+}
+
+@font-face{
+  font-family: lilita;
+  src: url(../public/font/LilitaOne-Regular.ttf);
+}
+
+@font-face{
+  font-family: fjalla;
+  src: url(../public/font/FjallaOne-Regular.ttf);
+}
+
+.bg{
+  background-image:url(./Components/images/home.png);
+  width: 1520px;
+  height: 1015px;
+  background-size: cover;
+}
+
+.align{
+  text-align: center;
+  font-size: calc(65px + 2vmin);
+  font-family :bebas;
+  text-shadow : 2px 1px;
+  color : #152A3E;
+}
+
+.align1{
+  text-align: center;
+  font-size: calc(70px + 2vmin);
+  font-family :lilita;
+  text-shadow : 1.5px 1px;
+  color : #6293C4;
+  background-color: #fdfdfd;
+}
+
+.align2{
+  text-align: center;
+  font-size: calc(20px + 2vmin);
+  font-family :fjalla;
+  text-shadow : 1.5px 1px;
+  color : #152A3E;
+}
+
+.aligncenter{
+  align-items: center;
+  text-align: center;
+  font-family :fjalla;
+}
+
+
+
+
+
