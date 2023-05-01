@@ -33,7 +33,7 @@ const data={
     password:req.body.password
 }
 
-await collection.insertMany([data]) //insertMany->syntax for mongodb
+await collectttion.insertMany([data]) //insertMany->syntax for mongodb
     
 res.render("homesignedin")
 
@@ -47,7 +47,7 @@ app.get("/login",(req,res)=>{
 app.post("/login",async (req,res)=>{    // async and await functions
 
    try{
-    const check=await collection.findOne({name:req.body.name})
+    const check=await collectttion.findOne({name:req.body.name})
     if(check.password===req.body.password){
         res.render("homesignedin")
     }

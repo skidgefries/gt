@@ -1,7 +1,8 @@
 const mongoose=require("mongoose")
 
-
-mongoose.connect("mongodb://0.0.0.0:27017/LoginSignUp") //connect node to mongodb //LoginSignup->name of database
+const str= ("mongodb+srv://pranawrajkafleprk:HaaSoDXOAxWdgyNe@cluster0.hpybsct.mongodb.net/GuidedTravels");
+mongoose.connect(str)
+//mongoose.connect("mongodb://0.0.0.0:27017/LoginSignUp") //connect node to mongodb //LoginSignup->name of database
 .then(()=>{
     console.log("mongodb connected");
 })
