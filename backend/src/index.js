@@ -1,6 +1,5 @@
 const express=require("express")
 const app=express()
-const web=require("../routes/web")
 const path = require("path")
 const hbs=require("hbs")
 const emailValidator=require("email-validator")
@@ -15,7 +14,6 @@ app.use(cors())
 
 app.use(express.json())
 
-app.use("/",web)
 
 app.set("view engine","hbs")
 //app.set("views",templatePath)

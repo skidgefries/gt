@@ -3,7 +3,7 @@ const userRouter = express.Router();
 const userModel=require('../models/userModel');
 const protectRoute=require('./authHelper');
 const {getUser,updateUser,deleteUser}=require('../controllers/userController')
-const {signup,login,protectRoute,isAuthorised}=require('../controllers/authController')
+const {signup,login,protectRoute,isAuthorised,forgetpassword,resetpassword,logout}=require('../controllers/authController')
 
 userRouter. route('/:id')
 .patch(updateUser)
@@ -22,11 +22,22 @@ userRouter
 .route('/login')
 .post(login)
 
+userRouter
+.route('/forgetpassword')
+.post(forgetpassword)
+
+userRouter
+.route('/resetpassword/:token')
+.post(resetpassword)
+
+userRouter
+.route('/logout')
+.get(logout)
 
 //profile page
 app.use(protectRoute);
 userRouter
- .route('/userProfile')
+.route('/userProfile')
 .get(getUser)
 
 
