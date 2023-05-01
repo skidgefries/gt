@@ -11,7 +11,7 @@ export default function Home() {
       <div className="bg img-fluid ">
         <div className="align">
           <br />
-          <br />
+          <br/>
           WELCOME TO
           <br />
           THE
