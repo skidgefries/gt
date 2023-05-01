@@ -52,11 +52,33 @@
   src: url(../public/font/FjallaOne-Regular.ttf);
 }
 
+@font-face{
+  font-family: nunito;
+  src: url(../public/font/nunitosans.ttf);
+}
+
 .bg{
   background-image:url(./Components/images/home.png);
-  width: 1520px;
+  width: 1530px;
   height: 1015px;
   background-size: cover;
+  background-position: center;
+}
+
+.bg1{
+  width: 1500px;
+  height: 1015px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.bg3{
+  background-image:url(./Components/images/home2.png);
+  width: 1519px;
+  height: 2015px;
+  background-size: cover;
+  background-position: center;
 }
 
 .align{
@@ -73,7 +95,7 @@
   font-family :lilita;
   text-shadow : 1.5px 1px;
   color : #6293C4;
-  background-color: #fdfdfd;
+ 
 }
 
 .align2{
@@ -84,11 +106,120 @@
   color : #152A3E;
 }
 
+.align3{
+  text-align: center;
+  font-size: calc(5px + 2vmin);
+  font-family :fjalla;
+  text-shadow : 1.5px 1px;
+  color : #152A3E;
+}
+
+.align4{
+  text-align: center;
+  font-size: calc(20px + 2vmin);
+  font-family :lilita;
+  color : white;
+  text-shadow : 0px 0px;
+  background-color: #152A3E;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    
+}
+
+.align5{
+  text-align: center;
+  font-size: calc(20px + 2vmin);
+  font-family :lilita;
+  color : white;
+  text-shadow : 0px 0px;
+  background-color: #fdfdfd;
+}
+
+.align6{
+  text-align: right;
+  font-size: calc(90px + 2vmin);
+  font-family :lilita;
+  text-shadow : 1.5px 1px;
+  color : white;
+  margin-right: 50px;
+ 
+}
+
+.align7{
+  text-align: right;
+  font-size: calc(90px + 2vmin);
+  font-family :lilita;
+  text-shadow : 1.5px 1px;
+  color : #6293C4;
+  margin-right: 110px;
+ 
+}
+
+.align8{
+  text-align: center;
+  font-size: calc(65px + 2vmin);
+  font-family :fjalla;
+  text-shadow : 2px 1px;
+  color : #152A3E;
+}
+
 .aligncenter{
   align-items: center;
   text-align: center;
   font-family :fjalla;
 }
+
+.alignLeft{
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+  margin-left: 100px;
+  font-family :nunito;
+  font-size: calc(60px + 2vmin);
+  text-align: ;
+}
+
+
+.alignRight{
+  align-items: right;
+  justify-content: right;
+  text-align: right;
+  margin-right: 100px;
+  font-family :nunito;
+  font-size: calc(60px + 2vmin);
+}
+
+.line{
+  width:80%;
+  height:3px;
+  border:0 none;
+  margin-right:auto;
+  margin-left:auto;
+  background-color:#6a6a6b;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the height of the container to full screen height */
+}
+
+.center1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh; 
+}
+
+.foot{
+  background-color: grey;
+  font-family :nunito;
+  font-size: calc(60px + 2vmin);
+}
+
+
+
 
 
 

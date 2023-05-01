@@ -5,6 +5,8 @@ import About from './Components/About';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 
+
+
 function App() {
   const [mode, setMode] = useState('light'); //whether dark mode is enabled or not
   const toggleMode = ()=>
@@ -26,7 +28,6 @@ function App() {
 <About/>*/}
 <Navbar mode={mode} toggleMode={toggleMode}/>
 <Home/>
-
 </>
   );
 }
