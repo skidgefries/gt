@@ -81,6 +81,15 @@
   background-position: center;
 }
 
+
+.bg4{
+
+  width: 1519px;
+  height: 500px;
+
+}
+
+
 .align{
   text-align: center;
   font-size: calc(65px + 2vmin);
@@ -176,7 +185,6 @@
   margin-left: 100px;
   font-family :nunito;
   font-size: calc(60px + 2vmin);
-  text-align: ;
 }
 
 
@@ -213,9 +221,9 @@
 }
 
 .foot{
-  background-color: grey;
+  background-color: #E4E4E4;
   font-family :nunito;
-  font-size: calc(60px + 2vmin);
+  font-size: calc(40px + 2vmin);
 }
 
 

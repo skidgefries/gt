@@ -4,6 +4,7 @@ import img2 from "./images/lum.jpg";
 import img3 from "./images/boud.jpg";
 import img4 from "./images/chit.webp";
 import img5 from "./images/pkh.webp";
+import Footer from "./footer";
 
 export default function Home() {
   return (
@@ -516,31 +517,41 @@ export default function Home() {
                 EXPLORE
               </div>
               <div className="align7"> NEPAL</div>
-              
             </div>
-            <div className="align8">Discover your next favorite destination</div>
-            <div className="alignLeft"><img
-                    src={img5}
-                    alt="Logo"
-                    width="500"
-                    height="500"
-                    style={{
-                    borderRadius:250,
-                    }}
-                  /><span>{'  '}</span>BREATHTAKING VIEWS </div>
-                             <br/><br/> <div className="alignRight">MAJESTICS TEMPLES<span>{' '}</span><img
-                    src={img2}
-                    alt="Logo"
-                    width="500"
-                    height="500"
-                    style={{
-                    borderRadius:250,
-                    }}
-                  /></div>
+            <div className="align8">
+              Discover your next favorite destination
+            </div>
+            <div className="alignLeft">
+              <img
+                src={img5}
+                alt="Logo"
+                width="500"
+                height="500"
+                style={{
+                  borderRadius: 250,
+                }}
+              />
+              <span>{"  "}</span>BREATHTAKING VIEWS{" "}
+            </div>
+            <br />
+            <br />{" "}
+            <div className="alignRight">
+              MAJESTICS TEMPLES<span> </span>
+              <img
+                src={img2}
+                alt="Logo"
+                width="500"
+                height="500"
+                style={{
+                  borderRadius: 250,
+                }}
+              />
+            </div>
+            <div className="bg4"><br/><Footer/></div>
           </div>
+
         </div>
       </div>
-
     </>
   );
 }
