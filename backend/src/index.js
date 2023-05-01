@@ -5,7 +5,8 @@ const hbs=require("hbs")
 const emailValidator=require("email-validator")
 const bcrypt=require('bcrypt')
 const cors=require("cors")
-const collection=require("../db/mongodb")
+const userCollection=require("../models/userModels")
+const planConnection=require("../models/planModel")
 const port='4000'
 
 //const templatePath=path.join('new','../templates')

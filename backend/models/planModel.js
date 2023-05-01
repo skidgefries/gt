@@ -11,7 +11,7 @@ mongoose.connect(str)
     console.log(`failed to connect : ${err}`);
 })
 
-const planSchema=new mongoose=new mongoose.Schema({
+const planSchema=new mongoose.Schema({
     name:{
         type:String,
         require:true,
@@ -24,4 +24,4 @@ const planSchema=new mongoose=new mongoose.Schema({
 const planModel=mongoose.model
 ('planModel',planSchema);
 
-model.exports=planSchema;
+module.exports=planSchema;
