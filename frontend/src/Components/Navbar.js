@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types' //impt
 import logo from'./images/navLogo.png';
+import  Login from "./Login";
+import Register from "./Register";
+
 export default function Navbar(props) {
   return (
             <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} `}>  
@@ -24,11 +27,11 @@ export default function Navbar(props) {
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <a className="nav-link" style={{font:"Montserrat", fontSize:30 }} href="/">SIGN UP</a>
+                <a className="nav-link" style={{font:"Montserrat", fontSize:30 }} href="Register">SIGN UP</a>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <a className="nav-link"  style={{font:"Montserrat", fontSize:30 }} href="/">LOGIN<span>{' '}</span></a>
+                <a className="nav-link"  style={{font:"Montserrat", fontSize:30 }} href="Login">LOGIN<span>{' '}</span></a>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 {/*<li className="nav-item dropdown">
