@@ -1,10 +1,12 @@
  import React, { useState } from "react";
+ import axios from 'axios';
 
 
  export const Register = (props) =>{
 
     const [email , setEmail]= useState('');
     const [pass , setPass]= useState('') ;
+    const [cpass , setcPass]= useState('') ;
     const [name , setName]= useState('') ;
     const [uname , setUname]= useState('');
 
@@ -13,6 +15,23 @@
             e.preventDefault();
             console.log(email);
 
+        }
+
+        const handleApi =()=>{
+            console.log(email,pass)
+            axios.post('',{
+                email:email,
+                password:pass,
+                cpassword:cpass,
+                name:name,
+                uname:uname
+            })
+            .then(result=>{
+                console.log(result.data)
+            })
+            .catch(err=>{
+                console.lod(err)
+            })
         }
         
     return(
@@ -27,6 +46,8 @@
               <input value = {email} onChange={(e) => setEmail(e.target.value)}type="email"/>
               <label htmlFor="password">Password</label>
               <input value={pass} onChange={(e)=> setPass(e.target.value)}type = "password" placeholder="****** " id="password" name="password "/>
+              <label htmlFor="password">Confirm Password</label>
+              <input value={cpass} onChange={(e)=> setcPass(e.target.value)}type = "password" placeholder="****** " id="confirmpassword" name="Confirmpassword "/>
               <button type="submit">SignUp</button>
               
             </form> 

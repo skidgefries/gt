@@ -1,4 +1,4 @@
-const userModel=require("../models/userModels")
+const userModel=require("../models/userModel")
 
 module.exports.getUser=async function getUser(req, res){
     // console. log('getUsercalled');
@@ -106,6 +106,12 @@ module.exports.getAllUser=async function getAllUser( req, res){
 //     console. log(cookies);
 //     res. send('cookies received');
 // }
+
+module.exports.updateProfileImage=function updateProfileImage(req,res){
+    res.json({
+        message:'file uploaded succesfully'
+    })
+}
     
 
 
