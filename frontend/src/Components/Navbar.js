@@ -46,23 +46,29 @@ export default function Navbar(props) {
                {/* <li className="nav-item">
                 <a className="nav-link disabled" href="/" tabIndex="-1" aria-disabled="true">Disabled</a>
                 </li>
-            </ul>
-            <form className="d-flex" role="search">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-danger" type="submit">Search</button>
-</form>*/}
+</ul>*/}
+
  <div className={`form-check form-switch form-check-reverse text-${props.mode==='light'?'dark':'light'}`}>
  <a className="nav-link" style={{font:"Montserrat", fontSize:30 }} href="/">
   <input  className="form-check-input" style={{font:"Montserrat", fontSize:33 }} onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckReverse"/>
   <label className="form-check-label" style={{font:"Montserrat", fontSize:30 }} htmlFor="flexSwitchCheckReverse">ENABLE DARKMODE</label>
     </a>
+    </div>
+    </ul>
 
-</div>
 
-</ul>
+
+
             
             </div>
+            
             </div>
+            <div className="right">
+                <form className="d-flex" role="search">
+                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                <button className="btn btn-success" type="submit">Search</button>
+</form>
+</div>
             </div>
         </nav>
         
