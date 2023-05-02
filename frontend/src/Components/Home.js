@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <div className="center">
-        <div div className="bg img-fluid ">
+        <div  className="bg img-fluid ">
           <div className="align">
             <br />
             <br />
