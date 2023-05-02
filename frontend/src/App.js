@@ -4,8 +4,10 @@ import './App.css';
 import About from './Components/About';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
-import  {Login} from "./Components/Login";
-import {Register} from "./Components/Register";
+import {Login} from './Components/Login';
+import {Register} from './Components/Register';
+
+import { BrowserRouter as Router, Route,Routes } from "react-router-dom";
 
 
 
@@ -35,10 +37,45 @@ function App() {
   }
   return (
 <>
+
+
+{/* This is the alias of BrowserRouter i.e. Router */}
+
+<Router>
+<Navbar mode={mode} toggleMode={toggleMode}/>
+
+        <Routes>
+          {/* This route is for home component 
+          with exact path "/", in component props 
+        we passes the imported component*/}
+        <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+            
+          {/* This route is for about component 
+          with exact path "/about", in component 
+        props we passes the imported component
+          */}
+        <Route path="/Login" element={<Login />} />
+          
+          <Route path="/About" element={<About />} />
+          {/* This route is for contactus component
+          with exact path "/contactus", in 
+        component props we passes the imported component
+      */}
+        <Route path="/Register" element={<Register />} />
+          
+            
+          {/* If any route mismatches the upper 
+          route endpoints then, redirect triggers 
+        and redirects app to home component with to="/" */}
+          
+        </Routes>
+    </Router>
+
 {/*<Navbar title="GuidedTravels" mode={mode} toggleMode={toggleMode}/>
 <About/>*/}
-<Navbar mode={mode} toggleMode={toggleMode}/>
-<Home/>
+
+
 
 </>
   );

@@ -5,6 +5,7 @@ import img3 from "./images/boud.jpg";
 import img4 from "./images/chit.webp";
 import img5 from "./images/pkh.webp";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
