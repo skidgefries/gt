@@ -41,25 +41,25 @@ export default function Home() {
               </div>
             </div>
             {/* <div className="card" style={{ width: "25rem" }}>
-                <img
-                  src={img1}
-                  className=" card-img-top"
-                  alt="Logo"
-                  width="500"
-                  height="300"
-                />
-                <div className="card-body">
-                  <div className="align3">
-                    <p className="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
+              <img
+                src={img1}
+                className=" card-img-top"
+                alt="Logo"
+                width="500"
+                height="300"
+              />
+              <div className="card-body">
+                <div className="align3">
+                  <p className="card-text">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
                 </div>
               </div>
-            </div> 
-               </div>
-        </div>*/}
+            </div>
+          </div> 
+              </div>
+      </div>*/}
             <div className="row">
               <div className="col-lg-6 mb-4">
                 <div
@@ -118,29 +118,30 @@ export default function Home() {
                           data-bs-parent="#accordionExample1"
                         >
                           <div className="accordion-body">
-                            <strong>
-                              This is the first item's accordion body.
-                            </strong>{" "}
-                            It is shown by default, until the collapse plugin
-                            adds the appropriate classNamees that we use to
-                            style each element. These classNamees control the
-                            overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of
-                            this with custom CSS or overriding our default
-                            variables. It's also worth the appropriate
-                            classNamees that we use to style each element. These
-                            classNamees control the overall appearance, as well
-                            as the showing and hiding via CSS transitions. You
-                            can modify any of this with custom CSS or overriding
-                            our default variables. It's also worth the
-                            appropriate classNamees that we use to style each
-                            element. These classNamees control the overall
-                            appearance, as well as the showing and hiding via
-                            CSS transitions. You can modify any of this with
-                            custom CSS or overriding our default variables. It's
-                            also worth noting that just about any HTML can go
-                            within the <code>.accordion-body</code>, though the
-                            transition does limit overflow.
+                            Nepal is a landlocked country located in South Asia.
+                            It is bordered by China to the north and India to
+                            the south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.Nepal is a
+                            landlocked country located in South Asia. It is
+                            bordered by China to the north and India to the
+                            south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.
                           </div>
                         </div>
                       </div>
@@ -163,19 +164,18 @@ export default function Home() {
                           data-bs-parent="#accordionExample1"
                         >
                           <div className="accordion-body">
-                            <strong>
-                              This is the second item's accordion body.
-                            </strong>{" "}
-                            It is hidden by default, until the collapse plugin
-                            adds the appropriate classNamees that we use to
-                            style each element. These classNamees control the
-                            overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of
-                            this with custom CSS or overriding our default
-                            variables. It's also worth noting that just about
-                            any HTML can go within the{" "}
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            Nepal is a landlocked country located in South Asia.
+                            It is bordered by China to the north and India to
+                            the south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.
                           </div>
                         </div>
                       </div>
@@ -198,19 +198,18 @@ export default function Home() {
                           data-bs-parent="#accordionExample1"
                         >
                           <div className="accordion-body">
-                            <strong>
-                              This is the third item's accordion body.
-                            </strong>{" "}
-                            It is hidden by default, until the collapse plugin
-                            adds the appropriate classNamees that we use to
-                            style each element. These classNamees control the
-                            overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of
-                            this with custom CSS or overriding our default
-                            variables. It's also worth noting that just about
-                            any HTML can go within the{" "}
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            Nepal is a landlocked country located in South Asia.
+                            It is bordered by China to the north and India to
+                            the south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.
                           </div>
                         </div>
                       </div>
@@ -273,19 +272,30 @@ export default function Home() {
                           data-bs-parent="#accordionExample2"
                         >
                           <div className="accordion-body">
-                            <strong>
-                              This is the first item's accordion body.
-                            </strong>{" "}
-                            It is shown by default, until the collapse plugin
-                            adds the appropriate classNamees that we use to
-                            style each element. These classNamees control the
-                            overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of
-                            this with custom CSS or overriding our default
-                            variables. It's also worth noting that just about
-                            any HTML can go within the{" "}
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            Nepal is a landlocked country located in South Asia.
+                            It is bordered by China to the north and India to
+                            the south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.Nepal is a
+                            landlocked country located in South Asia. It is
+                            bordered by China to the north and India to the
+                            south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.
                           </div>
                         </div>
                       </div>
@@ -308,19 +318,18 @@ export default function Home() {
                           data-bs-parent="#accordionExample2"
                         >
                           <div className="accordion-body">
-                            <strong>
-                              This is the second item's accordion body.
-                            </strong>{" "}
-                            It is hidden by default, until the collapse plugin
-                            adds the appropriate classNamees that we use to
-                            style each element. These classNamees control the
-                            overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of
-                            this with custom CSS or overriding our default
-                            variables. It's also worth noting that just about
-                            any HTML can go within the{" "}
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            Nepal is a landlocked country located in South Asia.
+                            It is bordered by China to the north and India to
+                            the south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.
                           </div>
                         </div>
                       </div>
@@ -343,19 +352,18 @@ export default function Home() {
                           data-bs-parent="#accordionExample2"
                         >
                           <div className="accordion-body">
-                            <strong>
-                              This is the third item's accordion body.
-                            </strong>{" "}
-                            It is hidden by default, until the collapse plugin
-                            adds the appropriate classNamees that we use to
-                            style each element. These classNamees control the
-                            overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of
-                            this with custom CSS or overriding our default
-                            variables. It's also worth noting that just about
-                            any HTML can go within the{" "}
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            Nepal is a landlocked country located in South Asia.
+                            It is bordered by China to the north and India to
+                            the south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.
                           </div>
                         </div>
                       </div>
@@ -418,19 +426,30 @@ export default function Home() {
                           data-bs-parent="#accordionExample3"
                         >
                           <div className="accordion-body">
-                            <strong>
-                              This is the first item's accordion body.
-                            </strong>{" "}
-                            It is shown by default, until the collapse plugin
-                            adds the appropriate classNamees that we use to
-                            style each element. These classNamees control the
-                            overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of
-                            this with custom CSS or overriding our default
-                            variables. It's also worth noting that just about
-                            any HTML can go within the{" "}
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            Nepal is a landlocked country located in South Asia.
+                            It is bordered by China to the north and India to
+                            the south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.Nepal is a
+                            landlocked country located in South Asia. It is
+                            bordered by China to the north and India to the
+                            south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.
                           </div>
                         </div>
                       </div>
@@ -453,19 +472,18 @@ export default function Home() {
                           data-bs-parent="#accordionExample3"
                         >
                           <div className="accordion-body">
-                            <strong>
-                              This is the second item's accordion body.
-                            </strong>{" "}
-                            It is hidden by default, until the collapse plugin
-                            adds the appropriate classNamees that we use to
-                            style each element. These classNamees control the
-                            overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of
-                            this with custom CSS or overriding our default
-                            variables. It's also worth noting that just about
-                            any HTML can go within the{" "}
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            Nepal is a landlocked country located in South Asia.
+                            It is bordered by China to the north and India to
+                            the south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.
                           </div>
                         </div>
                       </div>
@@ -488,19 +506,18 @@ export default function Home() {
                           data-bs-parent="#accordionExample3"
                         >
                           <div className="accordion-body">
-                            <strong>
-                              This is the third item's accordion body.
-                            </strong>{" "}
-                            It is hidden by default, until the collapse plugin
-                            adds the appropriate classNamees that we use to
-                            style each element. These classNamees control the
-                            overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of
-                            this with custom CSS or overriding our default
-                            variables. It's also worth noting that just about
-                            any HTML can go within the{" "}
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            Nepal is a landlocked country located in South Asia.
+                            It is bordered by China to the north and India to
+                            the south, east, and west. Nepal is known for its
+                            breathtaking Himalayan mountain range, including
+                            Mount Everest, the tallest peak in the world. Nepal
+                            has a diverse landscape, with lush forests, rivers,
+                            and rolling hills in the south, and high altitude
+                            deserts in the north. The country is home to
+                            numerous ethnic groups, each with its own unique
+                            culture, language, and traditions. Nepali is the
+                            official language of the country, and Hinduism and
+                            Buddhism are the two major religions.
                           </div>
                         </div>
                       </div>
@@ -521,6 +538,7 @@ export default function Home() {
             <div className="align8">
               Discover your next favorite destination
             </div>
+            <br />
             <div className="alignLeft">
               <img
                 src={img5}
@@ -546,10 +564,29 @@ export default function Home() {
                   borderRadius: 250,
                 }}
               />
+              <br />
             </div>
-            <div className="bg4"><br/><Footer/></div>
+            <br />
+            <br />
+            <hr className="line" />
+            <div className="foot">
+              <div className="aligncenter"></div>
+              "Once a year, go somewhere you have never been before"
+              <br />- Dalai Lama
+            </div>
+            <hr className="line" />
+            <br />
+            <div className="align9">
+              GUIDED TRAVELS
+              <div className="align10">
+                {" "}
+                From the snow-capped peaks of the Himalayas to the lush jungles
+                of the Terai.Visit majestic temples, take in the breathtaking
+                scenery and taste the delicious cuisine of this vibrant nation.
+              </div>
+            </div>
+            <Footer />
           </div>
-
         </div>
       </div>
     </>

@@ -1,181 +1,22 @@
-Nunito Sans Variable Font
-=========================
+Quicksand Variable Font
+=======================
 
-This download contains Nunito Sans as both variable fonts and static fonts.
+This download contains Quicksand as both a variable font and static fonts.
 
-Nunito Sans is a variable font with these axes:
-  YTLC
-  opsz
-  wdth
+Quicksand is a variable font with this axis:
   wght
 
-This means all the styles are contained in these files:
-  Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf
-  Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf
+This means all the styles are contained in a single file:
+  Quicksand/Quicksand-VariableFont_wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for Nunito Sans:
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-Light.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-Regular.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-Medium.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-Bold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-Black.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-Light.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-Regular.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-Medium.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-Bold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-Black.ttf
-  Nunito_Sans/static/NunitoSans_7pt-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_7pt-Light.ttf
-  Nunito_Sans/static/NunitoSans_7pt-Regular.ttf
-  Nunito_Sans/static/NunitoSans_7pt-Medium.ttf
-  Nunito_Sans/static/NunitoSans_7pt-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt-Bold.ttf
-  Nunito_Sans/static/NunitoSans_7pt-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt-Black.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-Light.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-Regular.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-Medium.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-Bold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-Black.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-Light.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-Regular.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-Medium.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-Bold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-Black.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-Light.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-Regular.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-Medium.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-Bold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-Black.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-Light.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-Regular.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-Medium.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-Bold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-Black.ttf
-  Nunito_Sans/static/NunitoSans_10pt-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_10pt-Light.ttf
-  Nunito_Sans/static/NunitoSans_10pt-Regular.ttf
-  Nunito_Sans/static/NunitoSans_10pt-Medium.ttf
-  Nunito_Sans/static/NunitoSans_10pt-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt-Bold.ttf
-  Nunito_Sans/static/NunitoSans_10pt-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt-Black.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-Light.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-Regular.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-Medium.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-Bold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-Black.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-ExtraLight.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-Light.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-Regular.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-Medium.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-SemiBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-Bold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-ExtraBold.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-Black.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-Italic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Condensed-BlackItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-Italic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiCondensed-BlackItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt-Italic.ttf
-  Nunito_Sans/static/NunitoSans_7pt-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt-BlackItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-Italic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_SemiExpanded-BlackItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-Italic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_7pt_Expanded-BlackItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-Italic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Condensed-BlackItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-Italic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiCondensed-BlackItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt-Italic.ttf
-  Nunito_Sans/static/NunitoSans_10pt-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt-BlackItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-Italic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_SemiExpanded-BlackItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-ExtraLightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-LightItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-Italic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-MediumItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-SemiBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-BoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-ExtraBoldItalic.ttf
-  Nunito_Sans/static/NunitoSans_10pt_Expanded-BlackItalic.ttf
+in those cases you can use the static font files for Quicksand:
+  Quicksand/static/Quicksand-Light.ttf
+  Quicksand/static/Quicksand-Regular.ttf
+  Quicksand/static/Quicksand-Medium.ttf
+  Quicksand/static/Quicksand-SemiBold.ttf
+  Quicksand/static/Quicksand-Bold.ttf
 
 Get started
 -----------
