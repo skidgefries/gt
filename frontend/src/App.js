@@ -4,6 +4,7 @@ import './App.css';
 import About from './Components/About';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
+import Contact from "./Components/contact";
 import {Login} from './Components/Login';
 import {Register} from './Components/Register';
 
@@ -74,10 +75,11 @@ function App() {
 
 {/*<Navbar title="GuidedTravels" mode={mode} toggleMode={toggleMode}/>
 <About/>*/}
-
-
+<Navbar mode={mode} toggleMode={toggleMode}/>
+<Home/>
 
 </>
+
   );
 }
 
