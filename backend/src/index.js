@@ -2,12 +2,20 @@ const express=require("express")
 const app=express()
 const path = require("path")
 const hbs=require("hbs")
-const collection=require("./mongodb")
-
+const emailValidator=require("email-validator")
+const bcrypt=require('bcrypt')
+const cors=require("cors")
+const userCollection=require("../models/userModels")
+const planConnection=require("../models/planModel")
+const port='4000'
 
 //const templatePath=path.join('new','../templates')
 
+app.use(cors())
+
 app.use(express.json())
+
+
 app.set("view engine","hbs")
 //app.set("views",templatePath)
 app.use(express.urlencoded({extended:false}))
@@ -66,7 +74,7 @@ app.post("/login",async (req,res)=>{    // async and await functions
 
 
 
-app.listen(4000,()=>{
+app.listen(port,()=>{
     console.log("port connected");
 
 })
