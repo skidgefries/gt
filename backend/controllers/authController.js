@@ -38,13 +38,13 @@ module.exports.signup=async function signup(req, res) {
 module.exports.login=async function loginUser(req, res){
     try{
         let data=req.body;
-        console.log("here")
-        if (data.emai){
+        if (data.email){
             let user=await User.findOne({email:data.email});
-            if(!user){
+            if(user){
+                console.log("here")
                 //bcrypt -> compare
                     res.json({
-                        message: "User not found",
+                        message: "User found",
                         userDetails:data
                     });
             
@@ -64,10 +64,12 @@ module.exports.login=async function loginUser(req, res){
                 }   
             }
 
+            else{
                 return res.json({
-                   message: "User logged in"
+                   message: "User Not logged in"
                 })
         }
+    }
         else{
             return res.json({
                 message:"Empty Field"

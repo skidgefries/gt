@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types"; //impt
 import logo from "./images/navLogo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink,useLocation,useNavigate } from "react-router-dom";
 
 export default function Navbar(props) {
+  // const location=useLocation()
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} `}
@@ -43,7 +44,7 @@ export default function Navbar(props) {
               <h3 style={{ color: "#ced0b6", fontSize: 45 }}>|</h3>
               <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" style={{ font: "Montserrat", fontSize: 30 }} href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            User Profile
+            USER PROFILE
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>

@@ -2,30 +2,50 @@ import React,{ useState } from "react";
 import {PropTypes} from 'prop-types';
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Login = (props) =>{
+
+  const history=useNavigate()
+
     const [email , setEmail]= useState('');
     const [pass , setPass]= useState('') ;
 
           async function Submit(e)
           {
-              e.preventDefault();
+            e.preventDefault();
+            try{
               console.log(email);
               const values = {
                   email, 
                   password: pass, 
               }
               console.log(values)
-              const res = await axios.post('http://localhost:4000/user/login', values);
+              const res = await axios.post('http://localhost:4000/user/login', values)
+              .then(res=>{
+                  if(res.data="User found"){
+                  history("/Register",{state:{id:email}})
+                  }
+
+                  else if(res.data="User Not logged in"){
+                    alert("Not signed up")
+                  }
+              })
               console.log(res)
-          }
+            }
+
+            catch(err){
+              alert("Wrong Details")
+              console.log(err);
+            }
+        }
     return(
         <div className="auth-form-container">
           <h2>Login</h2>
 
         
         
-            <form className="login-form" onSubmit={Submit}>
+            <form action='POST' className="login-form" onSubmit={Submit}>
               <label htmlFor = "email">email</label>
               <input value={email} onChange={(e) => setEmail(e.target.value)}type = "email" placeholder="youremail@gmail.com" id="email" name="email"/>
               <label htmlFor = "password">password</label>

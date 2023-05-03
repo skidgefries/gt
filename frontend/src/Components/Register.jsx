@@ -1,9 +1,19 @@
- import React, { useState } from "react";
+ import React, { useState,Component } from "react";
  import axios from 'axios';
 
 
 
  export const Register = (props) =>{
+
+    // constructors(){
+        // super()
+        // this.state={
+        //     name:'',        
+        //     pass:'',       
+        //     email:'',        
+        //     Name:'',        
+        //     Name:'',        
+        // }
 
     const [email , setEmail]= useState('');
     const [pass , setPass]= useState('') ;
