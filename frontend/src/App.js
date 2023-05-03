@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import About from './Components/About';
-import Navbar from './Components/Navbar';
+import Navbar1 from './Components/Navbar';
+import Navbar2 from './Components/afterLoginNavbar';
 import Home from './Components/Home';
 // import axios from 'axios';
 
@@ -16,6 +17,15 @@ import { BrowserRouter as Router, Route,Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light'); //whether dark mode is enabled or not
+  const [currentForm, setCurrentForm] = useState(localStorage.getItem("isLoggedIn") ? localStorage.getItem("isLoggedIn") : "home");
+  const toggleForm = (forName)=>
+  {
+    setCurrentForm(forName);
+    localStorage.setItem("isLoggedIn", forName)
+    // When user logs out 
+    // setCurrentForm("home");
+    // localStorage.removeItem("isLoggedIn");
+  }
   const toggleMode = ()=>
   {
     if(mode === 'light')
@@ -32,42 +42,21 @@ function App() {
   return (
 <>
 
-
-{/* This is the alias of BrowserRouter i.e. Router */}
-
+<div>
 <Router>
-<Navbar mode={mode} toggleMode={toggleMode}/>
+{currentForm === "home" ? <Navbar1 mode={mode}   toggleMode={toggleMode}/> : <Navbar2 mode={mode} toggleMode={toggleMode}/>}
 
         <Routes>
-          {/* This route is for home component 
-          with exact path "/", in component props 
-        we passes the imported component*/}
         <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
-            
-          {/* This route is for about component 
-          with exact path "/about", in component 
-        props we passes the imported component
-          */}
-        <Route path="/Login" element={<Login />} />
-          
+        <Route path="/Login" element={<Login onFormSwitch={toggleForm}/>} />
           <Route path="/About" element={<About />} />
-          {/* This route is for contactus component
-          with exact path "/contactus", in 
-        component props we passes the imported component
-      */}
         <Route path="/Register" element={<Register />} />
-          
-            
-          {/* If any route mismatches the upper 
-          route endpoints then, redirect triggers 
-        and redirects app to home component with to="/" */}
-          
+         
         </Routes>
     </Router>
 
-{/*<Navbar title="GuidedTravels" mode={mode} toggleMode={toggleMode}/>
-<About/>*/}
+    </div>
 
 
 </>

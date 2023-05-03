@@ -1,4 +1,5 @@
 import React,{ useState } from "react";
+import {PropTypes} from 'prop-types';
 
 
 export const Login = (props) =>{
@@ -9,9 +10,7 @@ export const Login = (props) =>{
         e.preventDefault();
         console.log(email);
 
-
-
-    }
+      }
     return(
         <div className="auth-form-container">
           <h2>Login</h2>
@@ -19,15 +18,16 @@ export const Login = (props) =>{
         
         
             <form className="login-form" onSubmit={handleSubmit}>
-              <label htmlfor = "email">email</label>
+              <label htmlFor = "email">email</label>
               <input value={email} onChange={(e) => setEmail(e.target.value)}type = "email" placeholder="youremail@gmail.com" id="email" name="email"/>
-              <label html for = "password">password</label>
+              <label htmlFor = "password">password</label>
               <input value={pass} onChange={(e)=> setPass(e.target.value)}type = "password" placeholder="****** " id="password" name="password "/>
-              <button type="submit">Login</button>
+              <button type="submit" onClick={() => props.onFormSwitch('main')} >Login</button>
             </form>
+            
+          <button onClick={() => props.onFormSwitc('register')}>Don't have an account? SignUp. </button>
 
-          <button onClick={()=> props.onFormSwitch('register')}>Don't have an account? SignUp. </button>
         </div>
         
-    ) 
+    ) ;
 }

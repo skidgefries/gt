@@ -3,7 +3,7 @@ import PropTypes from 'prop-types' //impt
 import logo from'./images/navLogo.png';
 import {Login} from './Login';
 import {Register} from './Register';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 export default function Navbar(props) {
@@ -11,29 +11,25 @@ export default function Navbar(props) {
             <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} `}>  
         <div className="container-fluid">
         <div className="center1">
-            <Link className="navbar-brand" to="/">
+            <NavLink className="navbar-brand" to="/">
             <img src={logo} alt="Logo"  width="150" height="70" className=" align-text-top"/> 
-                </Link>
-                {/*<a className="navbar-brand" href="/" font>{props.title}</a>*/}
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                </NavLink>
+            <div >
             <ul className=" navbar-nav me-auto mb-2 mb-lg-0  ">
                 <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" style={{font:"Montserrat", fontSize:30 }} to="./Home">HOME</Link>
+                <NavLink className="nav-link " style={{font:"Montserrat", fontSize:30 }} to="./Home">HOME</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6", fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <Link className="nav-link" style={{font:"Montserrat", fontSize:30 }} to="./About">ABOUT US</Link>
+                <NavLink className="nav-link "  style={{font:"Montserrat", fontSize:30 }} to="./About">ABOUT US</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <Link className="nav-link" style={{font:"Montserrat", fontSize:30 }} to="./Register">SIGNUP</Link>
+                <NavLink className="nav-link"   style={{font:"Montserrat", fontSize:30 }} to="./Register">SIGNUP</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <Link className="nav-link"  style={{font:"Montserrat", fontSize:30 }} to= './Login' ><span>{' '}</span>LOGIN</Link>
+                <NavLink className="nav-link"    style={{font:"Montserrat", fontSize:30 }} to= './Login' ><span>{' '}</span>LOGIN</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 {/*<li className="nav-item dropdown">
