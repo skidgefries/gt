@@ -12,10 +12,18 @@ mongoose.connect(str)
 })
 
 const planSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        require:true,
-    },
+    name: {
+        type: String,
+        required: true
+      },
+      description: {
+        type: String,
+        required: true
+      },
+      imageUrl: {
+        type: String,
+        required: true
+      }
 
 });
 

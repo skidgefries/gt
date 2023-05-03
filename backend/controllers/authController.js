@@ -1,35 +1,33 @@
 const express = require("express");
-const userModel=require('../models/userModels');
+const userModel=require('../models/userModel');
 const jwt=require('jsonwebtoken');
-// const {JWT_KEY}=require(../secrets);
+const {sendMail}=require("../utility/nodemailer");
+const {JWT_KEY}=require('../src/secrets') 
 
 
 //sinup user
 module.exports.signup=async function signup(req, res) {
     try{
+        console.log('req appeared')
         let dataObj = req.body;
         let user = await userModel.create(dataObj);
-        if(user){
-            return res.json({
-                message:"User Signed Up",
-                data:user
-            });
-        }
-
-        else{
-            res.json({
-                message:"error while sign up"
-            });
-        }
-        // console. log( 'backend' ,user);
-        res.json({
-            message: "user signed up",
-            data: user
+        // sendMail("signup",user)
+        
+        if(!user) return res.json({
+            message:"error while sign up"
         });
+        
+        return res.json({
+            message:"User Signed Up",
+            data:user
+        });
+        
     }
 
     catch(err){
-        res.json({
+        console.log('here', err.message)
+
+        return res.status(400).json({
             message:err.message
         })
     }
@@ -100,13 +98,13 @@ module.exports.isAuthorized= function isAuthorized(role){
 
 
 //protect route
-model.exports.protectRoute=async function protectRoute(req, res, next){
+module.exports.protectRoute=async function protectRoute(req, res, next){
     try{
         let token;
         if(req.cookies.login){
             console.log(req.cookies);
             token=req.cookie.login;
-            let payload=jwt.verify (token,JWT_KEY);
+            let payload=jwt.verify(token,JWT_KEY);
             if(payload){
                 const user=await userModel.findbyId(payload);
                 req.role=user.role;
@@ -140,14 +138,22 @@ model.exports.protectRoute=async function protectRoute(req, res, next){
 
 //forget password
 module.exports.forgetpassword=async function forgetpassword(req,res){
-    let{emailv}=req.body;
+    let{email}=req.body;
     try{
-        const user= await userModel.findOne({email:emailv});
+        const user= await userModel.findOne({email:email});
         if(user){
             const resetToken=user.createResetToken();
-            let resetPasswordLink=`${req.protocal}://${req.get('host')}/reserpassword/${resetToken}`
+            let resetPasswordLink=`${req.protocal}://${req.get("host")}/reserpassword/${resetToken}`;
             //send email to user
             //nodemailer
+            let obj={
+                resetPasswordLink:resetPasswordLink,
+                email:email
+            }
+            sendMail("resetpassword",obj);
+            return res.json({
+                message:"mail sent"
+            });
         }
         else{
             return res.json({
@@ -163,7 +169,7 @@ module.exports.forgetpassword=async function forgetpassword(req,res){
 };
 
 //reset password
-model.exports.resetpassword=async function resetpassword(req,res){
+module.exports.resetpassword=async function resetpassword(req,res){
     try{
         const token=req.parmas.token;
         let {password,confirmpassword}=req.body;

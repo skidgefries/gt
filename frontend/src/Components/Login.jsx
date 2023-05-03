@@ -1,6 +1,10 @@
 import React,{ useState } from "react";
+<<<<<<< HEAD
 import {PropTypes} from 'prop-types';
 
+=======
+import axios from "axios";
+>>>>>>> 62fd0189ca1763b5ff0f8d56dfdd7bafd322df92
 
 export const Login = (props) =>{
     const [email , setEmail]= useState('');
