@@ -3,6 +3,7 @@ const emailValidator=require("email-validator")
 const bcrypt=require('bcrypt')
 const str= ("mongodb+srv://pranawrajkafleprk:HaaSoDXOAxWdgyNe@cluster0.hpybsct.mongodb.net/GuidedTravels")
 const crypto=require('crypto')
+const dotenv = require('dotenv')
 
 mongoose.connect(str)
 //mongoose.connect("mongodb://0.0.0.0:27017/LoginSignUp") //connect node to mongodb //LoginSignup->name of database

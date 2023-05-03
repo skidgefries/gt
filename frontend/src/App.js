@@ -7,7 +7,6 @@ import Navbar2 from './Components/afterLoginNavbar';
 import Home from './Components/Home';
 // import axios from 'axios';
 
-// const str= ("mongodb+srv://pranawrajkafleprk:HaaSoDXOAxWdgyNe@cluster0.hpybsct.mongodb.net/GuidedTravels")
 import {Login} from './Components/Login';
 import {Register} from './Components/Register';
 
