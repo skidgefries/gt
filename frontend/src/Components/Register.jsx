@@ -1,11 +1,9 @@
  import React, { useState } from "react";
  import axios from 'axios';
- import {useNavigate,Link} from "react-router-dom"
+
 
 
  export const Register = (props) =>{
-
-    const history=useNavigate();
 
     const [email , setEmail]= useState('');
     const [pass , setPass]= useState('') ;

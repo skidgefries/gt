@@ -1,5 +1,5 @@
 const express = require("express");
-const userModel=require('../models/userModel');
+const User=require('../models/userModel');
 const jwt=require('jsonwebtoken');
 const {sendMail}=require("../utility/nodemailer");
 const {JWT_KEY}=require('../src/secrets') 
@@ -8,9 +8,9 @@ const {JWT_KEY}=require('../src/secrets')
 //sinup user
 module.exports.signup=async function signup(req, res) {
     try{
-        console.log('req appeared')
+        // console.log('req appeared')
         let dataObj = req.body;
-        let user = await userModel.create(dataObj);
+        let user = await User.create(dataObj);
         // sendMail("signup",user)
         
         if(!user) return res.json({
@@ -38,12 +38,13 @@ module.exports.signup=async function signup(req, res) {
 module.exports.login=async function loginUser(req, res){
     try{
         let data=req.body;
+        console.log("here")
         if (data.emai){
-            let user=await userModel.findOne({email:data.email});
-            if(user){
+            let user=await User.findOne({email:data.email});
+            if(!user){
                 //bcrypt -> compare
-                    return res.json({
-                        message: "User has logged in",
+                    res.json({
+                        message: "User not found",
                         userDetails:data
                     });
             
@@ -63,11 +64,9 @@ module.exports.login=async function loginUser(req, res){
                 }   
             }
 
-            else{
                 return res.json({
-                   message: "User not found"
+                   message: "User logged in"
                 })
-            }
         }
         else{
             return res.json({
@@ -106,7 +105,7 @@ module.exports.protectRoute=async function protectRoute(req, res, next){
             token=req.cookie.login;
             let payload=jwt.verify(token,JWT_KEY);
             if(payload){
-                const user=await userModel.findbyId(payload);
+                const user=await User.findbyId(payload);
                 req.role=user.role;
                 req.id=user.id; 
                 next();
@@ -140,7 +139,7 @@ module.exports.protectRoute=async function protectRoute(req, res, next){
 module.exports.forgetpassword=async function forgetpassword(req,res){
     let{email}=req.body;
     try{
-        const user= await userModel.findOne({email:email});
+        const user= await User.findOne({email:email});
         if(user){
             const resetToken=user.createResetToken();
             let resetPasswordLink=`${req.protocal}://${req.get("host")}/reserpassword/${resetToken}`;
@@ -173,7 +172,7 @@ module.exports.resetpassword=async function resetpassword(req,res){
     try{
         const token=req.parmas.token;
         let {password,confirmpassword}=req.body;
-        const user=await userModel.findOne({resetToken:token});
+        const user=await User.findOne({resetToken:token});
         if(user){
             user.resetPasswordHandler(password,confirmpassword);
             await user.save();

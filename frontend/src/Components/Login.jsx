@@ -1,27 +1,31 @@
 import React,{ useState } from "react";
-<<<<<<< HEAD
 import {PropTypes} from 'prop-types';
 
-=======
 import axios from "axios";
->>>>>>> 62fd0189ca1763b5ff0f8d56dfdd7bafd322df92
 
 export const Login = (props) =>{
     const [email , setEmail]= useState('');
     const [pass , setPass]= useState('') ;
 
-    const handleSubmit =(e) => {
-        e.preventDefault();
-        console.log(email);
-
-      }
+          async function Submit(e)
+          {
+              e.preventDefault();
+              console.log(email);
+              const values = {
+                  email, 
+                  password: pass, 
+              }
+              console.log(values)
+              const res = await axios.post('http://localhost:4000/user/login', values);
+              console.log(res)
+          }
     return(
         <div className="auth-form-container">
           <h2>Login</h2>
 
         
         
-            <form className="login-form" onSubmit={handleSubmit}>
+            <form className="login-form" onSubmit={Submit}>
               <label htmlFor = "email">email</label>
               <input value={email} onChange={(e) => setEmail(e.target.value)}type = "email" placeholder="youremail@gmail.com" id="email" name="email"/>
               <label htmlFor = "password">password</label>
