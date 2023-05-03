@@ -10,7 +10,7 @@ const port='4000'
 
 app.use(express.json())
 app.listen(port,()=>{
-    console.log("port connected");
+    console.log(`server started on port ${port}`);
 
 })
 
@@ -21,9 +21,3 @@ const planRouter=require('../routes/planRoutes')
 const userRouter=require('../routes/userRoutes')
 app.use("/plans",planRouter);
 app.use("/user",userRouter);
-
-
-
-
-
-

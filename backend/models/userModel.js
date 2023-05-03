@@ -18,7 +18,13 @@ const userSchema=mongoose.Schema({
         type:String,
         required:true,
     },
-
+    
+    username: {
+        type: String, 
+        required: true, 
+        unique: true
+    },
+    
     email:{
         type:String,
         required:true,
@@ -27,7 +33,7 @@ const userSchema=mongoose.Schema({
             return emailValidator.validate(this.email);
         }
     },
-
+    
     password:{
         type:String,
         required: true,
@@ -57,6 +63,8 @@ const userSchema=mongoose.Schema({
     resetToken:String
 });
 
+
+
 userSchema.pre('save',function(){
     this.confirmPassword=undefined;
 });
@@ -74,6 +82,9 @@ userSchema.methods.resetPasswordHandler=function(password,confirmPassword){
     this.resetToken=undefined;
 }
 
-const userModel=mongoose.model('userModel',userSchema);
-module.exports=userModel;
+// const userModel=mongoose.model('userModel',userSchema);
+
+const User = mongoose.model("User", userSchema)
+module.exports=User;
+
   

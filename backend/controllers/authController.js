@@ -8,30 +8,26 @@ const {JWT_KEY}=require('../src/secrets')
 //sinup user
 module.exports.signup=async function signup(req, res) {
     try{
+        console.log('req appeared')
         let dataObj = req.body;
         let user = await userModel.create(dataObj);
-        sendMail("signup",user)
-        if(user){
-            return res.json({
-                message:"User Signed Up",
-                data:user
-            });
-        }
-
-        else{
-            res.json({
-                message:"error while sign up"
-            });
-        }
-        // console. log( 'backend' ,user);
-        res.json({
-            message: "user signed up",
-            data: user
+        // sendMail("signup",user)
+        
+        if(!user) return res.json({
+            message:"error while sign up"
         });
+        
+        return res.json({
+            message:"User Signed Up",
+            data:user
+        });
+        
     }
 
     catch(err){
-        res.json({
+        console.log('here', err.message)
+
+        return res.status(400).json({
             message:err.message
         })
     }

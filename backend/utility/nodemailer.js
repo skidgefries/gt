@@ -32,7 +32,7 @@ module.exports.sendMail=async function sendMail(str,data) {
   else if(str=="resetpassword"){
     Osubject='Reset Password';
     Ohtml=`
-    <h1>foodAp.comk/h1>
+    <h1>GuidedTravels.com/h1>
     Here is your Link to reset your password !
     ${data.resetPasswordLink}
     `

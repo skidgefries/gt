@@ -1,9 +1,9 @@
-const userModel=require("../models/userModel")
+const User=require("../models/userModel")
 
 module.exports.getUser=async function getUser(req, res){
     // console. log('getUsercalled');
     let id=req.params.id;
-    let user=await userModel. findById(id);
+    let user=await User. findById(id);
    if(user){
         return res.json(user);
     }
@@ -28,7 +28,7 @@ module.exports.updateUsers=async function updateUser(req,res){
     //update data in users obj
     try{
         let id=req.params.id;
-        let user=await userModel.findById(id);
+        let user=await User.findById(id);
         let dataToBeUpdated = req.body;
         if(user){
             const keys=[];
@@ -60,7 +60,7 @@ module.exports.deleteUsers=async function deleteUser(req,res) {
             // users={}
     try{
         let id=req.params.id;
-        let user=await userModel.
+        let user=await User.
         findByIdAndDelete(id);
         if(!user){
             res.json({
@@ -81,7 +81,7 @@ module.exports.deleteUsers=async function deleteUser(req,res) {
 }
 
 module.exports.getAllUser=async function getAllUser( req, res){
-    let users=await userModel.find();
+    let users=await User.find();
     if(users){
         res. json({
         message: 'users retrieved',

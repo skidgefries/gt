@@ -1,7 +1,7 @@
 const express = require("express");
 const userRouter = express.Router();
 const multer=require('multer');
-const userModel=require('../models/userModel');
+const User=require('../models/userModel');
 const {getUser,updateUsers,deleteUsers, getAllUser,updateProfileImage}=require('../controllers/userController')
 
 const {signup,login,protectRoute,isAuthorized,forgetpassword,resetpassword,logout}=require('../controllers/authController')
