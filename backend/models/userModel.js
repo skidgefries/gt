@@ -1,20 +1,18 @@
 const mongoose = require("mongoose")
 const emailValidator=require("email-validator")
 const bcrypt=require('bcrypt')
-const str= ("mongodb+srv://pranawrajkafleprk:HaaSoDXOAxWdgyNe@cluster0.hpybsct.mongodb.net/GuidedTravels")
 const crypto=require('crypto')
 const dotenv = require('dotenv')
 
-mongoose.connect(str)
-//mongoose.connect("mongodb://0.0.0.0:27017/LoginSignUp") //connect node to mongodb //LoginSignup->name of database
-.then(()=>{
-    console.log("userdb connected");
-})
-.catch((err)=>{
-    console.log(`failed to connect : ${err}`);
-})
+
 
 const userSchema=mongoose.Schema({
+    user_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:false,
+        ref:'User'
+    },
+
     name:{
         type:String,
         required:true,

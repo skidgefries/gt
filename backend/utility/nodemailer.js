@@ -18,11 +18,12 @@ module.exports.sendMail=async function sendMail(str,data) {
     },
   });
 
+
   var Osubject,Otext,Ohtml;
   if(str=='signup'){
     Osubject= `Thank you for signing ${data.nam})`;
     Ohtml=`
-    <h1>Welcome to foodApp.comc/h1>
+    <h1>Welcome to GuidedTravels.com/h1>
     Hope you have a good time
     Here are your details-
     Name - ${data.name}
@@ -37,10 +38,11 @@ module.exports.sendMail=async function sendMail(str,data) {
     ${data.resetPasswordLink}
     `
   }
+  
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <prk.raj.888@gmail.com>', // sender address
+    from: '" Guided Travels 👻" <prk.raj.888@gmail.com>', // sender address
     to: data.email, // list of receivers
     subject: Osubject, // Subject line
     // text: "Hello world?", // plain text body

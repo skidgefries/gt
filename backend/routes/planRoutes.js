@@ -7,7 +7,7 @@ planRouter.route('/allPlans')
 .get(getAllPlans)
 
 //own plan
-planRouter.use(protectRoute)//needs to be logged in
+// planRouter.use(protectRoute)//needs to be logged in
 planRouter.route('/plan/:id')
 .get(getPlan)
 

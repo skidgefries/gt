@@ -1,42 +1,46 @@
 const express = require("express");
 const userRouter = express.Router();
-const multer=require('multer');
-const User=require('../models/userModel');
-const {getUser,updateUsers,deleteUsers, getAllUser,updateProfileImage}=require('../controllers/userController')
+const multer = require("multer");
+const User = require("../models/userModel");
+const {
+  getUser,
+  updateUsers,
+  deleteUsers,
+  getAllUser,
+  updateProfileImage,
+} = require("../controllers/userController");
 
-const {signup,login,protectRoute,isAuthorized,forgetpassword,resetpassword,logout}=require('../controllers/authController')
+const {
+  signup,
+  login,
+  protectRoute,
+  isAuthorized,
+  forgetpassword,
+  resetpassword,
+  logout,
+} = require("../controllers/authController");
 const { index } = require("../models/planModel");
 
-userRouter.route('/:id')
-.patch(updateUsers)
-.delete(deleteUsers)
+const validateToken = require("../middleware/validateTokenHandler");
 
-//user key 
-userRouter.route('/:id')
-.patch(updateUsers)
-.delete(deleteUsers)
+// userRouter.use(validateToken);
 
-userRouter
-.route('/signup')
-.post(signup)
+userRouter.route("/:id").patch(updateUsers).delete(deleteUsers);
 
-userRouter
-.route('/login')
-.post(login)
+//user key
+userRouter.route("/:id").patch(updateUsers).delete(deleteUsers);
 
-userRouter
-.route('/forgetpassword')
-.post(forgetpassword)
+userRouter.route("/signup").post(signup);
 
-userRouter
-.route('/resetpassword/:token')
-.post(resetpassword)
+userRouter.route("/login").post(login);
 
-userRouter
-.route('/logout')
-.get(logout)
+userRouter.route("/forgetpassword").post(forgetpassword);
 
-// //multer for fileupload 
+userRouter.route("/resetpassword/:token").post(resetpassword);
+
+userRouter.route("/logout").get(logout);
+
+// //multer for fileupload
 // const multerStorage=multer.diskStorage({
 //     destination:function(req,file,cb){
 //         cb(null,'../image')
@@ -54,12 +58,10 @@ userRouter
 //     }
 // }
 
-
 // const upload = multer({
 //     storage: multerStorage,
 //    fileFilter: filter
 // })
-
 
 // //multer
 // userRouter.post("/ProfileImage",upload.single('photo')),updateProfileImage);
@@ -70,17 +72,9 @@ userRouter
 
 //profile page
 // app.use(protectRoute);
-userRouter
-.route('/userProfile')
-.get(getUser)
+
+userRouter.route("/userProfile").get(getUser);
 
 
 
-//admin work
-// app.use(isAuthorized(['admin']));
-userRouter
-.route('')
-.get(getAllUser)
-
-
-module.exports=userRouter
+module.exports = userRouter;
