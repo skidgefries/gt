@@ -63,6 +63,11 @@ function App() {
         component props we passes the imported component
       */}
         <Route path="/Register" element={<Register />} />
+
+       {/* nush added code in line 68
+       This route was included inorder to include the profile screen
+        #AND PROFILE SCREEN IS YET TO BE ADDED TO NAVBAR */ }
+        {/*<Route path="/profile" element={<ProfileScreen/>}/>*}
           
             
           {/* If any route mismatches the upper 
