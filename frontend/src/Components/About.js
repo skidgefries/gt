@@ -1,6 +1,10 @@
 import React, { useState } from "react"; //rfc(react function based component shortcut)
+import {useLocation,useNavigate} from 'react-router-dom'
 
 export default function About() {
+
+  const location=useLocation()
+
     const [myStyle, setMyStyle] = useState(    {
         color: 'white',
         backgroundColor: 'black'
