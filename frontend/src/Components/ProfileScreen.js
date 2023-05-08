@@ -1,11 +1,13 @@
-import React ,{ useState , useEffect} from react;
+import React ,{ useState , useEffect} from "react";
 import "./ProfileScreen.css";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProfile } from "../../actions/userActions";
-import Loading from "../../gifs/Loading";
-import ErrorMessage from "../../gifs/ErrorMessage";
-import MainScreen from"../../gifs/MainScreen";
-//mainscreen.js not imported -nushh
+import { UpdateProfile } from "../actions/userAction";
+import Loading from "../gifs/Loading";
+import ErrorMessage from "../gifs/ErrorMessage";
+import MainScreen from"../gifs/MainScreen";
+import { Row, Column} from 'react-foundation';
+import { Form, Button } from "react-bootstrap";
+// mainscreen.js not imported -nushh
 
 
 
@@ -63,14 +65,14 @@ const ProfileScreen =({location , history}) =>
   const submitHandler = (e) => {
     e.preventDefault();
 
-    dispatch(updateProfile({ name, email, password, pic }));
+    dispatch(UpdateProfile({ name, email, password, pic }));
   };
 
   return (
     <MainScreen title="EDIT PROFILE">
       <div>
         <Row className="profileContainer">
-          <Col md={6}>
+          <Column md={6}>
             <Form onSubmit={submitHandler}>
               {loading && <Loading />}
               {success && (
@@ -144,8 +146,8 @@ const ProfileScreen =({location , history}) =>
                 Update
               </Button>
             </Form>
-          </Col>
-          <Col
+          </Column>
+          <Column
             style={{
               display: "flex",
               alignItems: "center",
@@ -153,7 +155,7 @@ const ProfileScreen =({location , history}) =>
             }}
           >
             <img src={pic} alt={name} className="profilePic" />
-          </Col>
+          </Column>
         </Row>
       </div>
     </MainScreen>

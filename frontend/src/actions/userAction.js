@@ -1,5 +1,7 @@
 import { USER_UPDATE_FAIL, USER_UPDATE_REQUEST, USER_UPDATE_SUCCESS } from "../constants/userconstants"
+import { useDispatch } from "react-redux";
 import axios from "axios";
+const dispatch = useDispatch();
 
 export const updateProfile = (user) => async (s= dispatch, getState) =>
 {

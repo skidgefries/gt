@@ -27,7 +27,7 @@ export const Login = (props) => {
       }
       else {
               localStorage.setItem("token", res.data.accessToken);
-              history("/userprofile");
+              history("/ProfileScreen");
             }
     } catch (err) {
       alert("Wrong Details");
