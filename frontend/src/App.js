@@ -80,7 +80,7 @@ function App() {
 {/*<Navbar title="GuidedTravels" mode={mode} toggleMode={toggleMode}/>
 <About/>*/}
 
-
+ 
 </>
 
   );
