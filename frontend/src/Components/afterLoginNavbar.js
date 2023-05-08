@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types"; //impt
 import logo from "./images/navLogo.png";
-import { NavLink,useLocation,useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar(props) {
   // const location=useLocation()
@@ -43,17 +43,38 @@ export default function Navbar(props) {
               </li>
               <h3 style={{ color: "#ced0b6", fontSize: 45 }}>|</h3>
               <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" style={{ font: "Montserrat", fontSize: 30 }} href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            USER PROFILE
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" href="#">Log Out</a></li>
-          </ul>
-        </li>
-        <h3 style={{ color: "#ced0b6", fontSize: 45 }}>|</h3>
+                <a
+                  class="nav-link dropdown-toggle"
+                  style={{ font: "Montserrat", fontSize: 30 }}
+                  href="/"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  USER PROFILE
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Action
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Another action
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Log Out
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <h3 style={{ color: "#ced0b6", fontSize: 45 }}>|</h3>
 
               {/* <li className="nav-item">
                 <a className="nav-link disabled" href="/" tabIndex="-1" aria-disabled="true">Disabled</a>
