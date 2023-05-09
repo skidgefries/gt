@@ -57,7 +57,7 @@ function App() {
             />
             <Route path="/About" element={<About />} />
             <Route path="/Register" element={<Register />} />
-            <Route path="/ProfileScreen" element={<ProfileScreen />} />
+            {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
           </Routes>
         </Router>
       </div>
