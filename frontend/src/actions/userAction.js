@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 const dispatch = useDispatch();
 
-export const updateProfile = (user) => async (s= dispatch, getState) =>
+export const UpdateProfile = (user) => async (s= dispatch, getState) =>
 {
     {/*exception handling in js */}
     try {
