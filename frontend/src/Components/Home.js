@@ -5,13 +5,17 @@ import img3 from "./images/boud.jpg";
 import img4 from "./images/chit.webp";
 import img5 from "./images/pkh.webp";
 import Footer from "./footer";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Home() {
+export default function Home(props) {
+  const [modal2,setmodal2] = useState(false)
+ props.setmodal(true);
+
   return (
     <>
       <div className="center">
-        <div  className="bg img-fluid ">
+        <div  className="bg">
           <div className="align">
             <br />
             <br />
@@ -586,7 +590,7 @@ export default function Home() {
                 scenery and taste the delicious cuisine of this vibrant nation.
               </div>
             </div>
-            <Footer />
+            <Footer modal2={modal2} setmodal2={setmodal2}  />
           </div>
         </div>
       </div>

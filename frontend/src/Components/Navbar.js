@@ -4,9 +4,25 @@ import logo from'./images/navLogo.png';
 import {Login} from './Login';
 import {Register} from './Register';
 import { NavLink } from "react-router-dom";
+import { useState } from 'react';
 
 
 export default function Navbar(props) {
+    // const [popup, setpopup] = useState('close');
+    // const open=()=>{
+    //   switch(popup){
+    //     case "close":
+    //       setpopup('open');
+    //       return;
+    //     case "open":
+    //       setpopup('close');
+    //       return;
+    //     default:
+    //       setpopup('close');
+    //       return;
+    //   }
+    // }
+
   return (
             <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} `}>  
         <div className="container-fluid">
@@ -14,22 +30,25 @@ export default function Navbar(props) {
             <NavLink className="navbar-brand" to="/">
             <img src={logo} alt="Logo"  width="150" height="70" className=" align-text-top"/> 
                 </NavLink>
-            <div >
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className=" navbar-nav me-auto mb-2 mb-lg-0  ">
                 <li className="nav-item">
-                <NavLink className="nav-link " style={{font:"Montserrat", fontSize:30 }} to="./Home">HOME</NavLink>
+                <NavLink className="nav-link active "  aria-current="page" style={{font:"Montserrat", fontSize:30 }} to="./Home">HOME</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6", fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <NavLink className="nav-link "  style={{font:"Montserrat", fontSize:30 }} to="./About">ABOUT US</NavLink>
+                <NavLink className="nav-link active "  aria-current="page"  style={{font:"Montserrat", fontSize:30 }} to="./About">ABOUT US</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <NavLink className="nav-link"   style={{font:"Montserrat", fontSize:30 }} to="./Register">SIGNUP</NavLink>
+                <NavLink className="nav-link active "  aria-current="page"   onClick={()=>props.setmodal(true)}style={{font:"Montserrat", fontSize:30 }} to="./Register">SIGNUP</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <NavLink className="nav-link"    style={{font:"Montserrat", fontSize:30 }} to= './Login' ><span>{' '}</span>LOGIN</NavLink>
+                <NavLink className="nav-link active "  aria-current="page" onClick={()=>props.setmodal(true)}  style={{font:"Montserrat", fontSize:30 }} to= './Login' ><span>{' '}</span>LOGIN</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 {/*<li className="nav-item dropdown">
@@ -50,7 +69,7 @@ export default function Navbar(props) {
 </ul>*/}
 
  <div className={`form-check form-switch form-check-reverse text-${props.mode==='light'?'dark':'light'}`}>
- <a className="nav-link" style={{font:"Montserrat", fontSize:30 }} href="/">
+ <a className="nav-link active "  aria-current="page" style={{font:"Montserrat", fontSize:30 }} href="/">
   <input  className="form-check-input" style={{font:"Montserrat", fontSize:33 }} onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckReverse"/>
   <label className="form-check-label" style={{font:"Montserrat", fontSize:30 }} htmlFor="flexSwitchCheckReverse">ENABLE DARKMODE</label>
     </a>
@@ -62,7 +81,6 @@ export default function Navbar(props) {
 
             
             </div>
-            
             </div>
             <div className="right">
                 <form className="d-flex" role="search">
@@ -71,6 +89,7 @@ export default function Navbar(props) {
 </form>
 </div>
             </div>
+            
         </nav>
         
   )

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 // import { PropTypes } from "prop-types";
 import { toast} from "react-hot-toast";
-
+import { Container } from '@mui/material'
+import {Modal, ModalHeader} from "reactstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import img1 from "./images/navLogo.png";
 export const Login = (props) => {
+ 
   const history = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -35,36 +38,56 @@ export const Login = (props) => {
     }
   }
   return (
-    <div className="auth-form-container">
-      <h2>Login</h2>
-
-      <form action="POST" className="login-form" onSubmit={Submit}>
-        <label htmlFor="email">email</label>
+    
+    <div className="center2">
+    <div className=" bg5 ">
+    
+      <Modal
+      className="pop1"
+      contentClassName="pop1"
+      size='lg'
+      isOpen={props.modal}
+      
+      
+      toggle={()=>props.setmodal(!props.modal)}><ModalHeader>              <img
+      src={img1}
+      className=" card-img-top"
+      alt="Logo"
+      width="400"
+      height="250"
+    />
+</ModalHeader>  <br/>    <form action="POST" className="login-form" onSubmit={Submit}>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="email"
-          placeholder="youremail@gmail.com"
+          placeholder="E-mail"
           id="email"
           name="email"
+          className="email"
         />
-        <label htmlFor="password">password</label>
+        <br/>
         <input
           value={pass}
           onChange={(e) => setPass(e.target.value)}
           type="password"
-          placeholder="****** "
+          placeholder="Password"
           id="password"
           name="password "
+          className="email"
         />
-        <button type="submit" onClick={() => props.onFormSwitch("userprofile")}>
-          Login
-        </button>
+        <br/>
+        <div className="text-center" >
+        <button  type="button" onClick={() => props.onFormSwitch("userprofile")} className=" but btn btn-primary  " >Login</button>
+        <br/>      <button className="btn btn-link" onClick={() => props.onFormSwitch("login")}>
+        <h5 >Forgot Password?</h5>
+      </button><br/>
+      <button onClick={() => props.onFormSwitc("register")} type="button" class="btn btn-success">Create New Account</button>
+      </div>
       </form>
 
-      <button onClick={() => props.onFormSwitc("register")}>
-        Don't have an account? SignUp.{" "}
-      </button>
-    </div>
+</Modal>
+</div>
+</div>
   );
 };
