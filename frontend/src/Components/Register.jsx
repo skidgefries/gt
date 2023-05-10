@@ -2,6 +2,8 @@ import React, { useState, Component } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import img1 from "./images/navLogo.png";
+import {Modal, ModalHeader} from "reactstrap";
 
 export const Register = (props) => {
   const navigate= useNavigate();
@@ -50,50 +52,78 @@ export const Register = (props) => {
   // }
 
   return (
-    <div className="auth-form-container">
-      <h2>SignUp</h2>
+    <div className="center2">
+    <div className="bg5 ">
+
+<Modal
+      className="pop2"
+      contentClassName="pop2"
+      size='lg'
+      isOpen={props.modal}
+      toggle={()=>props.setmodal(!props.modal)}><ModalHeader> 
+        <div className="aligncenter">          
+        <h1 >Create a Guided Travels account</h1>
+        <div className="quicksand"><h2 style={{color:"#574A4A" }}><i>WE PLAN, YOU PACK</i></h2>
+        <h8 style={{color:"#736A6A"}} >Experience the beauty of Nepal.</h8></div>
+        </div> 
+</ModalHeader>   
+<div className="quicksand18"> 
       <form action="POST" className="login-form" onSubmit={Submit}>
-        <label htmlFor="Name">FullName</label>
+        <label htmlFor="Name" >FullName*</label>
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
           type="name"
+          className="email"
         />
-        <label htmlFor="Username">username</label>
+        
+        <label htmlFor="Username">Username*</label>
         <input
           value={uname}
           onChange={(e) => setUname(e.target.value)}
           type="username"
+          className="email"
         />
-        <label htmlFor="email">Email</label>
+     <label htmlFor="email">E-mail*</label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="email"
+          className="email"
         />
-        <label htmlFor="password">Password</label>
+        
+        <label htmlFor="password">Password*</label>
         <input
           value={pass}
           onChange={(e) => setPass(e.target.value)}
           type="password"
-          placeholder="****** "
           id="password"
           name="password "
+          className="email"
         />
-        <label htmlFor="password">Confirm Password</label>
+      
+        <label htmlFor="password">Confirm Password*</label>
         <input
           value={cpass}
           onChange={(e) => setcPass(e.target.value)}
           type="password"
-          placeholder="****** "
           id="confirmpassword"
           name="Confirmpassword "
+          className="email"
         />
-        <button type="submit">SignUp</button>
+        <br/>
+        <button type="submit" className="btn btn-success btn-lg">SignUp</button>
       </form>
-      <button onClick={() => props.onFormSwitch("login")}>
-        Already have an account? Login Here.{" "}
+      <div className="text-center">
+      <button className="btn btn-link" onClick={() => props.onFormSwitch("login")}>
+        <h5 >Already have an account? Login Here.</h5>
       </button>
+      </div>
+      </div>
+</Modal>
+
+
+</div>    
     </div>
   );
 };

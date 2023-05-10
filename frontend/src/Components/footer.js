@@ -1,6 +1,9 @@
 import React from "react";
 import img from "./images/navLogo.png";
-export default function footer() {
+import Login from "./Login";
+import {Link} from 'react-router-dom'
+
+export default function footer(props) {
   return (
     <>
       <div>
@@ -10,9 +13,11 @@ export default function footer() {
               <h1>
                 Ready to get started? <span> </span>
               </h1>
-              <button type="button" className=" btn btn-outline-light btn-lg">
+              <Link to ="../Login">
+              <button type="button"  className=" btn btn-outline-light btn-lg">
                 Get Started
               </button>
+              </Link>
             </div>
           </div>
         </div>

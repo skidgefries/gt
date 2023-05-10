@@ -102,6 +102,16 @@
 
 }
 
+.bg5{
+  background-image:url(./Components/images/h.jpg);
+  width: 1530px;
+  height: 795px;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  display: flex;
+}
+
 
 .align{
   text-align: center;
@@ -207,6 +217,7 @@
   font-family :fjalla;
 }
 
+
 .alignLeft{
   align-items: left;
   justify-content: left;
@@ -260,7 +271,12 @@
   align-items: center;
   height: 10vh; 
 }
-
+.center2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:795px;
+}
 .foot{
   background-color: #E4E4E4;
   font-family :nunito;
@@ -300,6 +316,11 @@
 
 .quicksand{
   font-family: quicksand;
+}
+
+.quicksand18{
+  font-family: quicksand;
+  font-size: calc(5px + 2vmin);
 }
 
 .auth-form-container, .login-form, .register-form{
@@ -348,8 +369,56 @@
   text-decoration : underline ;
 }
 
+.pop{
+height:600px;
+width:30%;
+left:50%;
+top:50%;
+border-radius:10px;
+box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+-webkit-transfrom: translate(-50%, -50%);
+transform:translate(-50%, -50%);
+background-color:#fff;
+position:absolute;
+display:flex;
+align-items: center;
+justify-content:center;
+}
+ .pop1{
+  height:600px;
+  width:20px;
+  top:10%;
+  align-items: center;
+  justify-content:center;
+  display:flex;
+ }
+ .pop2{
+  height:700px;
+  width:2px;
+  top:7%;
+  align-items: center;
+  justify-content:center;
+  display:flex;
+ }
+
+ .email{
+  font-family :quicksand;
+  font-size: calc(8px + 2vmin);
+  background-color: #ffffff;
+  box-shadow: rgba(100,100,111,0.2) 0px 0px 5px 0px;
+  border-radius: 7px ;
+  border-color: #909090 ;
+  width:500px;
+ }
 
 
-
-
+.but{
+  width: 200px;
+  height: 50px;
+  justify-content:center;
+  align-items: center;
+  display:flex;
+  font-size: calc(20px + 2vmin);
+  font-family :quicksand;
+}
 

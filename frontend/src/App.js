@@ -12,7 +12,7 @@ import { Login } from "./Components/Login";
 import { Register } from "./Components/Register";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProfileScreen from "./Components/ProfileScreen";
+// import ProfileScreen from "./Components/ProfileScreen";
 
 function App() {
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
@@ -37,27 +37,28 @@ function App() {
       document.body.style.backgroundColor = "white";
     }
   };
+  const [modal,setmodal] = useState(false)
   return (
     <>
       <div>
         <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
         <Router>
           {currentForm === "home" ? (
-            <Navbar1 mode={mode} toggleMode={toggleMode} />
+            <Navbar1 mode={mode} toggleMode={toggleMode} setmodal={setmodal} />
           ) : (
             <Navbar2 mode={mode} toggleMode={toggleMode} />
           )}
 
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home modal={modal} setmodal={setmodal}/>} />
+            <Route path="/Home" element={<Home modal={modal} setmodal={setmodal}/>} />
             <Route
               path="/Login"
-              element={<Login onFormSwitch={toggleForm} />}
+              element={<Login onFormSwitch={toggleForm} modal={modal} setmodal={setmodal} />}
             />
             <Route path="/About" element={<About />} />
-            <Route path="/Register" element={<Register />} />
-            <Route path="/ProfileScreen" element={<ProfileScreen />} />
+            <Route path="/Register" element={<Register modal={modal} setmodal={setmodal} />} />
+            {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
           </Routes>
         </Router>
       </div>
