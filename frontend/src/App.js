@@ -12,7 +12,7 @@ import { Login } from "./Components/Login";
 import { Register } from "./Components/Register";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import ProfileScreen from "./Components/ProfileScreen";
+import ProfileScreen from "./Components/ProfileScreen";
 
 function App() {
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
@@ -57,7 +57,7 @@ function App() {
             />
             <Route path="/About" element={<About />} />
             <Route path="/Register" element={<Register />} />
-            {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
+            <Route path="/ProfileScreen" element={<ProfileScreen />} />
           </Routes>
         </Router>
       </div>
