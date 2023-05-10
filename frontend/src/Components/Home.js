@@ -9,7 +9,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Home(props) {
-  const [modal2,setmodal2] = useState(false)
+  // const [modal2,setmodal2] = useState(false)
  props.setmodal(true);
 
   return (
@@ -590,7 +590,7 @@ export default function Home(props) {
                 scenery and taste the delicious cuisine of this vibrant nation.
               </div>
             </div>
-            <Footer modal2={modal2} setmodal2={setmodal2}  />
+            <Footer   />
           </div>
         </div>
       </div>
