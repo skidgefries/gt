@@ -1,9 +1,9 @@
-import { combineReducers} from "redux";
+import { combineReducers,applyMiddleware} from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { configureStore } from "@reduxjs/toolkit";
-import { routerMiddleware, connectRouter } from 'connected-react-router';
-export const history = createBrowserHistory();
+// import { routerMiddleware, connectRouter } from 'connected-react-router';
+// export const history = createBrowserHistory(); 
 
 import {
   userUpdateReducer,
@@ -21,12 +21,13 @@ const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
 };
 
+const middleware = [thunk];
 
 const store = configureStore (
-  reducer,
+  {reducer},
   initialState,
-  middleware: [thunk, routerMiddleware(...middleware)],
-//   composeWithDevTools(applyMiddleware(...middleware))
+  // middleware: [thunk, routerMiddleware(...middleware)],
+  composeWithDevTools(applyMiddleware(...middleware))
 );
 
 export default store;
