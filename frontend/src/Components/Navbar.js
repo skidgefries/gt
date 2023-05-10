@@ -45,11 +45,11 @@ export default function Navbar(props) {
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <NavLink className="nav-link"   style={{font:"Montserrat", fontSize:30 }} to="./Register">SIGNUP</NavLink>
+                <NavLink className="nav-link"   onClick={()=>props.setmodal(true)} style={{font:"Montserrat", fontSize:30 }} to="./Register">SIGNUP</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 <li className="nav-item">
-                <NavLink className="nav-link"    style={{font:"Montserrat", fontSize:30 }} to= './Login' ><span>{' '}</span>LOGIN</NavLink>
+                <NavLink className="nav-link"  onClick={()=>props.setmodal(true)}  style={{font:"Montserrat", fontSize:30 }} to= './Login' ><span>{' '}</span>LOGIN</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 {/*<li className="nav-item dropdown">

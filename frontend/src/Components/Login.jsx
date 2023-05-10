@@ -47,8 +47,6 @@ export const Login = (props) => {
       contentClassName="pop1"
       size='lg'
       isOpen={props.modal}
-      
-      
       toggle={()=>props.setmodal(!props.modal)}><ModalHeader>              <img
       src={img1}
       className=" card-img-top"
