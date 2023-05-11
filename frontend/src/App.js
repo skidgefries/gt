@@ -12,6 +12,7 @@ import { Login } from "./Components/Login";
 import { Register } from "./Components/Register";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LoginHome from "./Components/LoginHome";
 // import ProfileScreen from "./Components/ProfileScreen";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
   const [modal,setmodal] = useState(false)
   return (
     <>
+    <LoginHome/>
       <div>
         <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
         <Router>
