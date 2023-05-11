@@ -5,6 +5,9 @@ import { Container } from '@mui/material'
 import {Modal, ModalHeader} from "reactstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
+
 
 import img1 from "./images/navLogo.png";
 export const Login = (props) => {
@@ -46,10 +49,8 @@ export const Login = (props) => {
       className="pop1"
       contentClassName="pop1"
       size='lg'
-      isOpen={props.modal}
-      
-      
-      toggle={()=>props.setmodal(!props.modal)}><ModalHeader>              <img
+      isOpen={true}
+      toggle={()=>props.setmodal(!props.modal)}><ModalHeader> <div className="cross"><NavLink className="nav-link " to="../Home"><AiFillCloseCircle/></NavLink> </div>          <img
       src={img1}
       className=" card-img-top"
       alt="Logo"
@@ -78,11 +79,11 @@ export const Login = (props) => {
         />
         <br/>
         <div className="text-center" >
-        <button  type="button" onClick={() => props.onFormSwitch("userprofile")} className=" but btn btn-primary  " >Login</button>
+        <NavLink to="../Home"><button  type="button" onClick={() => props.onFormSwitch("userprofile")} className=" but btn btn-primary  " >Login</button></NavLink>
         <br/>      <button className="btn btn-link" onClick={() => props.onFormSwitch("login")}>
         <h5 >Forgot Password?</h5>
       </button><br/>
-      <button onClick={() => props.onFormSwitc("register")} type="button" class="btn btn-success">Create New Account</button>
+      <NavLink to="../Register"><button  type="button" class="btn btn-success">Create New Account</button></NavLink>
       </div>
       </form>
 
