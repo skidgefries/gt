@@ -25,7 +25,7 @@ const validateToken = require("../middleware/validateTokenHandler");
 
 // userRouter.use(validateToken);
 
-userRouter.route("/:id").patch(updateUsers).delete(deleteUsers);
+// userRouter.route("/:id").patch(updateUsers).delete(deleteUsers);
 
 //user key
 userRouter.route("/:id").patch(updateUsers).delete(deleteUsers);
