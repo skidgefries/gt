@@ -4,6 +4,9 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import img1 from "./images/navLogo.png";
 import {Modal, ModalHeader} from "reactstrap";
+import{Link} from "react-router-dom";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 export const Register = (props) => {
   const navigate= useNavigate();
@@ -59,9 +62,11 @@ export const Register = (props) => {
       className="pop2"
       contentClassName="pop2"
       size='lg'
-      isOpen={props.modal}
+      isOpen={true}
       toggle={()=>props.setmodal(!props.modal)}><ModalHeader> 
-        <div className="aligncenter">          
+      <div className="rightCross"><NavLink className="nav-link " to="../Home"><AiFillCloseCircle/></NavLink> </div>
+        <div className="aligncenter"> 
+                 
         <h1 >Create a Guided Travels account</h1>
         <div className="quicksand"><h2 style={{color:"#574A4A" }}><i>WE PLAN, YOU PACK</i></h2>
         <h8 style={{color:"#736A6A"}} >Experience the beauty of Nepal.</h8></div>
@@ -115,9 +120,9 @@ export const Register = (props) => {
         <button type="submit" className="btn btn-success btn-lg">SignUp</button>
       </form>
       <div className="text-center">
-      <button className="btn btn-link" onClick={() => props.onFormSwitch("login")}>
-        <h5 >Already have an account? Login Here.</h5>
-      </button>
+     <Link to="../Login"><button className="btn btn-link" >
+     <h5 >Already have an account? Login Here.</h5>
+   </button></Link> 
       </div>
       </div>
 </Modal>
