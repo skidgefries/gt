@@ -34,6 +34,7 @@ export default function Navbar(props) {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
+    <div className="rightNav">
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className=" navbar-nav me-auto mb-2 mb-lg-0  ">
                 <li className="nav-item">
@@ -48,10 +49,9 @@ export default function Navbar(props) {
                 <NavLink className="nav-link"   onClick={()=>props.setmodal(true)} style={{font:"Montserrat", fontSize:30 }} to="./Register">SIGNUP</NavLink>
                 </li>
                 <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
-                <li className="nav-item">
+                <li className="nav-item rightNav">
                 <NavLink className="nav-link"  onClick={()=>props.setmodal(true)}  style={{font:"Montserrat", fontSize:30 }} to= './Login' ><span>{' '}</span>LOGIN</NavLink>
                 </li>
-                <h3 style={{color:"#ced0b6",fontSize:45}}>|</h3>
                 {/*<li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown
@@ -69,12 +69,12 @@ export default function Navbar(props) {
                 </li>
 </ul>*/}
 
- <div className={`form-check form-switch form-check-reverse text-${props.mode==='light'?'dark':'light'}`}>
+ {/*<div className={`form-check form-switch form-check-reverse text-${props.mode==='light'?'dark':'light'}`}>
  <a className="nav-link" style={{font:"Montserrat", fontSize:30 }} href="/">
   <input  className="form-check-input" style={{font:"Montserrat", fontSize:33 }} onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckReverse"/>
   <label className="form-check-label" style={{font:"Montserrat", fontSize:30 }} htmlFor="flexSwitchCheckReverse">ENABLE DARKMODE</label>
     </a>
-    </div>
+</div>*/}
     </ul>
 
 
@@ -82,14 +82,14 @@ export default function Navbar(props) {
 
             
             </div>
-            
             </div>
-            <div className="right">
+            </div>
+            {/*<div className="right">
                 <form className="d-flex" role="search">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="btn btn-success" type="submit">Search</button>
 </form>
-</div>
+</div>*/}
             </div>
         </nav>
         

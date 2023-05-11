@@ -1,6 +1,5 @@
 import React from "react";
 import img from "./images/navLogo.png";
-import Login from "./Login";
 import {Link} from 'react-router-dom'
 
 export default function footer(props) {
