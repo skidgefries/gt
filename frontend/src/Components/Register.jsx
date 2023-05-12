@@ -13,15 +13,15 @@ export const Register = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [cpass, setcPass] = useState("");
-  const [Name, setName] = useState("");
+  const [name, setName] = useState("");
   const [uname, setUname] = useState("");
 
   async function Submit(e) {
     e.preventDefault();
     const values = {
-      Name,
-      email,
+      name,
       username: uname,
+      email,
       password: pass,
       confirmPassword: cpass,
     };
@@ -74,18 +74,15 @@ export const Register = (props) => {
 </ModalHeader>   
 <div className="quicksand18"> 
       <form action="POST" className="login-form needs-validation" onSubmit={Submit} novalidate>
-        <label htmlFor="name" className="form-label">FullName*</label>
+        <label htmlFor="Name" className="form-label">FullName*</label>
         <input
           
           onChange={(e) => setName(e.target.value)}
           type="text"
           className="email form-control"
-          id="name"
-          value={Name} required
+          id="Name"
+          value={name} required
         />
-        <div className="valid-feedback">
-        Looks good!
-      </div>
         
         <label htmlFor="Username" className="form-label">Username*</label>
         <input
@@ -96,9 +93,7 @@ export const Register = (props) => {
           className="email form-control"
           value={uname} required
         />
-        <div className="valid-feedback">
-        Looks good!
-      </div>
+
      <label htmlFor="email" className="form-label">E-mail*</label>
         <input
           value={email} required
@@ -112,7 +107,7 @@ export const Register = (props) => {
         <input
           value={pass} required
           onChange={(e) => setPass(e.target.value)}
-          type="text"
+          type="password"
           id="password"
           name="password "
           className="email form-control"
@@ -122,7 +117,7 @@ export const Register = (props) => {
         <input
           value={cpass} required
           onChange={(e) => setcPass(e.target.value)}
-          type="text"
+          type="password"
           id="confirmpassword"
           name="Confirmpassword "
           className="email form-control"

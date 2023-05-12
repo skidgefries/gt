@@ -6,6 +6,7 @@ import Navbar1 from "./Components/Navbar";
 import Navbar2 from "./Components/afterLoginNavbar";
 import Home from "./Components/Home";
 import { Toaster } from "react-hot-toast";
+import Loginhome from "./Components/LoginHome";
 // import axios from 'axios';
 
 import { Login } from "./Components/Login";
@@ -57,6 +58,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home modal={modal} setmodal={setmodal}/>} />
             <Route path="/Home" element={<Home modal={modal} setmodal={setmodal}/>} />
+            <Route path="/LoginHome" element={<Loginhome />} />
             <Route
               path="/Login"
               element={<Login onFormSwitch={toggleForm} modal={modal} setmodal={setmodal} />}

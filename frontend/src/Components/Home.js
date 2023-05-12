@@ -4,6 +4,9 @@ import img2 from "./images/lum.jpg";
 import img3 from "./images/boud.jpg";
 import img4 from "./images/chit.webp";
 import img5 from "./images/pkh.webp";
+import imga from "./images/boud.jpg";
+import imgb from "./images/chit.webp";
+import imgc from "./images/pkh.webp";
 import Footer from "./footer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -530,8 +533,56 @@ export default function Home(props) {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="bg3">
+            </div><br/>
+            {/*Newwwwwwww */}
+            <div id="carouselExampleCaptions" className="carousel slide">
+  <div className="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div className="carousel-inner">
+    <div className="carousel-item active ">
+      <img src={imga} className="d-block w-100" alt="..."                 
+      height="700"
+      style={{
+        borderRadius: 50,
+      }}/>
+      <div className="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div className="carousel-item  ">
+    <img src={imgb} className="d-block w-100" alt="..." height="700"     style={{
+      borderRadius: 50,
+    }}/>
+    <div className="carousel-caption d-none d-md-block">
+      <h5>First slide label</h5>
+      <p>Some representative placeholder content for the first slide.</p>
+    </div>
+  </div>
+  <div className="carousel-item ">
+  <img src={imgc} className="d-block w-100" alt="..." height="700"     style={{
+    borderRadius: 50,
+  }}/>
+  <div className="carousel-caption d-none d-md-block">
+    <h5>First slide label</h5>
+    <p>Some representative placeholder content for the first slide.</p>
+  </div>
+</div>
+  </div>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
+<br/>
+           <div className="bg3">
               <br />
               <br />
               <div className="align6">
@@ -539,7 +590,8 @@ export default function Home(props) {
                 EXPLORE
               </div>
               <div className="align7"> NEPAL</div>
-            </div>
+                  </div>
+                  <br/>
             <div className="align8">
               Discover your next favorite destination
             </div>
