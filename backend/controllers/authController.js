@@ -10,7 +10,7 @@ module.exports.signup = async function signup(req, res) {
     // console.log('req appeared')
     let dataObj = req.body;
     let user = await User.create(dataObj);
-    // sendMail("signup",user)
+    //sendMail("signup",user)
 
     if (!user)
       return res.json({
@@ -162,9 +162,7 @@ module.exports.forgetpassword = async function forgetpassword(req, res) {
     const user = await User.findOne({ email: email });
     if (user) {
       const resetToken = user.createResetToken();
-      let resetPasswordLink = `${req.protocal}://${req.get(
-        "host"
-      )}/reserpassword/${resetToken}`;
+      let resetPasswordLink = `${req.protocal}://${req.get("host")}/resetpassword/${resetToken}`;     // //domain name for reset password link
       //send email to user
       //nodemailer
       let obj = {
