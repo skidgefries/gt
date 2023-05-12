@@ -23,11 +23,15 @@ function App() {
       : "home"
   );
   const toggleForm = (forName) => {
-    setCurrentForm(forName);
-    localStorage.setItem("isLoggedIn", forName);
-    // When user logs out
-    // setCurrentForm("home");
-    // localStorage.removeItem("isLoggedIn");
+
+    //When user logs out
+    if(forName==="home"){
+     setCurrentForm("home");
+     localStorage.removeItem("isLoggedIn");}
+     else{
+      setCurrentForm(forName);
+      localStorage.setItem("isLoggedIn", forName);
+     }
   };
   const toggleMode = () => {
     if (mode === "light") {
@@ -41,14 +45,13 @@ function App() {
   const [modal,setmodal] = useState(false)
   return (
     <>
-    <LoginHome/>
       <div>
         <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
         <Router>
           {currentForm === "home" ? (
             <Navbar1 mode={mode} toggleMode={toggleMode} setmodal={setmodal} />
           ) : (
-            <Navbar2 mode={mode} toggleMode={toggleMode} />
+            <Navbar2 mode={mode} onFormSwitch={toggleForm} toggleMode={toggleMode} />
           )}
 
           <Routes>

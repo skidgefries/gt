@@ -13,13 +13,13 @@ export const Register = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [cpass, setcPass] = useState("");
-  const [name, setName] = useState("");
+  const [Name, setName] = useState("");
   const [uname, setUname] = useState("");
 
   async function Submit(e) {
     e.preventDefault();
     const values = {
-      name,
+      Name,
       email,
       username: uname,
       password: pass,
@@ -73,54 +73,65 @@ export const Register = (props) => {
         </div> 
 </ModalHeader>   
 <div className="quicksand18"> 
-      <form action="POST" className="login-form" onSubmit={Submit}>
-        <label htmlFor="Name" >FullName*</label>
+      <form action="POST" className="login-form needs-validation" onSubmit={Submit} novalidate>
+        <label htmlFor="name" className="form-label">FullName*</label>
         <input
-          value={name}
+          
           onChange={(e) => setName(e.target.value)}
-          type="name"
-          className="email"
+          type="text"
+          className="email form-control"
+          id="name"
+          value={Name} required
         />
+        <div className="valid-feedback">
+        Looks good!
+      </div>
         
-        <label htmlFor="Username">Username*</label>
+        <label htmlFor="Username" className="form-label">Username*</label>
         <input
-          value={uname}
+          
           onChange={(e) => setUname(e.target.value)}
-          type="username"
-          className="email"
+          type="text"
+          id="Username"
+          className="email form-control"
+          value={uname} required
         />
-     <label htmlFor="email">E-mail*</label>
+        <div className="valid-feedback">
+        Looks good!
+      </div>
+     <label htmlFor="email" className="form-label">E-mail*</label>
         <input
-          value={email}
+          value={email} required
           onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          className="email"
+          type="text"
+          id="email"
+          className="email form-control"
         />
         
-        <label htmlFor="password">Password*</label>
+        <label htmlFor="password" className="form-label">Password*</label>
         <input
-          value={pass}
+          value={pass} required
           onChange={(e) => setPass(e.target.value)}
-          type="password"
+          type="text"
           id="password"
           name="password "
-          className="email"
+          className="email form-control"
         />
       
-        <label htmlFor="password">Confirm Password*</label>
+        <label htmlFor="confirmpassword" className="form-label">Confirm Password*</label>
         <input
-          value={cpass}
+          value={cpass} required
           onChange={(e) => setcPass(e.target.value)}
-          type="password"
+          type="text"
           id="confirmpassword"
           name="Confirmpassword "
-          className="email"
+          className="email form-control"
         />
         <br/>
         <button type="submit" className="btn btn-success btn-lg">SignUp</button>
       </form>
       <div className="text-center">
-     <Link to="../Login"><button className="btn btn-link" >
+     <Link to="../Login"><button  className="btn btn-link" >
      <h5 >Already have an account? Login Here.</h5>
    </button></Link> 
       </div>

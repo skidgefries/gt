@@ -57,30 +57,33 @@ export const Login = (props) => {
       width="400"
       height="250"
     />
-</ModalHeader>  <br/>    <form action="POST" className="login-form" onSubmit={Submit}>
+</ModalHeader>  <br/>    <form action="POST" className="login-form" onSubmit={Submit} novalidate>
+<label htmlFor="email" className="form-label"></label>
         <input
-          value={email}
+          
           onChange={(e) => setEmail(e.target.value)}
-          type="email"
+          type="email" 
           placeholder="E-mail"
           id="email"
           name="email"
-          className="email"
+          className="email "
+          value={email} required
         />
         <br/>
+        <label htmlFor="password" className="form-label"></label>
         <input
-          value={pass}
+          value={pass} required
           onChange={(e) => setPass(e.target.value)}
           type="password"
           placeholder="Password"
           id="password"
           name="password "
-          className="email"
+          className="email "
         />
         <br/>
         <div className="text-center" >
-        <NavLink to="../Home"><button  type="button" onClick={() => props.onFormSwitch("userprofile")} className=" but btn btn-primary  " >Login</button></NavLink>
-        <br/>      <button className="btn btn-link" onClick={() => props.onFormSwitch("login")}>
+       <NavLink to="../LoginHome"> <button  type="submit" onClick={()=>props.onFormSwitch("userprofile")} className=" but btn btn-primary  " >Login</button></NavLink>
+        <br/>      <button className="btn btn-link">
         <h5 >Forgot Password?</h5>
       </button><br/>
       <NavLink to="../Register"><button  type="button" class="btn btn-success">Create New Account</button></NavLink>
