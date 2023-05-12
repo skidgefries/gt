@@ -80,18 +80,21 @@ module.exports.deleteUsers=async function deleteUser(req,res) {
     }
 }
 
-module.exports.getAllUser=async function getAllUser( req, res){
-    let users=await User.find();
-    if(users){
-        res. json({
-        message: 'users retrieved',
-        data:users
-        });
-    }
+// module.exports.getAllUser=async function getAllUser( req, res){
+//     let users=await User.find();
+//     if(users){
+//         res. json({
+//         message: 'users retrieved',
+//         data:users
+//         });
+//     }
             
 
-    res. send ("user id received"); 
-}
+//     res. send ("user id received"); 
+// }
+
+
+
 
 // function setCookies(req, res){
 //     // res. setHeader('Set-Cookie','isLoggedIn=true");
