@@ -32,8 +32,11 @@ export const Login = (props) => {
         toast.error(res.error);
       }
       else {
+        props.onFormSwitch("userprofile");
               localStorage.setItem("token", res.data.accessToken);
-              history("/About");
+              toast.success("Logged in successfully");
+              history("/LoginHome");
+              
             }
     } catch (err) {
       alert("Wrong Details");
@@ -82,7 +85,7 @@ export const Login = (props) => {
         />
         <br/>
         <div className="text-center" >
-       <NavLink to="../LoginHome"> <button  type="submit" onClick={()=>props.onFormSwitch("userprofile")} className=" but btn btn-primary  " >Login</button></NavLink>
+       <button  type="submit"  className=" but btn btn-primary  " >Login</button>
         <br/>      <button className="btn btn-link">
         <h5 >Forgot Password?</h5>
       </button><br/>

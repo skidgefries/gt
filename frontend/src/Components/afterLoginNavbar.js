@@ -11,7 +11,7 @@ export default function Navbar(props) {
     >
       <div className="container-fluid">
 
-          <NavLink className="navbar-brand" to="/">
+          <NavLink className="navbar-brand" to="/LoginHome">
             <img
               src={logo}
               alt="Logo"
