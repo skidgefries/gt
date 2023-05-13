@@ -44,7 +44,7 @@ const userSchema=mongoose.Schema({
         required: true,
         minLength:8,
         validate: function (){
-            return this. confirmPassword==this.password
+            return this.confirmPassword==this.password
         }
     },
 

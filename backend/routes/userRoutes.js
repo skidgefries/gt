@@ -83,5 +83,4 @@ userRouter.route("/userProfile/:id")
 .get(getUser);
 
 
-
 module.exports = userRouter;

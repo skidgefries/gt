@@ -46,27 +46,27 @@
 
 @font-face{
   font-family: bebas;
-  src: url(../public/font/BebasNeue.ttf);
+  src: url(/font/BebasNeue.ttf);
 }
 
 @font-face{
   font-family: lilita;
-  src: url(../public/font/LilitaOne-Regular.ttf);
+  src: url(/font/LilitaOne-Regular.ttf);
 }
 
 @font-face{
   font-family: fjalla;
-  src: url(../public/font/FjallaOne-Regular.ttf);
+  src: url(/font/FjallaOne-Regular.ttf);
 }
 
 @font-face{
   font-family: nunito;
-  src: url(../public/font/nunitosans.ttf);
+  src: url(/font/nunitosans.ttf);
 }
 
 @font-face{
   font-family: quicksand;
-  src: url(../public/font/Quicksand-VariableFont_wght.ttf);
+  src: url(/font/Quicksand-VariableFont_wght.ttf);
 }
 
 .bg{
@@ -496,3 +496,7 @@ justify-content:center;
 }
 
 
+
+.SettingsItem{
+  margin-top: 50%;
+}

@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import { useState } from "react";
+import React from "react";
 import "./App.css";
 import About from "./Components/About";
 import Navbar1 from "./Components/Navbar";
@@ -14,7 +15,7 @@ import { Register } from "./Components/Register";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginHome from "./Components/LoginHome";
-// import ProfileScreen from "./Components/ProfileScreen";
+
 
 function App() {
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
@@ -65,7 +66,7 @@ function App() {
             />
             <Route path="/About" element={<About />} />
             <Route path="/Register" element={<Register modal={modal} setmodal={setmodal} />} />
-            {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
+
           </Routes>
         </Router>
       </div>
