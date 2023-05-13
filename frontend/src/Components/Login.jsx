@@ -19,6 +19,7 @@ export const Login = (props) => {
     e.preventDefault();
     try {
       console.log(email);
+      console.log("gjk");
       const values = {
         email,
         password: pass,
