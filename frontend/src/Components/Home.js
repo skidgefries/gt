@@ -534,6 +534,8 @@ export default function Home(props) {
                 </div>
               </div>
             </div><br/>
+            <hr className="line" />
+            <br/>
             {/*Newwwwwwww */}
             <div id="carouselExampleCaptions" className="carousel slide">
   <div className="carousel-indicators">
@@ -581,6 +583,8 @@ export default function Home(props) {
     <span className="visually-hidden">Next</span>
   </button>
 </div>
+<br/>
+<hr className="line" />
 <br/>
            <div className="bg3">
               <br />

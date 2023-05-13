@@ -217,6 +217,11 @@
   font-family :fjalla;
 }
 
+.aligncenter1{
+  align-items: center;
+  text-align: center;
+}
+
 
 .alignLeft{
   align-items: left;
@@ -337,6 +342,11 @@
   font-family: quicksand;
   font-size: calc(5px + 2vmin);
 }
+.quicksand20{
+  font-family: quicksand;
+  font-size: calc(30px + 2vmin);
+  
+}
 
 .auth-form-container, .login-form, .register-form{
   display: flex ;
@@ -415,6 +425,14 @@ justify-content:center;
   justify-content:center;
   display:flex;
  }
+ .pop3{
+  height:600px;
+  width:20px;
+  top:7%;
+  align-items: center;
+  justify-content:center;
+  display:flex;
+ }
 
  .email{
   font-family :quicksand;
@@ -445,6 +463,14 @@ justify-content:center;
   color:#909090;
   
 }
+.cross1{
+  align-items: right;
+  justify-content: right;
+  text-align: right;
+  margin-right: 0;
+  font-size: calc(25px + 1vmin);
+  
+}
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
@@ -461,7 +487,6 @@ justify-content:center;
 
 .column2 {
   background-color: #f2f2f2;
-  padding: 20px;
   min-width: 1100px;
   min-height: 100%;;
 
@@ -469,7 +494,7 @@ justify-content:center;
 
 .column3 {
   background-color: #f2f2f2;
-  padding: 20px;
+
   min-width: 500px;
 
 }
@@ -486,7 +511,7 @@ justify-content:center;
   gap: 20px; /* Adjust the gap between columns as needed */
 }
 
-.column {
+.columna {
   min-width: 0; /* Ensure the column can shrink to 0 width */
   min-height: 730px;
 }

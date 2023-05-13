@@ -8,6 +8,7 @@ import Navbar2 from "./Components/afterLoginNavbar";
 import Home from "./Components/Home";
 import { Toaster } from "react-hot-toast";
 import Loginhome from "./Components/LoginHome";
+
 // import axios from 'axios';
 
 import { Login } from "./Components/Login";
@@ -15,7 +16,8 @@ import { Register } from "./Components/Register";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginHome from "./Components/LoginHome";
-
+import PlanTrip from "./Components/planTrip";
+// import ProfileScreen from "./Components/ProfileScreen";
 
 function App() {
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
@@ -25,8 +27,6 @@ function App() {
       : "home"
   );
   const toggleForm = (forName) => {
-
-    //When user logs out
     if(forName==="home"){
      setCurrentForm("home");
      localStorage.removeItem("isLoggedIn");}
@@ -57,14 +57,20 @@ function App() {
           )}
 
           <Routes>
+
+          { localStorage.getItem("isLoggedIn") ?(
+            <Route path="/" element={<LoginHome />} />
+          ): (
             <Route path="/" element={<Home modal={modal} setmodal={setmodal}/>} />
+          ) }
+            
             <Route path="/Home" element={<Home modal={modal} setmodal={setmodal}/>} />
             <Route path="/LoginHome" element={<Loginhome />} />
             <Route
               path="/Login"
               element={<Login onFormSwitch={toggleForm} modal={modal} setmodal={setmodal} />}
             />
-            <Route path="/About" element={<About />} />
+            <Route path="/About" element={<PlanTrip />} />
             <Route path="/Register" element={<Register modal={modal} setmodal={setmodal} />} />
 
           </Routes>
