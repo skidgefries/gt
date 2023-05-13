@@ -28,9 +28,11 @@ const validateToken = require("../middleware/validateTokenHandler");
 // userRouter.route("/:id").patch(updateUsers).delete(deleteUsers);
 
 //user key
-userRouter.route("/:id")
-.patch(updateUsers)   //done
-.delete(deleteUsers); //done
+// userRouter.route("/:id")
+// .patch(updateUsers)   //done
+// .delete(deleteUsers); //done
+
+userRouter.route("/userProfile/:id").get(getUser);
 
 userRouter.route("/signup").post(signup);  //done
 
@@ -75,7 +77,10 @@ userRouter.route("/logout").get(logout);
 //profile page
 // app.use(protectRoute);
 
-userRouter.route("/userProfile").get(getUser);
+userRouter.route("/userProfile/:id")
+.patch(updateUsers)   //done
+.delete(deleteUsers)//done
+.get(getUser);
 
 
 

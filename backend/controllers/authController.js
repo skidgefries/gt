@@ -9,6 +9,19 @@ module.exports.signup = async function signup(req, res) {
   try {
     // console.log('req appeared')
     let dataObj = req.body;
+
+    const emailExists = await User.findOne({ email: dataObj.email });
+    if (emailExists) {
+    res.status(404);
+    throw new Error("Email is already in use");
+  }
+
+    const usernameExists = await User.findOne({ username: dataObj.username });
+    if (usernameExists) {
+    res.status(404);
+    throw new Error("Username already exists");
+  }
+
     let user = await User.create(dataObj);
     //sendMail("signup",user)
 
@@ -30,6 +43,7 @@ module.exports.signup = async function signup(req, res) {
   }
 };
 
+
 //USER LOGIN
 module.exports.login = async function loginUser(req, res) {
     try{
@@ -39,7 +53,8 @@ module.exports.login = async function loginUser(req, res) {
       res.json({error:"All fields are mandatory!"})
     }
     const user = await User.findOne({ email: data.email });
-    if (user && user.password == data.password) {
+
+    if (user &&  (await user.matchPassword(data.password))) {
       const accessToken = jwt.sign(
         {
           user: {
@@ -49,7 +64,7 @@ module.exports.login = async function loginUser(req, res) {
           },
         },
         process.env.JWT_TOKEN,
-        { expiresIn: "15m" }
+        { expiresIn: "30d" }
       );
       res.status(200).json({ accessToken });
     } else {
