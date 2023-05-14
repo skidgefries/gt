@@ -52,7 +52,7 @@ export default function LoginHome(props) {
   /** @type React.MutableRefObject<HTMLInputElement> */
   const destiantionRef = useRef();
   const locationRef = useRef();
-  const data = ['item 1', 'item 2', 'item 3'];
+  const data = ['item 1','item 2','item 3'];
 
   function Point() {
     if (locationRef.current.value === "") {
@@ -267,8 +267,22 @@ export default function LoginHome(props) {
                
 
                 {data.map((item, index) => (
-                  <p key={index}> {props.setData(index)}  <AddPlace/>            </p>
+                  <p key={index}>       <div className="accordion" id={index}>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header">
+                      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        {index} 
+                      </button>
+                    </h2>
+                    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                      <div className="accordion-body alignCenter">
+                      <Button type="button" colorScheme="purple" >Add</Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>                                      </p>
                 ))}
+
                 <Box flexGrow={1}>
                 <Autocomplete>
                   <Input
@@ -278,10 +292,9 @@ export default function LoginHome(props) {
                   />
                   
                 </Autocomplete>
-              </Box>
-              <Button colorScheme="purple" type="submit" onClick={Point}>
-                Calculate Route
-              </Button>
+              </Box>               <Button colorScheme="purple" type="submit" onClick={Point}>
+              Submit
+            </Button>  
         
               </Column>
             </Grid>
