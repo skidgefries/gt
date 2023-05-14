@@ -12,6 +12,7 @@ export default function PlanTrip(props) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+  
   const handleChange1 = (e) => {
     setStartDate(e.target.value);
   };
@@ -19,7 +20,7 @@ export default function PlanTrip(props) {
     setEndDate(e.target.value);
   };
 
-  module.exports.destination = {destination} 
+  // module.exports.destination = {destination} 
 
   async function Submit(e) {
     e.preventDefault();

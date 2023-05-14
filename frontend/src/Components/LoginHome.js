@@ -6,7 +6,7 @@ import imga from "./images/boud.jpg";
 import imgb from "./images/chit.webp";
 import imgc from "./images/bkt.jpg";
 import { useLocation } from "react-router-dom";
-import destination from "./planTrip";
+// import {destination } from "./planTrip";
 import {
   Box,
   Button,
@@ -30,17 +30,15 @@ import {
 import { useRef, useState } from "react";
 
 export default function LoginHome() {
-  const [lat1, setlat1] = useState(27.7172);
-  const [lng1, setlng1] = useState(85.324);
-  const center = { lat: lat1, lng: lng1 };
-  const location = useLocation();
-  const { destination } = location.state || {};
+;
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q",
     libraries: ["places"],
   });
-
+  const [lat1, setlat1] = useState(27.7172);
+  const [lng1, setlng1] = useState(85.324);
+  const center = { lat: lat1, lng: lng1 }
   const [map, setMap] = useState(/** @type google.maps.Map */ (null));
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [distance, setDistance] = useState("");
@@ -52,9 +50,44 @@ export default function LoginHome() {
   const destiantionRef = useRef();
   const locationRef = useRef();
 
+
+
+  if (!isLoaded) {
+    return <SkeletonText />;
+  }
+
+  async function calculateRoute() {
+    if (originRef.current.value === "" || destiantionRef.current.value === "") {
+      return;
+    }
+    // eslint-disable-next-line no-undef
+    const directionsService = new google.maps.DirectionsService();
+   // const directionsRenderer = new google.maps.DirectionsRenderer();
+
+// Set the map property of the directions renderer to the Google Map object
+//directionsRenderer.setMap(map);
+    const results = await directionsService.route({
+      origin: originRef.current.value,
+      destination: destiantionRef.current.value,
+      // eslint-disable-next-line no-undef
+      travelMode: google.maps.TravelMode.DRIVING,
+    });
+    setDirectionsResponse(results);
+    //directionsRenderer.setDirections(result)
+    setDistance(results.routes[0].legs[0].distance.text);
+    setDuration(results.routes[0].legs[0].duration.text);
+  }
+
+  function clearRoute() {
+    setDirectionsResponse(null);
+    map.setMap(null);
+    setDistance("")
+    setDuration("")
+    originRef.current.value = "";
+    destiantionRef.current.value = ""
+  }
   function Point() {
-    originRef.current.value =""
-   destiantionRef.current.value =""
+clearRoute();
     if (locationRef.current.value === "") {
       return;
     }
@@ -74,35 +107,6 @@ export default function LoginHome() {
           );
         }
       });
-  }
-
-  if (!isLoaded) {
-    return <SkeletonText />;
-  }
-
-  async function calculateRoute() {
-    if (originRef.current.value === "" || destiantionRef.current.value === "") {
-      return;
-    }
-    // eslint-disable-next-line no-undef
-    const directionsService = new google.maps.DirectionsService();
-    const results = await directionsService.route({
-      origin: originRef.current.value,
-      destination: destiantionRef.current.value,
-      // eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.DRIVING,
-    });
-    setDirectionsResponse(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
-  }
-
-  function clearRoute() {
-    setDirectionsResponse(null);
-    setDistance("");
-    setDuration("");
-    originRef.current.value = "";
-    destiantionRef.current.value = "";
   }
 
   return (
@@ -253,7 +257,8 @@ export default function LoginHome() {
                 <div className="contact-short1">
                   <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                     <h1>
-                      Trip to <span> </span>
+                      Trip to
+                       <span> </span>
                     </h1>
                   </div>
                 </div>
@@ -337,6 +342,7 @@ export default function LoginHome() {
                     Calculate Route
                   </Button>
                   <IconButton
+                    type="submit"
                     aria-label="center back"
                     icon={<FaTimes />}
                     onClick={clearRoute}
@@ -347,12 +353,13 @@ export default function LoginHome() {
                 <Text>Distance: {distance} </Text>
                 <Text>Duration: {duration} </Text>
                 <IconButton
+                  type="submit"
                   aria-label="center back"
                   icon={<FaLocationArrow />}
                   isRound
                   onClick={() => {
-                    map.panTo(center);
-                    map.setZoom(13);
+                    map.panTo(center)
+                    map.setZoom(13)
                   }}
                 />
               </HStack>
