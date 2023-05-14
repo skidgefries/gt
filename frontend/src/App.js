@@ -5,7 +5,9 @@ import About from "./Components/About";
 import Navbar1 from "./Components/Navbar";
 import Navbar2 from "./Components/afterLoginNavbar";
 import Home from "./Components/Home";
+import LoginScreen from "./Components/LoginScreen";
 import { Toaster } from "react-hot-toast";
+import Map from './Components/map'; //to be added
 // import axios from 'axios';
 
 import { Login } from "./Components/Login";
@@ -57,10 +59,20 @@ function App() {
             />
             <Route path="/About" element={<About />} />
             <Route path="/Register" element={<Register />} />
+            <Route path="/LoginScreen" element={<LoginScreen />} />
             {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
           </Routes>
         </Router>
       </div>
+
+      <div>
+        <Map apiKey={process.env.AIzaSyDnqzvG0A1JmiMvayhbt_T_5IXtRO0DiHQ} /> 
+      </div>
+
+      <div>
+        <Profile/>
+      </div>
+
     </>
   );
 }

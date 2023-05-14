@@ -10,6 +10,8 @@ export const Login = (props) => {
 
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
 
   async function Submit(e) {
     e.preventDefault();
@@ -34,6 +36,10 @@ export const Login = (props) => {
       console.log(err);
     }
   }
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="auth-form-container">
       <h2>Login</h2>
@@ -48,7 +54,13 @@ export const Login = (props) => {
           id="email"
           name="email"
         />
-        <label htmlFor="password">password</label>
+        <label htmlFor="password">
+          password
+          <i
+            className={showPassword? "fas fa-eye-slash": "fas fa-eye"}
+            onClick={handlePasswordVisibility}
+            ></i>
+        </label>
         <input
           value={pass}
           onChange={(e) => setPass(e.target.value)}
@@ -62,7 +74,7 @@ export const Login = (props) => {
         </button>
       </form>
 
-      <button onClick={() => props.onFormSwitc("register")}>
+      <button onClick={() => props.onFormSwitch("register")}>
         Don't have an account? SignUp.{" "}
       </button>
     </div>
