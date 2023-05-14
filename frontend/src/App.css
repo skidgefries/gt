@@ -217,6 +217,12 @@
   font-family :fjalla;
 }
 
+.alignCenter{
+  align-items: center;
+  text-align: center;
+}
+
+
 .aligncenter1{
   align-items: center;
   text-align: center;
@@ -535,4 +541,8 @@ max-width: 600px;
 
 .SettingsItem{
   margin-top: 50%;
+}
+
+.fixx{
+  max-height: 400px;
 }

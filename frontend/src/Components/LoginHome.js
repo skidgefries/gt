@@ -5,7 +5,9 @@ import Column from "./column";
 import imga from "./images/boud.jpg";
 import imgb from "./images/chit.webp";
 import imgc from "./images/bkt.jpg";
-import { useLocation } from "react-router-dom";
+import AddPlace from "./addPlace";
+import {  useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Box,
   Button,
@@ -28,7 +30,7 @@ import {
 } from "@react-google-maps/api";
 import { useRef, useState } from "react";
 
-export default function LoginHome() {
+export default function LoginHome(props) {
   const [lat1, setlat1] = useState(27.7172);
   const [lng1, setlng1] = useState(85.324);
   const center = { lat: lat1, lng: lng1 };
@@ -50,13 +52,13 @@ export default function LoginHome() {
   /** @type React.MutableRefObject<HTMLInputElement> */
   const destiantionRef = useRef();
   const locationRef = useRef();
+  const data = ['item 1', 'item 2', 'item 3'];
 
   function Point() {
-    originRef.current.value =""
-   destiantionRef.current.value =""
     if (locationRef.current.value === "") {
       return;
     }
+    
     const apiKey = "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q";
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${locationRef.current.value}&key=${apiKey}`
@@ -90,44 +92,47 @@ export default function LoginHome() {
       destination: destiantionRef.current.value,
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
-    });
-    setDirectionsResponse(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
+    })
+    setDirectionsResponse(results)
+    setDistance(results.routes[0].legs[0].distance.text)
+    setDuration(results.routes[0].legs[0].duration.text)
   }
 
   function clearRoute() {
-    setDirectionsResponse(null);
-    setDistance("");
-    setDuration("");
-    originRef.current.value = "";
-    destiantionRef.current.value = "";
+    setDirectionsResponse(null)
+    setDistance('')
+    setDuration('')
+    originRef.current.value = ''
+    destiantionRef.current.value = ''
   }
+  console.log(props.result)
 
   return (
+    
     <div className="fit">
       <div className="grid-container ">
         <div className="column1">
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
+          <div className="accordion" id="accordionExample11">
+            <div className="accordion-item">
+              <h2 className="accordion-header">
+             
                 <button
-                  class="accordion-button"
+                  className="accordion-button"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne"
+                  data-bs-target="#collapseOne11"
                   aria-expanded="true"
-                  aria-controls="collapseOne"
+                  aria-controls="collapseOne11"
                 >
                   Overview
                 </button>
               </h2>
               <div
-                id="collapseOne"
-                class="accordion-collapse collapse show"
+                id="collapseOne11"
+                className="accordion-collapse collapse show"
                 data-bs-parent="#accordionExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   <strong>This is the first item's accordion body.</strong> It
                   is shown by default, until the collapse plugin adds the
                   appropriate classes that we use to style each element. These
@@ -140,25 +145,25 @@ export default function LoginHome() {
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header">
+            <div className="accordion-item">
+              <h2 className="accordion-header">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo"
+                  data-bs-target="#collapseTwo22"
                   aria-expanded="false"
-                  aria-controls="collapseTwo"
+                  aria-controls="collapseTwo22"
                 >
                   Itinerary
                 </button>
               </h2>
               <div
-                id="collapseTwo"
-                class="accordion-collapse collapse"
+                id="collapseTwo22"
+                className="accordion-collapse collapse"
                 data-bs-parent="#accordionExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   <strong>This is the second item's accordion body.</strong> It
                   is hidden by default, until the collapse plugin adds the
                   appropriate classes that we use to style each element. These
@@ -171,25 +176,25 @@ export default function LoginHome() {
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header">
+            <div className="accordion-item">
+              <h2 className="accordion-header">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseThree"
+                  data-bs-target="#collapseThree33"
                   aria-expanded="false"
-                  aria-controls="collapseThree"
+                  aria-controls="collapseThree33"
                 >
                   Expenses
                 </button>
               </h2>
               <div
-                id="collapseThree"
-                class="accordion-collapse collapse"
+                id="collapseThree33"
+                className="accordion-collapse collapse"
                 data-bs-parent="#accordionExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   <strong>This is the third item's accordion body.</strong> It
                   is hidden by default, until the collapse plugin adds the
                   appropriate classes that we use to style each element. These
@@ -210,17 +215,17 @@ export default function LoginHome() {
               <Column>
                 <div
                   id="carouselExampleAutoplaying"
-                  className="carousel slide"
+                  className="carousel slide "
                   data-bs-ride="carousel"
                 >
                   <div className="carousel-inner">
-                    <div className="carousel-item active">
+                    <div className="carousel-item active fixx">
                       <img src={imga} className="d-block w-100" alt="..." />
                     </div>
-                    <div className="carousel-item">
+                    <div className="carousel-item fixx">
                       <img src={imgb} className="d-block w-100" alt="..." />
                     </div>
-                    <div className="carousel-item">
+                    <div className="carousel-item fixx">
                       <img src={imgc} className="d-block w-100" alt="..." />
                     </div>
                   </div>
@@ -255,21 +260,29 @@ export default function LoginHome() {
                       Trip to <span> </span>
                     </h1>
                   </div>
-                </div>
+                  </div>
+                  <h1 className="alignCenter quicksand20">Itinerary</h1>
+                
+               <br/>
+               
 
+                {data.map((item, index) => (
+                  <p key={index}> {props.setData(index)}  <AddPlace/>            </p>
+                ))}
                 <Box flexGrow={1}>
-                  <Autocomplete>
-                    <Input
-                      type="text"
-                      placeholder="Add a place"
-                      ref={locationRef}
-                    />
-                  </Autocomplete>
-                </Box>
-
-                <Button colorScheme="purple" type="submit" onClick={Point}>
-                  Calculate Route
-                </Button>
+                <Autocomplete>
+                  <Input
+                    type="text"
+                    placeholder="Add a place"
+                    ref={locationRef}
+                  />
+                  
+                </Autocomplete>
+              </Box>
+              <Button colorScheme="purple" type="submit" onClick={Point}>
+                Calculate Route
+              </Button>
+        
               </Column>
             </Grid>
           </GridContainer>
@@ -345,13 +358,14 @@ export default function LoginHome() {
               <HStack spacing={4} mt={4} justifyContent="space-between">
                 <Text>Distance: {distance} </Text>
                 <Text>Duration: {duration} </Text>
+                <Text>"BY VEHICLE" </Text>
                 <IconButton
                   aria-label="center back"
                   icon={<FaLocationArrow />}
                   isRound
                   onClick={() => {
-                    map.panTo(center);
-                    map.setZoom(13);
+                    map.panTo(center)
+                    map.setZoom(13)
                   }}
                 />
               </HStack>
@@ -359,6 +373,7 @@ export default function LoginHome() {
           </Flex>
         </div>
       </div>
+
     </div>
   );
 }

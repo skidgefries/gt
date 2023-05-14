@@ -8,6 +8,8 @@ import Navbar2 from "./Components/afterLoginNavbar";
 import Home from "./Components/Home";
 import { Toaster } from "react-hot-toast";
 import Loginhome from "./Components/LoginHome";
+import AddPlace from "./Components/addPlace";
+import DateCalculator from "./Components/planTrip";
 
 // import axios from 'axios';
 
@@ -44,7 +46,9 @@ function App() {
       document.body.style.backgroundColor = "white";
     }
   };
+  const [result, setResult] = useState(null)
   const [modal,setmodal] = useState(false)
+  const [data,setData] = useState(null)
   return (
     <>
       <div>
@@ -65,12 +69,14 @@ function App() {
           ) }
             
             <Route path="/Home" element={<Home modal={modal} setmodal={setmodal}/>} />
-            <Route path="/LoginHome" element={<Loginhome />} />
+            <Route path="/LoginHome" element={<Loginhome data={data} setData={setData} result={result} setResult={setResult}/>} />
             <Route
               path="/Login"
               element={<Login onFormSwitch={toggleForm} modal={modal} setmodal={setmodal} />}
             />
-            <Route path="/About" element={<PlanTrip />} />
+            <Route path="/addPlace" element={<AddPlace data={data} setData={setData}
+       />}/>
+             <Route path="/About" element={<PlanTrip />} />
             <Route path="/Register" element={<Register modal={modal} setmodal={setmodal} />} />
 
           </Routes>

@@ -11,6 +11,7 @@ export default function PlanTrip(props) {
   const [destination, setDestination] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [result, setResult] = useState(null);
 
   const handleChange1 = (e) => {
     setStartDate(e.target.value);
@@ -44,7 +45,15 @@ export default function PlanTrip(props) {
       console.log(err);
     }
   }
-
+  const calculateDaysBetweenDates = () => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const diffInMilliseconds = Math.abs(end - start);
+    const days = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+    setResult(days);
+  };
+  console.log(startDate, endDate)
+  console.log(result)
   return (
     <div className="center2">
       <div className=" bg5 ">
@@ -109,11 +118,11 @@ export default function PlanTrip(props) {
             {/*<p>Selected Date: {date}</p>*/}
             <br />
             <div className="aligncenter1">
-              <NavLink to="../LoginHome">
-                <button type="button" class="btn btn-danger btn-lg">
+       
+                <button type="submit" onClick={calculateDaysBetweenDates} className="btn btn-danger btn-lg">
                   Start Planning
                 </button>
-              </NavLink>
+            
             </div>
             <br />
             <br />
