@@ -4,9 +4,8 @@ import Grid from "./grid";
 import Column from "./column";
 import imga from "./images/boud.jpg";
 import imgb from "./images/chit.webp";
-import imgc from "./images/pkh.webp";
-import img1 from "./images/bkt.jpg";
-
+import imgc from "./images/bkt.jpg";
+import { useLocation } from "react-router-dom";
 import {
   Box,
   Button,
@@ -17,8 +16,8 @@ import {
   Input,
   SkeletonText,
   Text,
-} from '@chakra-ui/react'
-import { FaLocationArrow, FaTimes } from 'react-icons/fa'
+} from "@chakra-ui/react";
+import { FaLocationArrow, FaTimes } from "react-icons/fa";
 
 import {
   useJsApiLoader,
@@ -26,59 +25,84 @@ import {
   Marker,
   Autocomplete,
   DirectionsRenderer,
-} from '@react-google-maps/api'
-import { useRef, useState } from 'react'
-
-const center = { lat: 48.8584, lng: 2.2945 }
-
+} from "@react-google-maps/api";
+import { useRef, useState } from "react";
 
 export default function LoginHome() {
-
+  const [lat1, setlat1] = useState(27.7172);
+  const [lng1, setlng1] = useState(85.324);
+  const center = { lat: lat1, lng: lng1 };
+  const location = useLocation();
+  const { destination } = location.state || {};
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_GOOGLE_MAPS_API_KEY,
-    libraries: ['places'],
-  })
+    id: "google-map-script",
+    googleMapsApiKey: "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q",
+    libraries: ["places"],
+  });
 
-  const [map, setMap] = useState(/** @type google.maps.Map */ (null))
-  const [directionsResponse, setDirectionsResponse] = useState(null)
-  const [distance, setDistance] = useState('')
-  const [duration, setDuration] = useState('')
+  const [map, setMap] = useState(/** @type google.maps.Map */ (null));
+  const [directionsResponse, setDirectionsResponse] = useState(null);
+  const [distance, setDistance] = useState("");
+  const [duration, setDuration] = useState("");
 
   /** @type React.MutableRefObject<HTMLInputElement> */
-  const originRef = useRef()
+  const originRef = useRef();
   /** @type React.MutableRefObject<HTMLInputElement> */
-  const destiantionRef = useRef()
+  const destiantionRef = useRef();
+  const locationRef = useRef();
+
+  function Point() {
+    originRef.current.value =""
+   destiantionRef.current.value =""
+    if (locationRef.current.value === "") {
+      return;
+    }
+    const apiKey = "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q";
+    fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${locationRef.current.value}&key=${apiKey}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "OK") {
+          const { lat, lng } = data.results[0].geometry.location;
+          setlat1(lat);
+          setlng1(lng);
+        } else {
+          console.log(
+            "Geocoding failed. Please check the address and API key."
+          );
+        }
+      });
+  }
 
   if (!isLoaded) {
-    return <SkeletonText />
+    return <SkeletonText />;
   }
 
   async function calculateRoute() {
-    if (originRef.current.value === '' || destiantionRef.current.value === '') {
-      return
+    if (originRef.current.value === "" || destiantionRef.current.value === "") {
+      return;
     }
     // eslint-disable-next-line no-undef
-    const directionsService = new google.maps.DirectionsService()
+    const directionsService = new google.maps.DirectionsService();
     const results = await directionsService.route({
       origin: originRef.current.value,
       destination: destiantionRef.current.value,
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
-    })
-    setDirectionsResponse(results)
-    setDistance(results.routes[0].legs[0].distance.text)
-    setDuration(results.routes[0].legs[0].duration.text)
+    });
+    setDirectionsResponse(results);
+    setDistance(results.routes[0].legs[0].distance.text);
+    setDuration(results.routes[0].legs[0].duration.text);
   }
 
   function clearRoute() {
-    setDirectionsResponse(null)
-    setDistance('')
-    setDuration('')
-    originRef.current.value = ''
-    destiantionRef.current.value = ''
+    setDirectionsResponse(null);
+    setDistance("");
+    setDuration("");
+    originRef.current.value = "";
+    destiantionRef.current.value = "";
   }
-
-
 
   return (
     <div className="fit">
@@ -181,135 +205,158 @@ export default function LoginHome() {
           </div>
         </div>
         <div className="column2">
-        <div id="carouselExampleCaptions" className="carousel slide">
-  <div className="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div className="carousel-inner">
-    <div className="carousel-item active ">
-      <img src={imga} className="d-block w-100" alt="..."                 
-      height="700"
-/>
-      <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-    <div className="carousel-item  ">
-    <img src={imgb} className="d-block w-100" alt="..." height="700"     />
-    <div className="carousel-caption d-none d-md-block">
-      <h5>First slide label</h5>
-      <p>Some representative placeholder content for the first slide.</p>
-    </div>
-  </div>
-  <div className="carousel-item ">
-  <img src={imgc} className="d-block w-100" alt="..." height="700"     />
-  <div className="carousel-caption d-none d-md-block">
-    <h5>First slide label</h5>
-    <p>Some representative placeholder content for the first slide.</p>
-  </div>
-</div>
-  </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
           <GridContainer>
             <Grid>
               <Column>
-              <Box
-              p={4}
-              borderRadius='lg'
-              m={4}
-              bgColor='white'
-              shadow='base'
-              minW='container.md'
-              zIndex='1'
-            >
-              <HStack spacing={2} justifyContent='space-between'>
-                <Box flexGrow={1}>
-                  <Autocomplete>
-                    <Input type='text' placeholder='Origin' ref={originRef} />
-                  </Autocomplete>
-                </Box>
+                <div
+                  id="carouselExampleAutoplaying"
+                  className="carousel slide"
+                  data-bs-ride="carousel"
+                >
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
+                      <img src={imga} className="d-block w-100" alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                      <img src={imgb} className="d-block w-100" alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                      <img src={imgc} className="d-block w-100" alt="..." />
+                    </div>
+                  </div>
+                  <button
+                    className="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      className="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span className="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    className="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      className="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span className="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <div className="contact-short1">
+                  <div className="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <h1>
+                      Trip to <span> </span>
+                    </h1>
+                  </div>
+                </div>
+
                 <Box flexGrow={1}>
                   <Autocomplete>
                     <Input
-                      type='text'
-                      placeholder='Destination'
-                      ref={destiantionRef}
+                      type="text"
+                      placeholder="Add a place"
+                      ref={locationRef}
                     />
                   </Autocomplete>
                 </Box>
-      
-                <ButtonGroup>
-                  <Button colorScheme='pink' type='submit' onClick={calculateRoute}>
-                    Calculate Route
-                  </Button>
-                  <IconButton
-                    aria-label='center back'
-                    icon={<FaTimes />}
-                    onClick={clearRoute}
-                  />
-                </ButtonGroup>
-              </HStack>
-              <HStack spacing={4} mt={4} justifyContent='space-between'>
-                <Text>Distance: {distance} </Text>
-                <Text>Duration: {duration} </Text>
-                <IconButton
-                  aria-label='center back'
-                  icon={<FaLocationArrow />}
-                  isRound
-                  onClick={() => {
-                    map.panTo(center)
-                    map.setZoom(15)
-                  }}
-                />
-              </HStack>
-            </Box>
 
+                <Button colorScheme="purple" type="submit" onClick={Point}>
+                  Calculate Route
+                </Button>
               </Column>
             </Grid>
           </GridContainer>
         </div>
         <div className="column3">
+          <Flex
+            position="relative"
+            flexDirection="column"
+            alignItems="center"
+            h="100vh"
+          >
+            <Box position="absolute" left={0} top={0} h="100%" w="100%">
+              {/* Google Map Box */}
+              <GoogleMap
+                center={center}
+                zoom={13}
+                mapContainerStyle={{ width: "100%", height: "100%" }}
+                options={{
+                  zoomControl: false,
+                  streetViewControl: false,
+                  mapTypeControl: false,
+                  fullscreenControl: false,
+                }}
+                onLoad={(map) => setMap(map)}
+              >
+                <Marker position={center} />
+                {directionsResponse && (
+                  <DirectionsRenderer directions={directionsResponse} />
+                )}
+              </GoogleMap>
+            </Box>
+            <Box
+              p={4}
+              borderRadius="lg"
+              m={4}
+              marginRight={330}
+              bgColor="white"
+              shadow="base"
+              minW="container.md"
+              zIndex="1"
+            >
+              <HStack spacing={2} justifyContent="space-between">
+                <Box flexGrow={1}>
+                  <Autocomplete>
+                    <Input type="text" placeholder="Origin" ref={originRef} />
+                  </Autocomplete>
+                </Box>
+                <Box flexGrow={1}>
+                  <Autocomplete>
+                    <Input
+                      type="text"
+                      placeholder="Destination"
+                      ref={destiantionRef}
+                    />
+                  </Autocomplete>
+                </Box>
 
-        
-        {/* Google Map Box */}
-        <GoogleMap
-          center={center}
-          zoom={15}
-          mapContainerStyle={{ width: '100%', height: '100%' }}
-          options={{
-            zoomControl: false,
-            streetViewControl: false,
-            mapTypeControl: false,
-            fullscreenControl: false,
-          }}
-          onLoad={map => setMap(map)}
-        >
-          <Marker position={center} />
-          {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-          )}
-        </GoogleMap>
-  
-        
-
-
-
-
-
-
-
-
+                <ButtonGroup>
+                  <Button
+                    colorScheme="purple"
+                    type="submit"
+                    onClick={calculateRoute}
+                  >
+                    Calculate Route
+                  </Button>
+                  <IconButton
+                    aria-label="center back"
+                    icon={<FaTimes />}
+                    onClick={clearRoute}
+                  />
+                </ButtonGroup>
+              </HStack>
+              <HStack spacing={4} mt={4} justifyContent="space-between">
+                <Text>Distance: {distance} </Text>
+                <Text>Duration: {duration} </Text>
+                <IconButton
+                  aria-label="center back"
+                  icon={<FaLocationArrow />}
+                  isRound
+                  onClick={() => {
+                    map.panTo(center);
+                    map.setZoom(13);
+                  }}
+                />
+              </HStack>
+            </Box>
+          </Flex>
         </div>
       </div>
     </div>
