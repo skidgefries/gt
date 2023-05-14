@@ -18,8 +18,8 @@ import {
   Input,
   SkeletonText,
   Text,
-} from '@chakra-ui/react'
-import { FaLocationArrow, FaTimes } from 'react-icons/fa'
+} from "@chakra-ui/react";
+import { FaLocationArrow, FaTimes } from "react-icons/fa";
 
 import {
   useJsApiLoader,
@@ -118,7 +118,6 @@ export default function LoginHome(props) {
              
                 <button
                   className="accordion-button"
-                  className="accordion-button"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseOne11"
@@ -134,7 +133,6 @@ export default function LoginHome(props) {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                <div className="accordion-body">
                   <strong>This is the first item's accordion body.</strong> It
                   is shown by default, until the collapse plugin adds the
                   appropriate classes that we use to style each element. These
@@ -149,10 +147,7 @@ export default function LoginHome(props) {
             </div>
             <div className="accordion-item">
               <h2 className="accordion-header">
-            <div className="accordion-item">
-              <h2 className="accordion-header">
                 <button
-                  className="accordion-button collapsed"
                   className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
@@ -169,7 +164,6 @@ export default function LoginHome(props) {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                <div className="accordion-body">
                   <strong>This is the second item's accordion body.</strong> It
                   is hidden by default, until the collapse plugin adds the
                   appropriate classes that we use to style each element. These
@@ -184,10 +178,7 @@ export default function LoginHome(props) {
             </div>
             <div className="accordion-item">
               <h2 className="accordion-header">
-            <div className="accordion-item">
-              <h2 className="accordion-header">
                 <button
-                  className="accordion-button collapsed"
                   className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
@@ -203,7 +194,6 @@ export default function LoginHome(props) {
                 className="accordion-collapse collapse"
                 data-bs-parent="#accordionExample"
               >
-                <div className="accordion-body">
                 <div className="accordion-body">
                   <strong>This is the third item's accordion body.</strong> It
                   is hidden by default, until the collapse plugin adds the
@@ -277,20 +267,7 @@ export default function LoginHome(props) {
                
 
                 {data.map((item, index) => (
-                  <p key={index}>       <div className="accordion" id={index}>
-                  <div className="accordion-item">
-                    <h2 className="accordion-header">
-                      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        {index} 
-                      </button>
-                    </h2>
-                    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                      <div className="accordion-body alignCenter">
-                      <Button type="button" colorScheme="purple" >Add</Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>                                      </p>
+                  <p key={index}> {props.setData(index)}  <AddPlace/>                                       </p>
                 ))}
 
                 <Box flexGrow={1}>
