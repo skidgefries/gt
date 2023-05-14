@@ -3,33 +3,31 @@ const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const { sendMail } = require("../utility/nodemailer");
 
+
 //signup user
 module.exports.signup = async function signup(req, res) {
   try {
     // console.log('req appeared')
     let dataObj = req.body;
 
-
     const emailExists = await User.findOne({ email: dataObj.email });
     if (emailExists) {
-      return res.json({
-        error: "Email already exists",
-      });
-    }
+    res.status(404);
+    throw new Error("Email is already in use");
+  }
 
     const usernameExists = await User.findOne({ username: dataObj.username });
     if (usernameExists) {
-      return res.json({
-        error: "Username is already in use",
-      });
-    }
+    res.status(404);
+    throw new Error("Username already exists");
+  }
 
     let user = await User.create(dataObj);
-    sendMail("signup", user);
+    //sendMail("signup",user)
 
     if (!user)
       return res.json({
-        error: "error while sign up",
+        message: "error while sign up",
       });
 
     return res.json({
@@ -45,17 +43,18 @@ module.exports.signup = async function signup(req, res) {
   }
 };
 
+
 //USER LOGIN
 module.exports.login = async function loginUser(req, res) {
-  try {
+    try{
     const data = req.body;
     if (!data.email || !data.password) {
       res.status(400);
-      res.json({ error: "All fields are mandatory!" });
+      res.json({error:"All fields are mandatory!"})
     }
     const user = await User.findOne({ email: data.email });
 
-    if (user && (await user.matchPassword(data.password))) {
+    if (user &&  (await user.matchPassword(data.password))) {
       const accessToken = jwt.sign(
         {
           user: {
@@ -72,11 +71,12 @@ module.exports.login = async function loginUser(req, res) {
       res.status(401);
       throw new Error("email or password is not valid");
     }
-  } catch (err) {
+}
+catch (err) {
     return res.status(400).json({
-      message: err.message,
-    });
-  }
+          message: err.message,
+        });
+    }
 };
 
 //login user
@@ -177,9 +177,7 @@ module.exports.forgetpassword = async function forgetpassword(req, res) {
     const user = await User.findOne({ email: email });
     if (user) {
       const resetToken = user.createResetToken();
-      let resetPasswordLink = `${req.protocal}://${req.get(
-        "host"
-      )}/resetpassword/${resetToken}`; // //domain name for reset password link
+      let resetPasswordLink = `${req.protocal}://${req.get("host")}/resetpassword/${resetToken}`;     // //domain name for reset password link
       //send email to user
       //nodemailer
       let obj = {

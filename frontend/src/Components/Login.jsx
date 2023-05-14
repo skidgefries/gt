@@ -30,7 +30,7 @@ export const Login = (props) => {
         toast.error(res.error);
       } else {
         props.onFormSwitch("userprofile");
-        localStorage.setItem("token", res.data.accessToken);
+        localStorage.setItem("token", res.data);
         toast.success("Logged in successfully");
         history("/LoginHome");
       }

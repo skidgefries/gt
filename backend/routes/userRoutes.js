@@ -20,6 +20,7 @@ const {
   logout,
 } = require("../controllers/authController");
 const { index } = require("../models/planModel");
+// 
 
 const validateToken = require("../middleware/validateTokenHandler");
 
@@ -81,6 +82,7 @@ userRouter.route("/userProfile/:id")
 .patch(updateUsers)   //done
 .delete(deleteUsers)//done
 .get(getUser);
+
 
 
 module.exports = userRouter;
