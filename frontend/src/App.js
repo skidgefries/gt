@@ -1,6 +1,5 @@
 // import logo from './logo.svg';
 import { useState } from "react";
-import React from "react";
 import "./App.css";
 import About from "./Components/About";
 import Navbar1 from "./Components/Navbar";
@@ -72,7 +71,7 @@ function App() {
             />
             <Route path="/About" element={<PlanTrip />} />
             <Route path="/Register" element={<Register modal={modal} setmodal={setmodal} />} />
-
+            {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
           </Routes>
         </Router>
       </div>
