@@ -31,6 +31,7 @@ planRouter.route("/plan").post(createPlan);
 
 planRouter.route("/plan/:id").patch(updatePlan).delete(deletePlan);
 
+
 planRouter.route("/plan/:planId/places/:placeId").delete(deletePlace);
 
 planRouter

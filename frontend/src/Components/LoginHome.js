@@ -6,6 +6,7 @@ import imga from "./images/boud.jpg";
 import imgb from "./images/chit.webp";
 import imgc from "./images/pkh.webp";
 import img1 from "./images/bkt.jpg";
+import destination from "./planTrip";
 
 import {
   Box,
@@ -35,7 +36,7 @@ const center = { lat: 48.8584, lng: 2.2945 }
 export default function LoginHome() {
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: process.env.REACT_GOOGLE_MAPS_API_KEY,
     libraries: ['places'],
   })
 

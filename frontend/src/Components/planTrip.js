@@ -19,6 +19,8 @@ export default function PlanTrip(props) {
     setEndDate(e.target.value);
   };
 
+  module.exports.destination = {destination} 
+
   async function Submit(e) {
     e.preventDefault();
     try {
@@ -58,14 +60,15 @@ export default function PlanTrip(props) {
           <ModalHeader>
             {" "}
             <div className="cross1">
-            
               <NavLink className="nav-link " to="../Home">
                 <AiFillCloseCircle />
               </NavLink>{" "}
             </div>{" "}
-            <div className="quicksand20"><b>Plan a New Trip</b></div>
+            <div className="quicksand20">
+              <b>Plan a New Trip</b>
+            </div>
           </ModalHeader>{" "}
-          <br/>
+          <br />
           <form
             action="POST"
             className="login-form"
@@ -83,17 +86,39 @@ export default function PlanTrip(props) {
               value={destination}
               required
             />
-            
-            <label htmlFor="startDate" className="form-label quicksand18"><b>Start Date*</b></label>
-            <input type="date" className="email " id="startDate" onChange={handleChange1} ref={dateInputRef} />
-            
-            <label htmlFor="endDate" className="form-label quicksand18"><b>End Date*</b></label>
-            <input type="date" className="email " id="endDate" onChange={handleChange2} ref={dateInputRef} />
+
+            <label htmlFor="startDate" className="form-label quicksand18">
+              <b>Start Date*</b>
+            </label>
+            <input
+              type="date"
+              className="email "
+              id="startDate"
+              onChange={handleChange1}
+              ref={dateInputRef}
+            />
+
+            <label htmlFor="endDate" className="form-label quicksand18">
+              <b>End Date*</b>
+            </label>
+            <input
+              type="date"
+              className="email "
+              id="endDate"
+              onChange={handleChange2}
+              ref={dateInputRef}
+            />
             {/*<p>Selected Date: {date}</p>*/}
-            <br/>
-            <div className="aligncenter1"><NavLink  to="../LoginHome"><button type="button" class="btn btn-danger btn-lg">Start Planning</button></NavLink></div>
-            <br/>
-            <br/>
+            <br />
+            <div className="aligncenter1">
+              <NavLink to="../LoginHome">
+                <button type="button" class="btn btn-danger btn-lg">
+                  Start Planning
+                </button>
+              </NavLink>
+            </div>
+            <br />
+            <br />
           </form>
         </Modal>
       </div>
