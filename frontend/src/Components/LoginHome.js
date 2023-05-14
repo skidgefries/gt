@@ -267,7 +267,7 @@ export default function LoginHome(props) {
                
 
                 {data.map((item, index) => (
-                  <p key={index}> {props.setData(index)}  <AddPlace/>                                       </p>
+                  <p key={index}>   <AddPlace/>                                       </p>
                 ))}
 
                 <Box flexGrow={1}>
