@@ -7,7 +7,9 @@ import Navbar2 from "./Components/afterLoginNavbar";
 import Home from "./Components/Home";
 import LoginScreen from "./Components/LoginScreen";
 import { Toaster } from "react-hot-toast";
-import Map from './Components/map'; //to be added
+import Map from './Components/map'; 
+import Profile from './Components/afterlogin'
+import Carousel1 from "./Components/Carousel";
 // import axios from 'axios';
 
 import { Login } from "./Components/Login";
@@ -17,12 +19,15 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import ProfileScreen from "./Components/ProfileScreen";
 
 function App() {
+
+  const apiKey = 'AIzaSyDnqzvG0A1JmiMvayhbt_T_5IXtRO0DiHQ';
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
   const [currentForm, setCurrentForm] = useState(
     localStorage.getItem("isLoggedIn")
       ? localStorage.getItem("isLoggedIn")
       : "home"
   );
+  
   const toggleForm = (forName) => {
     setCurrentForm(forName);
     localStorage.setItem("isLoggedIn", forName);
@@ -66,11 +71,16 @@ function App() {
       </div>
 
       <div>
-        <Map apiKey={process.env.AIzaSyDnqzvG0A1JmiMvayhbt_T_5IXtRO0DiHQ} /> 
+        <Map apiKey={apiKey} /> 
       </div>
 
       <div>
         <Profile/>
+      </div>
+
+      <div>
+        <h1>POPULAR DESTINATIONSs</h1>
+        <Carousel1/>
       </div>
 
     </>

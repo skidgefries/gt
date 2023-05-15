@@ -1,7 +1,7 @@
 import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 
-function Map({ apiKey }) {
+function Map({apiKey}) {
   const MapComponent = withScriptjs(withGoogleMap(() => (
     <GoogleMap
       defaultZoom={8}
@@ -14,7 +14,7 @@ function Map({ apiKey }) {
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <MapComponent
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${AIzaSyDnqzvG0A1JmiMvayhbt_T_5IXtRO0DiHQ}`}
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${apiKey}`}
         loadingElement={<div style={{ height: '100%' }} />}
         containerElement={<div style={{ height: '100%' }} />}
         mapElement={<div style={{ height: '100%' }} />}

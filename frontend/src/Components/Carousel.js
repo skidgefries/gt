@@ -1,8 +1,8 @@
 import React from "react";
-import Carousel from 'react-bootstrap/Carousel';
+import Carousel from 'react-bootstrap';
 
 
-const Carousel = () => {
+const Carousel1 = () => {
     return (
   
       <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
@@ -58,4 +58,4 @@ const Carousel = () => {
     );
   };
   
-  export default Carousel;
+  export default Carousel1;
