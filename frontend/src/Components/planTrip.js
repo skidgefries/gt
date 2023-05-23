@@ -118,11 +118,11 @@ export default function PlanTrip(props) {
             {/*<p>Selected Date: {date}</p>*/}
             <br />
             <div className="aligncenter1">
-              
-                <button type="submit" className="btn btn-danger btn-lg">
+       
+                <button type="submit" onClick={calculateDaysBetweenDates} className="btn btn-danger btn-lg">
                   Start Planning
                 </button>
-              
+            
             </div>
             <br />
             <br />

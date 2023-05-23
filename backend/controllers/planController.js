@@ -34,7 +34,7 @@ module.exports.getPlan=async function getPlan(req,res){
             })
         }
         else{
-                return res. json({
+            return res. json({
                 message: 'plan not found'
             })
         }

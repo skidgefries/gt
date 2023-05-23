@@ -358,6 +358,10 @@
   font-family: quicksand;
   font-size: calc(5px + 2vmin);
 }
+.quicksand13{
+  font-family: quicksand;
+  font-size: calc(3px + 2vmin);
+}
 .quicksand20{
   font-family: quicksand;
   font-size: calc(30px + 2vmin);
@@ -545,4 +549,9 @@ max-width: 600px;
 
 .fixx{
   max-height: 400px;
+}
+
+.small
+{
+  max-width: 10px;
 }
