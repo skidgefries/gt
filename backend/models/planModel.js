@@ -4,11 +4,11 @@ const { Schema } = mongoose;
 const planSchema = new mongoose.Schema({
   //user_id:{ },
 
-  //   plan_id:{
-  //     type:mongoose.Schema.Types.ObjectId,
-  //     required:false,
-  //     ref:'Plan'
-  // },
+  plan_id:{
+    type:mongoose.Schema.Types.ObjectId,
+    required:false,
+    ref:'Plan'
+  },
   name: {
     type: String,
     required: true,
@@ -17,25 +17,26 @@ const planSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  placestovisit: [
-    new mongoose.Schema(
-      {
-        // place_id:{type:mongoose.Schema.Types.ObjectId, required:false, ref:'Plan'},
-        name: { type: String, required: true, unique: true },
-        imageUrl: { type: String, required: false },
-        notes: [
-          new mongoose.Schema(
-            {
-              // note_id:{type:mongoose.Schema.Types.ObjectId, required:false, ref:'Plan'},
-              note: { type: String, required: false },
-            },
-            { strict: false }
-          ),
-        ],
-      },
-      { strict: false }
-    ),
-  ],
+
+  // placestovisit: [
+  //   new mongoose.Schema(
+  //     {
+  //       // place_id:{type:mongoose.Schema.Types.ObjectId, required:false, ref:'Plan'},
+  //       name: { type: String, required: true, unique: true },
+  //       imageUrl: { type: String, required: false },
+  //       notes: [
+  //         new mongoose.Schema(
+  //           {
+  //             // note_id:{type:mongoose.Schema.Types.ObjectId, required:false, ref:'Plan'},
+  //             note: { type: String, required: false },
+  //           },
+  //           { strict: false }
+  //         ),
+  //       ],
+  //     },
+  //     { strict: false }
+  //   ),
+  // ],
 
   Itinerary: [
     new mongoose.Schema(
@@ -58,19 +59,19 @@ const planSchema = new mongoose.Schema({
               name: { type: String, required: true, unique: true },
               coordinates:{type: [Number]},
               imageUrl: { type: String, required: false },
-              // notes: [
-              //   new mongoose.Schema(
-              //     {
-              //       note_id: {
-              //         type: mongoose.Schema.Types.ObjectId,
-              //         required: false,
-              //         // ref: "Plan",
-              //       },
-              //       note: { type: String, required: false },
-              //     },
-              //     { strict: false }
-              //   ),
-              // ],
+              notes: [
+                new mongoose.Schema(
+                  {
+                    note_id: {
+                      type: mongoose.Schema.Types.ObjectId,
+                      required: false,
+                      // ref: "Plan",
+                    },
+                    note: { type: String, required: false },
+                  },
+                  { strict: false }
+                ),
+              ],
             },
             { strict: false }
           ),
