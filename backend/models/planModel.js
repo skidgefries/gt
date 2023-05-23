@@ -56,7 +56,6 @@ const planSchema = new mongoose.Schema({
           new mongoose.Schema(
             {
               name: { type: String, required: true, unique: true },
-              coordinates:{type: [Number]},
               imageUrl: { type: String, required: false },
               // notes: [
               //   new mongoose.Schema(
