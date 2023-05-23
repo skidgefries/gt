@@ -1,12 +1,10 @@
 const Plan = require('../models/planModel');
 
 
-
 // module.exports.getAllPlans=async function getAllPlans(req,res){
 //     try{
 //     let plans=await Plan.find();
 //         if(plans){
-  
 //             return res.json({
 //                 message: 'all plans retrieved',
 //                 data:plans
@@ -36,7 +34,7 @@ module.exports.getPlan=async function getPlan(req,res){
             })
         }
         else{
-            return res. json({
+                return res. json({
                 message: 'plan not found'
             })
         }
@@ -62,7 +60,6 @@ module.exports.createPlan=async function createPlan(req,res){
     
         return res.status(400).json({
           message: err.message,
-
         });
     }
 }
@@ -294,28 +291,4 @@ module.exports.updatePlan = async function(req, res) {
 //         }
 //     }
    
-
-module.exports.suruko=async function surukoPlan(req,res){
-  try{
-      let planData=req.body;
-      let sPlan=await Plan.create(planData);
-      if(!sPlan)
-      return res.json({
-          message: 'data not added Succesfully',
-      });
-
-      return res.json({
-        message: 'data  added Succesfully',
-        data: sPlan,
-    });
-
-  }
-  catch (err) {
-      console.log('here', err.message)
-  
-      return res.status(400).json({
-        message: err.message,
-      });
-  }
-}
 

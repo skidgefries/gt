@@ -322,9 +322,9 @@
 
 }
 .contact-short1{
-  max-width:50vw;
+  max-width:40vw;
   margin: auto;
-  padding: 5rem  ;
+  padding: 5rem 10rem ;
   background-color: #5D4C72;
   border-radius: 1rem;
   font-family: nunito;
@@ -497,7 +497,6 @@ justify-content:center;
 .column1 {
   background-color: #f2f2f2;
  min-width:300px;
-  max-width: 300px;
 
 }
 
@@ -512,6 +511,7 @@ justify-content:center;
   background-color: #f2f2f2;
 max-width: 600px;
   min-width: 600px;
+  max-height: 800px;
 
 }
 
@@ -529,7 +529,7 @@ max-width: 600px;
 
 .columna {
   min-width: 0; /* Ensure the column can shrink to 0 width */
-  min-height: 730px;
+  min-height: 820px;
 }
 
 .fit{

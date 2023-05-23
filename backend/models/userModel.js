@@ -44,7 +44,7 @@ const userSchema=mongoose.Schema({
         required: true,
         minLength:8,
         validate: function (){
-            return this. confirmPassword==this.password
+            return this.confirmPassword==this.password
         }
     },
 
@@ -58,10 +58,7 @@ const userSchema=mongoose.Schema({
         type:String,
         default:'../image/defaultuser.png'
     },
-    acToken:{
-        type:String,
-        
-    },
+
     resetToken:String
 });
 

@@ -27,97 +27,135 @@ import {
   Marker,
   Autocomplete,
   DirectionsRenderer,
-} from "@react-google-maps/api";
-import { useRef, useState } from "react";
+} from '@react-google-maps/api'
+import { useRef, useState } from 'react'
 
-export default function LoginHome(props) {
-  const [lat1, setlat1] = useState(27.7172);
-  const [lng1, setlng1] = useState(85.324);
-  const center = { lat: lat1, lng: lng1 };
-  const location = useLocation();
-  const { destination } = location.state || {};
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q",
-    libraries: ["places"],
-  });
+const center = { lat: 48.8584, lng: 2.2945 }
 
-  const [map, setMap] = useState(/** @type google.maps.Map */ (null));
-  const [directionsResponse, setDirectionsResponse] = useState(null);
-  const [distance, setDistance] = useState("");
-  const [duration, setDuration] = useState("");
 
-  /** @type React.MutableRefObject<HTMLInputElement> */
-  const originRef = useRef();
-  /** @type React.MutableRefObject<HTMLInputElement> */
-  const destiantionRef = useRef();
-  const locationRef = useRef();
-  const data = ['item 1','item 2','item 3'];
 
-  function Point() {
-    if (locationRef.current.value === "") {
-      return;
-    }
+// import {
+  //   Box,
+  //   Button,
+  //   ButtonGroup,
+  //   Flex,
+  //   HStack,
+  //   IconButton,
+//   Input,
+//   SkeletonText,
+//   Text,
+// } from "@chakra-ui/react";
+// import { FaLocationArrow, FaTimes } from "react-icons/fa";
+
+// import {
+  //   useJsApiLoader,
+  //   GoogleMap,
+  //   Marker,
+  //   Autocomplete,
+  //   DirectionsRenderer,
+  // } from "@react-google-maps/api";
+  // import { useRef, useState } from "react";
+  
+  // const center = { lat: 27.7172, lng: 85.3240 };
+  
+  export default function LoginHome() {
+    //function App() {
+      const { isLoaded } = useJsApiLoader({
+        googleMapsApiKey: 'AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q',
+        libraries: ['places'],
+      })
     
-    const apiKey = "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q";
-    fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${locationRef.current.value}&key=${apiKey}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status === "OK") {
-          const { lat, lng } = data.results[0].geometry.location;
-          setlat1(lat);
-          setlng1(lng);
-        } else {
-          console.log(
-            "Geocoding failed. Please check the address and API key."
-          );
+      const [map, setMap] = useState(/** @type google.maps.Map */ (null))
+      const [directionsResponse, setDirectionsResponse] = useState(null)
+      const [distance, setDistance] = useState('')
+      const [duration, setDuration] = useState('')
+    
+      /** @type React.MutableRefObject<HTMLInputElement> */
+      const originRef = useRef()
+      /** @type React.MutableRefObject<HTMLInputElement> */
+      const destiantionRef = useRef()
+    
+      if (!isLoaded) {
+        return <SkeletonText />
+      }
+    
+      async function calculateRoute() {
+        if (originRef.current.value === '' || destiantionRef.current.value === '') {
+          return
         }
-      });
-  }
+        // eslint-disable-next-line no-undef
+        const directionsService = new google.maps.DirectionsService()
+        const results = await directionsService.route({
+          origin: originRef.current.value,
+          destination: destiantionRef.current.value,
+          // eslint-disable-next-line no-undef
+          travelMode: google.maps.TravelMode.DRIVING,
+        })
+        setDirectionsResponse(results)
+        setDistance(results.routes[0].legs[0].distance.text)
+        setDuration(results.routes[0].legs[0].duration.text)
+      }
+    
+      function clearRoute() {
+        setDirectionsResponse(null)
+        setDistance('')
+        setDuration('')
+        originRef.current.value = ''
+        destiantionRef.current.value = ''
+      }
+    // const { isLoaded } = useJsApiLoader({
+      //   googleMapsApiKey: 'AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q',
+      //   libraries: ["places"],
+      // });
 
-  if (!isLoaded) {
-    return <SkeletonText />;
-  }
+  // const [map, setMap] = useState(/** @type google.maps.Map */ (null));
+  // const [directionsResponse, setDirectionsResponse] = useState(null);
+  // const [distance, setDistance] = useState("");
+  // const [duration, setDuration] = useState("");
 
-  async function calculateRoute() {
-    if (originRef.current.value === "" || destiantionRef.current.value === "") {
-      return;
-    }
-    // eslint-disable-next-line no-undef
-    const directionsService = new google.maps.DirectionsService();
-    const results = await directionsService.route({
-      origin: originRef.current.value,
-      destination: destiantionRef.current.value,
-      // eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.DRIVING,
-    })
-    setDirectionsResponse(results)
-    setDistance(results.routes[0].legs[0].distance.text)
-    setDuration(results.routes[0].legs[0].duration.text)
-  }
+  // /** @type React.MutableRefObject<HTMLInputElement> */
+  // const originRef = useRef();
+  // /** @type React.MutableRefObject<HTMLInputElement> */
+  // const destiantionRef = useRef();
 
-  function clearRoute() {
-    setDirectionsResponse(null)
-    setDistance('')
-    setDuration('')
-    originRef.current.value = ''
-    destiantionRef.current.value = ''
-  }
-  console.log(props.result)
+  // if (!isLoaded) {
+  //   return <SkeletonText />;
+  // }
+
+  // async function calculateRoute() {
+  //   if (originRef.current.value === "" || destiantionRef.current.value === "") {
+  //     return;
+  //   }
+  //   // eslint-disable-next-line no-undef
+  //   const directionsService = new google.maps.DirectionsService();
+  //   const results = await directionsService.route({
+  //     origin: originRef.current.value,
+  //     destination: destiantionRef.current.value,
+  //     // eslint-disable-next-line no-undef
+  //     travelMode: google.maps.TravelMode.DRIVING,
+  //   });
+  //   setDirectionsResponse(results);
+  //   setDistance(results.routes[0].legs[0].distance.text);
+  //   setDuration(results.routes[0].legs[0].duration.text);
+  // }
+
+  // function clearRoute() {
+  //   setDirectionsResponse(null);
+  //   setDistance("");
+  //   setDuration("");
+  //   originRef.current.value = "";
+  //   destiantionRef.current.value = "";
+  // }
 
   return (
-    
-    <div className="fit">
+    <div className="fit1">
       <div className="grid-container ">
         <div className="column1">
-          <div className="accordion" id="accordionExample11">
+          <div className="accordion" id="accordionExample">
             <div className="accordion-item">
               <h2 className="accordion-header">
-             
                 <button
-                  className="accordion-button"
+                  class="accordion-button"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseOne11"
@@ -128,11 +166,11 @@ export default function LoginHome(props) {
                 </button>
               </h2>
               <div
-                id="collapseOne11"
+                id="collapseOne"
                 className="accordion-collapse collapse show"
                 data-bs-parent="#accordionExample"
               >
-                <div className="accordion-body">
+                <div class="accordion-body">
                   <strong>This is the first item's accordion body.</strong> It
                   is shown by default, until the collapse plugin adds the
                   appropriate classes that we use to style each element. These
@@ -145,10 +183,10 @@ export default function LoginHome(props) {
                 </div>
               </div>
             </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
                 <button
-                  className="accordion-button collapsed"
+                  class="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo22"
@@ -159,11 +197,11 @@ export default function LoginHome(props) {
                 </button>
               </h2>
               <div
-                id="collapseTwo22"
+                id="collapseTwo"
                 className="accordion-collapse collapse"
                 data-bs-parent="#accordionExample"
               >
-                <div className="accordion-body">
+                <div class="accordion-body">
                   <strong>This is the second item's accordion body.</strong> It
                   is hidden by default, until the collapse plugin adds the
                   appropriate classes that we use to style each element. These
@@ -176,10 +214,10 @@ export default function LoginHome(props) {
                 </div>
               </div>
             </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
                 <button
-                  className="accordion-button collapsed"
+                  class="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseThree33"
@@ -190,11 +228,11 @@ export default function LoginHome(props) {
                 </button>
               </h2>
               <div
-                id="collapseThree33"
+                id="collapseThree"
                 className="accordion-collapse collapse"
                 data-bs-parent="#accordionExample"
               >
-                <div className="accordion-body">
+                <div class="accordion-body">
                   <strong>This is the third item's accordion body.</strong> It
                   is hidden by default, until the collapse plugin adds the
                   appropriate classes that we use to style each element. These
@@ -255,122 +293,99 @@ export default function LoginHome(props) {
                   </button>
                 </div>
                 <div className="contact-short1">
-                  <div className="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <h1>
-                      Trip to <span> </span>
-                    </h1>
-                  </div>
-                  </div>
-                  <h1 className="alignCenter quicksand20">Itinerary</h1>
-                
-               <br/>
-               
-
-                {data.map((item, index) => (
-                  <p key={index}>   <AddPlace/>                                       </p>
-                ))}
-
-                <Box flexGrow={1}>
-                <Autocomplete>
-                  <Input
-                    type="text"
-                    placeholder="Add a place"
-                    ref={locationRef}
-                  />
-                  
-                </Autocomplete>
-              </Box>               <Button colorScheme="purple" type="submit" onClick={Point}>
-              Submit
-            </Button>  
         
+            <div className="d-grid gap-2 d-md-flex justify-content-md-center">
+              <h1>
+                Trip to <span> </span>
+              </h1> 
+            </div>
+          </div>
+      
+                
               </Column>
             </Grid>
           </GridContainer>
         </div>
         <div className="column3">
-          <Flex
-            position="relative"
-            flexDirection="column"
-            alignItems="center"
-            h="100vh"
+        <Flex
+        position='relative'
+        flexDirection='column'
+        alignItems='center'
+        h='100vh'
+      >
+        <Box position='absolute' left={0} top={0} h='100%' w='100%'>
+          {/* Google Map Box */}
+          <GoogleMap
+            center={center}
+            zoom={15}
+            mapContainerStyle={{ width: '100%', height: '100%' }}
+            options={{
+              zoomControl: false,
+              streetViewControl: false,
+              mapTypeControl: false,
+              fullscreenControl: false,
+            }}
+            onLoad={map => setMap(map)}
           >
-            <Box position="absolute" left={0} top={0} h="100%" w="100%">
-              {/* Google Map Box */}
-              <GoogleMap
-                center={center}
-                zoom={13}
-                mapContainerStyle={{ width: "100%", height: "100%" }}
-                options={{
-                  zoomControl: false,
-                  streetViewControl: false,
-                  mapTypeControl: false,
-                  fullscreenControl: false,
-                }}
-                onLoad={(map) => setMap(map)}
-              >
-                <Marker position={center} />
-                {directionsResponse && (
-                  <DirectionsRenderer directions={directionsResponse} />
-                )}
-              </GoogleMap>
+            <Marker position={center} />
+            {directionsResponse && (
+              <DirectionsRenderer directions={directionsResponse} />
+            )}
+          </GoogleMap>
+        </Box>
+        <Box
+          p={4}
+          borderRadius='lg'
+          m={4}
+          marginRight={330}
+          bgColor='white'
+          shadow='base'
+          minW='container.md'
+          zIndex='1'
+        >
+          <HStack spacing={2} justifyContent='space-between'>
+            <Box flexGrow={1}>
+              <Autocomplete>
+                <Input type='text' placeholder='Origin' ref={originRef} />
+              </Autocomplete>
             </Box>
-            <Box
-              p={4}
-              borderRadius="lg"
-              m={4}
-              marginRight={330}
-              bgColor="white"
-              shadow="base"
-              minW="container.md"
-              zIndex="1"
-            >
-              <HStack spacing={2} justifyContent="space-between">
-                <Box flexGrow={1}>
-                  <Autocomplete>
-                    <Input type="text" placeholder="Origin" ref={originRef} />
-                  </Autocomplete>
-                </Box>
-                <Box flexGrow={1}>
-                  <Autocomplete>
-                    <Input
-                      type="text"
-                      placeholder="Destination"
-                      ref={destiantionRef}
-                    />
-                  </Autocomplete>
-                </Box>
-
-                <ButtonGroup>
-                  <Button
-                    colorScheme="purple"
-                    type="submit"
-                    onClick={calculateRoute}
-                  >
-                    Calculate Route
-                  </Button>
-                  <IconButton
-                    aria-label="center back"
-                    icon={<FaTimes />}
-                    onClick={clearRoute}
-                  />
-                </ButtonGroup>
-              </HStack>
-              <HStack spacing={4} mt={4} justifyContent="space-between">
-                <Text>Distance: {distance} </Text>
-                <Text>Duration: {duration} </Text>
-                <Text>"BY VEHICLE" </Text>
-                <IconButton
-                  aria-label="center back"
-                  icon={<FaLocationArrow />}
-                  isRound
-                  onClick={() => {
-                    map.panTo(center)
-                    map.setZoom(13)
-                  }}
+            <Box flexGrow={1}>
+              <Autocomplete>
+                <Input
+                  type='text'
+                  placeholder='Destination'
+                  ref={destiantionRef}
                 />
-              </HStack>
+              </Autocomplete>
             </Box>
-          </Flex>
+  
+            <ButtonGroup>
+              <Button colorScheme='purple' type='submit' onClick={calculateRoute}>
+                Calculate Route
+              </Button>
+              <IconButton
+                aria-label='center back'
+                icon={<FaTimes />}
+                onClick={clearRoute}
+              />
+            </ButtonGroup>
+          </HStack>
+          <HStack spacing={4} mt={4} justifyContent='space-between'>
+            <Text>Distance: {distance} </Text>
+            <Text>Duration: {duration} </Text>
+            <IconButton
+              aria-label='center back'
+              icon={<FaLocationArrow />}
+              isRound
+              onClick={() => {
+                map.panTo(center)
+                map.setZoom(15)
+              }}
+            />
+          </HStack>
+        </Box>
+      </Flex>
+                     
         </div>
       </div>
 
