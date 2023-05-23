@@ -24,17 +24,17 @@ import PlanTrip from "./Components/planTrip";
 function App() {
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
   const [currentForm, setCurrentForm] = useState(
-    localStorage.getItem("isLoggedIn")
-      ? localStorage.getItem("isLoggedIn")
+    localStorage.getItem("accesstoken")
+      ? localStorage.getItem("accessToken")
       : "home"
   );
   const toggleForm = (forName) => {
     if(forName==="home"){
      setCurrentForm("home");
-     localStorage.removeItem("isLoggedIn");}
+     localStorage.removeItem("accessToken");}
      else{
       setCurrentForm(forName);
-      localStorage.setItem("isLoggedIn", forName);
+      localStorage.setItem("accessToken", forName);
      }
   };
   const toggleMode = () => {
@@ -62,7 +62,7 @@ function App() {
 
           <Routes>
 
-          { localStorage.getItem("isLoggedIn") ?(
+          { localStorage.getItem("accessToken") ?(
             <Route path="/" element={<LoginHome />} />
           ): (
             <Route path="/" element={<Home modal={modal} setmodal={setmodal}/>} />

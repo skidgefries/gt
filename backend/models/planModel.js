@@ -2,7 +2,12 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const planSchema = new mongoose.Schema({
-  //user_id:{ },
+
+  user_id:{
+    type:mongoose.Schema.Types.ObjectId,
+    required:false,
+    ref:'User'
+  },
 
   plan_id:{
     type:mongoose.Schema.Types.ObjectId,
@@ -17,6 +22,17 @@ const planSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+
+  startDate:{
+    type:Date,
+    required: true,
+  },
+
+  endDate:{
+    type:Date,
+    required: true,
+  },
+
 
   // placestovisit: [
   //   new mongoose.Schema(
@@ -64,7 +80,7 @@ const planSchema = new mongoose.Schema({
                     note_id: {
                       type: mongoose.Schema.Types.ObjectId,
                       required: false,
-                      // ref: "Plan",
+                      ref: "Plan",
                     },
                     note: { type: String, required: false },
                   },

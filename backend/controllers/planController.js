@@ -51,6 +51,7 @@ module.exports.createPlan=async function createPlan(req,res){
         let planData=req.body;
         let createPlan=await Plan.create(planData)
         return res.json({
+            plan_Id:planData.id,
             message: 'plan created Succesfully',
             data:createPlan
         })
@@ -64,79 +65,81 @@ module.exports.createPlan=async function createPlan(req,res){
     }
 }
 
-module.exports.deleteNote = async function deleteNote(req, res) {
-  try {
-    const planId = req.params.planId;
-    const placeId = req.params.placeId;
-    const noteId = req.params.noteId;
+// module.exports.deleteNote = async function deleteNote(req, res) {
+//   try {
+//     const planId = req.params.planId;
+//     const itineraryId = req.params.itineraryId;
+//     const placeItineraryId = req.params.placesItineraryId;
+//     const noteId = req.params.noteId;
 
-    const plan = await Plan.findById(planId);
-    if (!plan) {
-      return res.json({
-        message: 'Plan not found',
-      });
-    }
+//     const plan = await Plan.findById(planId);
+//     if (!plan) {
+//       return res.json({
+//         message: 'Plan not found',
+//       });
+//     }
 
-    const placeIndex = plan.placestovisit.findIndex(place => place._id.toString() === placeId);
-    if (placeIndex === -1) {
-      return res.json({
-        message: 'Place not found',
-      });
-    }
+//     const placeIndex = plan.placestovisit.findIndex(place => place._id.toString() === placeId);
+//     if (placeIndex === -1) {
+//       return res.json({
+//         message: 'Place not found',
+//       });
+//     }
 
-    const noteIndex = plan.placestovisit[placeIndex].notes.findIndex(note => note._id.toString() === noteId);
-    if (noteIndex === -1) {
-      return res.json({
-        message: 'Note not found',
-      });
-    }
+//     const noteIndex = plan.placestovisit[placeIndex].notes.findIndex(note => note._id.toString() === noteId);
+//     if (noteIndex === -1) {
+//       return res.json({
+//         message: 'Note not found',
+//       });
+//     }
 
-    plan.placestovisit[placeIndex].notes.splice(noteIndex, 1);
-    await plan.save();
+//     plan.placestovisit[placeIndex].notes.splice(noteIndex, 1);
+//     await plan.save();
 
-    return res.json({
-      message: 'Note deleted successfully',
-      data: plan,
-    });
-  } catch (err) {
-    return res.status(500).json({
-      message: err.message,
-    });
-  }
-};
+//     return res.json({
+//       message: 'Note deleted successfully',
+//       data: plan,
+//     });
+//   } catch (err) {
+//     return res.status(500).json({
+//       message: err.message,
+//     });
+//   }
+// };
 
-module.exports.deletePlace = async function deletePlace(req, res) {
-  try {
-    const planId = req.params.planId;
-    const placeId = req.params.placeId;
 
-    const plan = await Plan.findById(planId);
-    if (!plan) {
-      return res.json({
-        message: 'Plan not found',
-      });
-    }
+// module.exports.deletePlace = async function deletePlace(req, res) {
+//   try {
+//     const planId = req.params.planId;
+//     const placeId = req.params.placeId;
 
-    const placeIndex = plan.placestovisit.findIndex(place => place._id.toString() === placeId);
-    if (placeIndex === -1) {
-      return res.json({
-        message: 'Place not found',
-      });
-    }
+//     const plan = await Plan.findById(planId);
+//     if (!plan) {
+//       return res.json({
+//         message: 'Plan not found',
+//       });
+//     }
 
-    plan.placestovisit.splice(placeIndex, 1);
-    await plan.save();
+//     const placeIndex = plan.placestovisit.findIndex(place => place._id.toString() === placeId);
+//     if (placeIndex === -1) {
+//       return res.json({
+//         message: 'Place not found',
+//       });
+//     }
 
-    return res.json({
-      message: 'Place deleted successfully',
-      data: plan,
-    });
-  } catch (err) {
-    return res.status(500).json({
-      message: err.message,
-    });
-  }
-};
+//     plan.placestovisit.splice(placeIndex, 1);
+//     await plan.save();
+
+//     return res.json({
+//       message: 'Place deleted successfully',
+//       data: plan,
+//     });
+//   } catch (err) {
+//     return res.status(500).json({
+//       message: err.message,
+//     });
+//   }
+// };
 
 
 module.exports.deletePlan=async function deletePlan(req,res){
@@ -234,6 +237,59 @@ module.exports.deletePlacesItinerary = async function(req, res) {
 
     return res.json({
       message: 'Place itinerary deleted successfully',
+      data: plan,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message,
+    });
+  }
+};
+
+module.exports.deleteNoteInPlacesItinerary = async function(req, res) {
+  try {
+    const planId = req.params.planId;
+    const itineraryId = req.params.itineraryId;
+    const placeItineraryId = req.params.placesItineraryId;
+    const noteId = req.params.noteId;
+
+    const plan = await Plan.findById(planId);
+    if (!plan) {
+      return res.json({
+        message: 'Plan not found',
+      });
+    }
+
+    const itineraryIndex = plan.Itinerary.findIndex((item) => item._id.toString() === itineraryId);
+    if (itineraryIndex === -1) {
+      return res.json({
+        message: 'Itinerary not found',
+      });
+    }
+
+    const placeItineraryIndex = plan.Itinerary[itineraryIndex].placesitinerary.findIndex(
+      (item) => item._id.toString() === placeItineraryId
+    );
+    if (placeItineraryIndex === -1) {
+      return res.json({
+        message: 'Place itinerary not found',
+      });
+    }
+
+    const noteIndex = plan.Itinerary[itineraryIndex].placesitinerary[placeItineraryIndex].notes.findIndex(
+      (item) => item._id.toString() === noteId
+    );
+    if (noteIndex === -1) {
+      return res.json({
+        message: 'Note not found',
+      });
+    }
+
+    plan.Itinerary[itineraryIndex].placesitinerary[placeItineraryIndex].notes.splice(noteIndex, 1);
+    await plan.save();
+
+    return res.json({
+      message: 'Note deleted successfully',
       data: plan,
     });
   } catch (err) {

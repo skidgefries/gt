@@ -9,6 +9,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 
 import img1 from "./images/navLogo.png";
+
 export const Login = (props) => {
   const history = useNavigate();
 
@@ -29,13 +30,13 @@ export const Login = (props) => {
       if (res.error) {
         toast.error(res.error);
       } else {
-        props.onFormSwitch("userprofile");
-        localStorage.setItem("token", res.data.accessToken);
+        props.onFormSwitch(res.data.accessToken);
+        // localStorage.setItem("token", res.data.accessToken);
         toast.success("Logged in successfully");
         history("/LoginHome");
       }
     } catch (err) {
-      alert("Wrong Details");
+      toast.error("error")
       console.log(err);
     }
   }

@@ -4,6 +4,7 @@ import { Modal, ModalHeader } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { AiFillCloseCircle } from "react-icons/ai";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 export default function PlanTrip(props) {
   // const [date, setDate] = useState("");
@@ -12,6 +13,8 @@ export default function PlanTrip(props) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [result, setResult] = useState(null);
+
+  const history = useNavigate();
 
   const handleChange1 = (e) => {
     setStartDate(e.target.value);
@@ -25,23 +28,21 @@ export default function PlanTrip(props) {
     try {
       console.log(destination);
       const values = {
-        destination,
+        name:destination,
         startDate,
         endDate,
       };
       console.log(values);
-      const res = await axios.post("http://localhost:4000/user/login", values);
+      const res = await axios.post("http://localhost:4000/plans/plan", values);
       if (res.error) {
         toast.error(res.error);
       }
-      // else {
-      //   props.onFormSwitch("userprofile");
-      //   localStorage.setItem("token", res.data.accessToken);
-      //   toast.success("Logged in successfully");
-      //   history("/LoginHome");
-      // }
+      else {
+        toast.success("Start Planing");
+        history("/LoginHome");
+      }
     } catch (err) {
-      alert("Wrong Details");
+      toast.error("error")
       console.log(err);
     }
   }

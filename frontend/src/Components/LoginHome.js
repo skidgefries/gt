@@ -7,6 +7,9 @@ import imgb from "./images/chit.webp";
 import imgc from "./images/bkt.jpg";
 import AddPlace from "./addPlace";
 import {  useLocation } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import axios from "axios";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Box,
@@ -41,6 +44,8 @@ export default function LoginHome(props) {
     googleMapsApiKey: "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q",
     libraries: ["places"],
   });
+
+ 
 
   const [map, setMap] = useState(/** @type google.maps.Map */ (null));
   const [directionsResponse, setDirectionsResponse] = useState(null);
@@ -82,7 +87,8 @@ export default function LoginHome(props) {
   }
 
 
-
+  const info = axios.get("http://localhost:4000/plans/plan/:id");
+      
 
   console.log(props.result)
 
@@ -234,7 +240,7 @@ export default function LoginHome(props) {
                 <div className="contact-short1">
                   <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                     <h1>
-                      Trip to Kathmandu<span> </span>
+                      Trip to {info.name} <span> </span>
                     </h1>
                   </div>
                   </div>

@@ -13,6 +13,7 @@ const {
   deletePlace,
   deleteDayNote,
   deletePlacesItinerary,
+  deleteNoteInPlacesItinerary,
 } = require("../controllers/planController");
 
 // planRouter.route('/allPlans')
@@ -31,18 +32,20 @@ planRouter.route("/plan").post(createPlan);
 
 planRouter.route("/plan/:id").patch(updatePlan).delete(deletePlan);
 
-planRouter.route("/plan/:planId/places/:placeId").delete(deletePlace);
+// planRouter.route("/plan/:planId/places/:placeId").delete(deletePlace);
+
 
 planRouter
-  .route("/plan/:planId/places/:placeId/notes/:noteId")
-  .delete(deleteNote);
+.route("/plan/:planId/itinerary/:itineraryId/daynotes/:dayNoteId")
+.delete(deleteDayNote);
 
 planRouter
-  .route("/plan/:planId/itinerary/:itineraryId/daynotes/:dayNoteId")
-  .delete(deleteDayNote);
+.route("/plan/:planId/itinerary/:itineraryId/placesitinerary/:placesItineraryId")
+.delete(deletePlacesItinerary);
 
 planRouter
-  .route("/plan/:planId/itinerary/:itineraryId/placesitinerary/:placesItineraryId")
-  .delete(deletePlacesItinerary);
+  .route("/plan/:planId/itinerary/:itineraryId/placesitinerary/:placesItineraryId/notes/:noteId")
+  .delete(deleteNoteInPlacesItinerary);
+
 
 module.exports = planRouter;

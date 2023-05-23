@@ -67,7 +67,10 @@ module.exports.login = async function loginUser(req, res) {
         process.env.JWT_TOKEN,
         { expiresIn: "30d" }
       );
-      res.status(200).json({ accessToken });
+      res.status(200).json({ 
+          accessToken,
+          user_id: user.id,
+       });
     } else {
       res.status(401);
       throw new Error("email or password is not valid");
