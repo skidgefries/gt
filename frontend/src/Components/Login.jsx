@@ -15,6 +15,8 @@ export const Login = (props) => {
 
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
 
   async function Submit(e) {
     e.preventDefault();
@@ -40,6 +42,10 @@ export const Login = (props) => {
       console.log(err);
     }
   }
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="center2">
       <div className=" bg5 ">
