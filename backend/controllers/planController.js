@@ -27,13 +27,11 @@ module.exports.getPlan=async function getPlan(req,res){
     try{
 
       let id=req.params.id;
-      console.log(id)
       let plan=await Plan.findById(id);
         if(plan){
             return res.json({
-                id,
+                details: plan,
                 message: 'plan retrieved',
-                data:plan
             })
         }
         else{
@@ -43,7 +41,7 @@ module.exports.getPlan=async function getPlan(req,res){
         }
     }   
     catch(err){
-      console.log("here")
+      console.log("Error: ",err.message)
     res.status(500).json({
 
         message:err.message
@@ -56,7 +54,7 @@ module.exports.createPlan=async function createPlan(req,res){
         let planData=req.body;
         let createPlan=await Plan.create(planData)
         return res.json({
-            plan_Id:planData.id,
+            planId:createPlan.id,
             message: 'plan created Succesfully',
             data:createPlan
         })

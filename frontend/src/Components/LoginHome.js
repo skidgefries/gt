@@ -6,11 +6,10 @@ import imga from "./images/boud.jpg";
 import imgb from "./images/chit.webp";
 import imgc from "./images/bkt.jpg";
 import AddPlace from "./addPlace";
-import {  useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from "axios";
-import { useParams} from "react-router-dom"
-
+import { useParams } from "react-router-dom";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
@@ -33,29 +32,26 @@ import {
   Autocomplete,
   DirectionsRenderer,
 } from "@react-google-maps/api";
-import { useRef, useState,useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function LoginHome(props) {
-
   
   const { id } = useParams();
-  const [planName, setPlanName] = useState("");
-  
-  useEffect(() => {
-    const fetchdata =async () => {
-      const data = await axios.get(`http://localhost:4000/plans/plan/${id}`)
-      console.log("Plans:", data);
-    };
-    fetchdata();
-    // // Fetch plan data from the backend API
-    // axios.get(`http://localhost:4000/plans/plan/${planId}`)
-    //   .then((response) => {
-      //     setPlanName(response.data);
-      //   })
-      //   .catch((error) => {
-        //     console.error("Error fetching plan data:", error);
-        //   });
-      }, [id] );
+const [plan, setPlan] = useState("");
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:4000/plans/plan/${id}`);
+      setPlan(response.data.details);
+      console.log("This is the data from the backend >>>>>>>", response.data);
+    } catch (error) {
+      console.error("Error fetching plan data:", error);
+    }
+  };
+
+  fetchData();
+}, [id]);
 
   const [lat1, setlat1] = useState(27.7172);
   const [lng1, setlng1] = useState(85.324);
@@ -67,8 +63,6 @@ export default function LoginHome(props) {
     googleMapsApiKey: "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q",
     libraries: ["places"],
   });
-  
- 
 
   const [map, setMap] = useState(/** @type google.maps.Map */ (null));
   const [directionsResponse, setDirectionsResponse] = useState(null);
@@ -80,13 +74,13 @@ export default function LoginHome(props) {
   /** @type React.MutableRefObject<HTMLInputElement> */
   const destiantionRef = useRef();
   const locationRef = useRef();
-  const data = ['item 1','item 2','item 3'];
+  const data = ["item 1", "item 2", "item 3"];
 
   function Point() {
     if (locationRef.current.value === "") {
       return;
     }
-    
+
     const apiKey = "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q";
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${locationRef.current.value}&key=${apiKey}`
@@ -109,20 +103,15 @@ export default function LoginHome(props) {
     return <SkeletonText />;
   }
 
-  
-      
-
-  console.log(props.result)
+  console.log(props.result);
 
   return (
-    
     <div className="fit">
       <div className="grid-container ">
         <div className="column1">
           <div className="accordion" id="accordionExample11">
             <div className="accordion-item">
               <h2 className="accordion-header">
-             
                 <button
                   className="accordion-button"
                   type="button"
@@ -171,14 +160,15 @@ export default function LoginHome(props) {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body quicksand13">
-                  <strong> 
-                  <ul style={{listStyleType:"disc"}}>
-                  <li>12th June 2023</li>
-                  <li>13th June 2023</li>
-                  <li>14th June 2023</li>
-                  <li>15th June 2023</li>
-                  </ul></strong> 
-                                  </div>
+                  <strong>
+                    <ul style={{ listStyleType: "disc" }}>
+                      <li>12th June 2023</li>
+                      <li>13th June 2023</li>
+                      <li>14th June 2023</li>
+                      <li>15th June 2023</li>
+                    </ul>
+                  </strong>
+                </div>
               </div>
             </div>
             <div className="accordion-item">
@@ -262,32 +252,32 @@ export default function LoginHome(props) {
                 <div className="contact-short1">
                   <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                     <h1>
-                      Trip to {planName.name}<span> </span>
+                      Trip to
+                      {plan.name}
+                      <span> </span>
                     </h1>
                   </div>
-                  </div>
-                  <h1 className="alignCenter quicksand20">Itinerary</h1>
-                
-               <br/>
-               
-
+                </div>
+                <h1 className="alignCenter quicksand20">Itinerary</h1>
+                <br />
                 {data.map((item, index) => (
-                  <p key={index}>   <AddPlace/>                                       </p>
+                  <p key={index}>
+                    {" "}
+                    <AddPlace />{" "}
+                  </p>
                 ))}
-
                 <Box flexGrow={1}>
-                <Autocomplete>
-                  <Input
-                    type="text"
-                    placeholder="Add a place"
-                    ref={locationRef}
-                  />
-                  
-                </Autocomplete>
-              </Box>               <Button colorScheme="purple" type="submit" onClick={Point}>
-              Submit
-            </Button>  
-        
+                  <Autocomplete>
+                    <Input
+                      type="text"
+                      placeholder="Add a place"
+                      ref={locationRef}
+                    />
+                  </Autocomplete>
+                </Box>{" "}
+                <Button colorScheme="purple" type="submit" onClick={Point}>
+                  Submit
+                </Button>
               </Column>
             </Grid>
           </GridContainer>
@@ -319,11 +309,9 @@ export default function LoginHome(props) {
                 )}
               </GoogleMap>
             </Box>
-            
           </Flex>
         </div>
       </div>
-
     </div>
   );
 }

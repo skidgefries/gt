@@ -8,6 +8,7 @@ import Navbar2 from "./Components/afterLoginNavbar";
 import Home from "./Components/Home";
 import { Toaster } from "react-hot-toast";
 import Loginhome from "./Components/LoginHome";
+import Settings from "./Components/settings";
 import AddPlace from "./Components/addPlace";
 import DateCalculator from "./Components/planTrip";
 
@@ -29,13 +30,13 @@ function App() {
       : "home"
   );
   const toggleForm = (forName) => {
-    if(forName==="home"){
-     setCurrentForm("home");
-     localStorage.removeItem("accessToken");}
-     else{
+    if (forName === "home") {
+      setCurrentForm("home");
+      localStorage.removeItem("accessToken");
+    } else {
       setCurrentForm(forName);
       localStorage.setItem("accessToken", forName);
-     }
+    }
   };
   const toggleMode = () => {
     if (mode === "light") {
@@ -46,9 +47,9 @@ function App() {
       document.body.style.backgroundColor = "white";
     }
   };
-  const [result, setResult] = useState(null)
-  const [modal,setmodal] = useState(false)
-  const [data,setData] = useState(null)
+  const [result, setResult] = useState(null);
+  const [modal, setmodal] = useState(false);
+  const [data, setData] = useState(null);
   return (
     <>
       <div>
@@ -57,28 +58,61 @@ function App() {
           {currentForm === "home" ? (
             <Navbar1 mode={mode} toggleMode={toggleMode} setmodal={setmodal} />
           ) : (
-            <Navbar2 mode={mode} onFormSwitch={toggleForm} toggleMode={toggleMode} />
+            <Navbar2
+              mode={mode}
+              onFormSwitch={toggleForm}
+              toggleMode={toggleMode}
+            />
           )}
 
           <Routes>
+            {localStorage.getItem("accessToken") ? (
+              <Route path="/" element={<LoginHome />} />
+            ) : (
+              <Route
+                path="/"
+                element={<Home modal={modal} setmodal={setmodal} />}
+              />
+            )}
 
-          { localStorage.getItem("accessToken") ?(
-            <Route path="/" element={<LoginHome />} />
-          ): (
-            <Route path="/" element={<Home modal={modal} setmodal={setmodal}/>} />
-          ) }
-            
-            <Route path="/Home" element={<Home modal={modal} setmodal={setmodal}/>} />
-            <Route path="/LoginHome/plans/plan/:id" element={<Loginhome data={data} setData={setData} result={result} setResult={setResult}/>} />
+            <Route
+              path="/Home"
+              element={<Home modal={modal} setmodal={setmodal} />}
+            />
+            <Route
+              path="/LoginHome/plans/plan/:id"
+              element={
+                <Loginhome
+                  data={data}
+                  setData={setData}
+                  result={result}
+                  setResult={setResult}
+                />
+              }
+            />
             <Route
               path="/Login"
-              element={<Login onFormSwitch={toggleForm} modal={modal} setmodal={setmodal} />}
+              element={
+                <Login
+                  onFormSwitch={toggleForm}
+                  modal={modal}
+                  setmodal={setmodal}
+                />
+              }
             />
-            <Route path="/addPlace" element={<AddPlace data={data} setData={setData}
-       />}/>
-             <Route path="/About" element={<PlanTrip />} />
-            <Route path="/Register" element={<Register modal={modal} setmodal={setmodal} />} />
-
+            <Route
+              path="/addPlace"
+              element={<AddPlace data={data} setData={setData} />}
+            />
+            <Route path="/About" element={<PlanTrip />} />
+            <Route
+              path="/Register"
+              element={<Register modal={modal} setmodal={setmodal} />}
+            />
+            <Route
+              path="/Settings"
+              element={<Settings modal={modal} setmodal={setmodal} />}
+            />
           </Routes>
         </Router>
       </div>

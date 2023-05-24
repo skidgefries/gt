@@ -38,7 +38,7 @@ export default function PlanTrip(props) {
         toast.error(res.error);
       }
       else {
-        localStorage.setItem("Id", res.planData.plan_Id);
+        localStorage.setItem("Id", res.data.planId);
         const ID = localStorage.getItem("Id");
         // const id=JSON.stringify(res.data.plan_Id)
         toast.success("Start Planing");
