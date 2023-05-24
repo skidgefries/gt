@@ -25,10 +25,13 @@ const Plan = require('../models/planModel');
 
 module.exports.getPlan=async function getPlan(req,res){
     try{
-        let id=req.params.id;
-        let plan=await Plan.findById(id);
+
+      let id=req.params.id;
+      console.log(id)
+      let plan=await Plan.findById(id);
         if(plan){
             return res.json({
+                id,
                 message: 'plan retrieved',
                 data:plan
             })
@@ -40,7 +43,9 @@ module.exports.getPlan=async function getPlan(req,res){
         }
     }   
     catch(err){
+      console.log("here")
     res.status(500).json({
+
         message:err.message
     });
     }

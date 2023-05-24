@@ -69,7 +69,7 @@ function App() {
           ) }
             
             <Route path="/Home" element={<Home modal={modal} setmodal={setmodal}/>} />
-            <Route path="/LoginHome" element={<Loginhome data={data} setData={setData} result={result} setResult={setResult}/>} />
+            <Route path="/LoginHome/plans/plan/:id" element={<Loginhome data={data} setData={setData} result={result} setResult={setResult}/>} />
             <Route
               path="/Login"
               element={<Login onFormSwitch={toggleForm} modal={modal} setmodal={setmodal} />}
