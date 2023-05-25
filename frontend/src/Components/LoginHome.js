@@ -9,6 +9,8 @@ import AddPlace from "./addPlace";
 import {  useLocation } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { useParams} from "react-router-dom"
+
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
@@ -31,9 +33,30 @@ import {
   Autocomplete,
   DirectionsRenderer,
 } from "@react-google-maps/api";
-import { useRef, useState } from "react";
+import { useRef, useState,useEffect } from "react";
 
 export default function LoginHome(props) {
+
+  
+  const { id } = useParams();
+  const [planName, setPlanName] = useState("");
+  
+  useEffect(() => {
+    const fetchdata =async () => {
+      const data = await axios.get(`http://localhost:4000/plans/plan/${id}`)
+      console.log("Plans:", data);
+    };
+    fetchdata();
+    // // Fetch plan data from the backend API
+    // axios.get(`http://localhost:4000/plans/plan/${planId}`)
+    //   .then((response) => {
+      //     setPlanName(response.data);
+      //   })
+      //   .catch((error) => {
+        //     console.error("Error fetching plan data:", error);
+        //   });
+      }, [id] );
+
   const [lat1, setlat1] = useState(27.7172);
   const [lng1, setlng1] = useState(85.324);
   const center = { lat: lat1, lng: lng1 };
@@ -44,7 +67,7 @@ export default function LoginHome(props) {
     googleMapsApiKey: "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q",
     libraries: ["places"],
   });
-
+  
  
 
   const [map, setMap] = useState(/** @type google.maps.Map */ (null));
@@ -86,8 +109,7 @@ export default function LoginHome(props) {
     return <SkeletonText />;
   }
 
-
-  const info = axios.get("http://localhost:4000/plans/plan/:id");
+  
       
 
   console.log(props.result)
@@ -240,7 +262,7 @@ export default function LoginHome(props) {
                 <div className="contact-short1">
                   <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                     <h1>
-                      Trip to {info.name} <span> </span>
+                      Trip to {planName.name}<span> </span>
                     </h1>
                   </div>
                   </div>

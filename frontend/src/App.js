@@ -6,25 +6,20 @@ import About from "./Components/About";
 import Navbar1 from "./Components/Navbar";
 import Navbar2 from "./Components/afterLoginNavbar";
 import Home from "./Components/Home";
+import Carousel1 from "./Components/Carousel";
+//import ProfileScreen from "./Components/ProfileScreen";
+import Loginhome from "./Components/LoginHome";
 import LoginScreen from "./Components/LoginScreen";
 import { Toaster } from "react-hot-toast";
-import Loginhome from "./Components/LoginHome";
-import AddPlace from "./Components/addPlace";
-import DateCalculator from "./Components/planTrip";
-
-import Map from './Components/map'; 
-import Profile from './Components/afterlogin'
-import Carousel1 from "./Components/Carousel";
+import Afterlogin from "./Components/afterlogin";
+//import Carousel1 from "./Components/Carousel";
 // import axios from 'axios';
+
 
 import { Login } from "./Components/Login";
 import { Register } from "./Components/Register";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginHome from "./Components/LoginHome";
-import afterlogin from "./Components/afterlogin";
-import PlanTrip from "./Components/planTrip";
-// import ProfileScreen from "./Components/ProfileScreen";
 
 function App() {
 
@@ -71,43 +66,43 @@ function App() {
           <Routes>
 
           { localStorage.getItem("accessToken") ?(
-            <Route path="/" element={<LoginHome />} />
+            <Route path="/" element={<Loginhome />} />
           ): (
             <Route path="/" element={<Home modal={modal} setmodal={setmodal}/>} />
           ) }
             
             <Route path="/Home" element={<Home modal={modal} setmodal={setmodal}/>} />
-            <Route path="/LoginHome" element={<Loginhome data={data} setData={setData} result={result} setResult={setResult}/>} />
+            <Route path="/LoginHome/plans/plan/:id" element={<Loginhome data={data} setData={setData} result={result} setResult={setResult}/>} />
             <Route
               path="/Login"
               element={<Login onFormSwitch={toggleForm} modal={modal} setmodal={setmodal} />}
             />
-            <Route path="/addPlace" element={<AddPlace data={data} setData={setData}
-       />}/>
-             <Route path="/About" element={<PlanTrip />} />
-            <Route path="/Register" element={<Register modal={modal} setmodal={setmodal} />} />
-
             <Route path="/About" element={<About />} />
             <Route path="/Register" element={<Register />} />
-            <Route path="/afterlogin" element={<afterlogin />} />
+            {/* <Route path="/Profile" element={<afterlogin />} /> */}
             <Route path="/LoginScreen" element={<LoginScreen />} />
+            <Route path="/Afterlogin" element={<Afterlogin/>} />
             {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
           </Routes>
         </Router>
       </div>
 
-      <div>
-        <Map apiKey={apiKey} /> 
-      </div>
+     
 
-      <div>
-        <Profile/>
-      </div>
+      {/* <div>
+        <ProfileScreen/>
+      </div> */}
 
-      <div>
+      {/*<div>
         <h1>POPULAR DESTINATIONSs</h1>
         <Carousel1/>
       </div>
+        <Afterlogin/> */} 
+      
+      {/* <div>
+        <h1>POPULAR DESTINATIONS</h1>
+        <Carousel1/>
+      </div> */}
 
     </>
   );

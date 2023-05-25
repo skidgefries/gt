@@ -35,7 +35,7 @@ export const Login = (props) => {
         props.onFormSwitch(res.data.accessToken);
         // localStorage.setItem("token", res.data.accessToken);
         toast.success("Logged in successfully");
-        history("/LoginHome");
+        history("/Afterlogin");
       }
     } catch (err) {
       toast.error("error")
