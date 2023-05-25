@@ -11,7 +11,7 @@ import Carousel1 from "./Components/Carousel";
 import Loginhome from "./Components/LoginHome";
 import LoginScreen from "./Components/LoginScreen";
 import { Toaster } from "react-hot-toast";
-import Afterlogin from "./Components/Afterlogin";
+import Afterlogin from "./Components/afterlogin";
 //import Carousel1 from "./Components/Carousel";
 // import axios from 'axios';
 

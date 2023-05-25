@@ -57,11 +57,11 @@ export default function Afterlogin(props) {
             alignItems="center"
             h="100vh"
           >
-            {/* <Box position="absolute" left={350} top={50} h="100%" w="100%">
+            <Box position="absolute" left={600} top={0} h="100%" w="100%">
               <GoogleMap
                 center={center}
                 zoom={7}
-                mapContainerStyle={{ width: "100%", height: "100%" }}
+                mapContainerStyle={{ width: "100%", height: "50%" }}
                 options={{
                   zoomControl: true,
                   streetViewControl: false,
@@ -72,7 +72,7 @@ export default function Afterlogin(props) {
               >
                 <Marker position={center} />
               </GoogleMap>
-            </Box> */}
+            </Box>
             
           </Flex>
         </div>

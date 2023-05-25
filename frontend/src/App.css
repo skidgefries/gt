@@ -530,14 +530,15 @@ max-width: 600px;
 
 }
 
-.column4 {
+/* .column4 {
   background-color: #f2f2f2;
   max-width: 900px;
   min-width: 900px;
-  max-height: 200px;
-  min-height: 200px;
+  max-height: 400px;
+  min-height: 400px;
+  outline: red dashed 1px;
 
-}
+} */
 
 
 .grid-container1 {
