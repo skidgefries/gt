@@ -11,7 +11,6 @@ import Loginhome from "./Components/LoginHome";
 import Settings from "./Components/settings";
 import AddPlace from "./Components/addPlace";
 import DateCalculator from "./Components/planTrip";
-import Places from "./Components/map";
 
 // import axios from 'axios';
 
@@ -68,7 +67,7 @@ function App() {
 
           <Routes>
             {localStorage.getItem("accessToken") ? (
-              <Route path="/" element={<LoginHome />} />
+              <Route path="/" element={<Home modal={modal} setmodal={setmodal} />} />
             ) : (
               <Route
                 path="/"
@@ -106,7 +105,6 @@ function App() {
               element={<AddPlace data={data} setData={setData} />}
             />
             <Route path="/About" element={<PlanTrip />} />
-            <Route path="/Map" element={<Places />} />
             <Route
               path="/Register"
               element={<Register modal={modal} setmodal={setmodal} />}
