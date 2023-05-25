@@ -8,14 +8,16 @@ import Home from "./Components/Home";
 import LoginScreen from "./Components/LoginScreen";
 import { Toaster } from "react-hot-toast";
 import Map from './Components/map'; 
-import Profile from './Components/afterlogin'
-import Carousel1 from "./Components/Carousel";
+import Afterlogin from "./Components/afterlogin";
+//import Carousel1 from "./Components/Carousel";
 // import axios from 'axios';
+
 
 import { Login } from "./Components/Login";
 import { Register } from "./Components/Register";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 // import ProfileScreen from "./Components/ProfileScreen";
 
 function App() {
@@ -65,6 +67,7 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/LoginScreen" element={<LoginScreen />} />
+            <Route path="/Afterlogin" element={<afterlogin/>} />
             {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
           </Routes>
         </Router>
@@ -75,13 +78,13 @@ function App() {
       </div>
 
       <div>
-        <Profile/>
+        <Afterlogin/>
       </div>
 
-      <div>
-        <h1>POPULAR DESTINATIONSs</h1>
+      {/* <div>
+        <h1>POPULAR DESTINATIONS</h1>
         <Carousel1/>
-      </div>
+      </div> */}
 
     </>
   );
