@@ -1,11 +1,14 @@
 import React from "react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Modal, ModalHeader } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { AiFillCloseCircle } from "react-icons/ai";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { Autocomplete, useJsApiLoader, GoogleMap, GoogleApiWrapper } from "@react-google-maps/api";
+import { SkeletonText} from "@chakra-ui/react";
+
 export default function PlanTrip(props) {
   // const [date, setDate] = useState("");
   const dateInputRef = useRef(null);
@@ -13,8 +16,20 @@ export default function PlanTrip(props) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [result, setResult] = useState(null);
-
+  
   const history = useNavigate();
+
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q",
+    libraries: ["places"],
+  });
+
+  if (!isLoaded) {
+    return < SkeletonText />;
+  }
+
+
 
   const handleChange1 = (e) => {
     setStartDate(e.target.value);
@@ -58,10 +73,13 @@ export default function PlanTrip(props) {
   };
   console.log(startDate, endDate)
   console.log(result)
+
+ 
+
   return (
     <div className="center2">
       <div className=" bg5 ">
-        <Modal
+        {/* <Modal
           className="pop3"
           contentClassName="pop3"
           size="lg"
@@ -69,7 +87,7 @@ export default function PlanTrip(props) {
           toggle={() => props.setmodal(!props.modal)}
         >
           <ModalHeader>
-            {" "}
+            {" "} */}
             <div className="cross1">
               <NavLink className="nav-link " to="../Home">
                 <AiFillCloseCircle />
@@ -78,7 +96,7 @@ export default function PlanTrip(props) {
             <div className="quicksand20">
               <b>Plan a New Trip</b>
             </div>
-          </ModalHeader>{" "}
+          {/* </ModalHeader>{" "} */}
           <br />
           <form
             action="POST"
@@ -87,7 +105,9 @@ export default function PlanTrip(props) {
             novalidate
           >
             <label htmlFor="destination" className="form-label"></label>
-            <input
+            <Autocomplete>
+
+              <input
               onChange={(e) => setDestination(e.target.value)}
               type="text"
               placeholder="Where?"
@@ -96,7 +116,9 @@ export default function PlanTrip(props) {
               className="email "
               value={destination}
               required
-            />
+              />
+         
+              </Autocomplete>
 
             <label htmlFor="startDate" className="form-label quicksand18">
               <b>Start Date*</b>
@@ -131,8 +153,9 @@ export default function PlanTrip(props) {
             <br />
             <br />
           </form>
-        </Modal>
+      {/* </Modal> */}
       </div>
     </div>
   );
 }
+              

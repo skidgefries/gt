@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-
-import "../App.css";
+import "../App.css"
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -22,10 +21,7 @@ export default function Settings() {
 
     try {
       // Send the updated settings to the backend API
-      const response = await axios.patch(
-        `http://localhost:4000/plans/plan/:id`,
-        formData
-      );
+      const response = await axios.patch(`http://localhost:4000/plans/plan/:id`, formData);
 
       // Display success message
       toast.success("Settings updated successfully");
@@ -60,21 +56,19 @@ export default function Settings() {
 
   return (
     <div className="settings-container">
-      <div className="Settings-panel">
-        <h1>Settings</h1>
-        <form onSubmit={handleSubmit}></form>
-      </div>
       <div className="side-panel">
+        <h1 className="Settings Title">Settings</h1>
         <button className="side-panel-button" onClick={handleAccountClick}>
           Account
         </button>
-        <br />
         <button className="side-panel-button" onClick={handlePreferencesClick}>
           User Preferences
         </button>
       </div>
-      <div className="Account-section">
-        <h1 className="">Pranaw Raj Kafle</h1>
+      <div className="settings-content">
+        <div className="column">
+          
+        </div>
       </div>
     </div>
   );

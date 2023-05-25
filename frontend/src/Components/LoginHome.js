@@ -251,11 +251,10 @@ useEffect(() => {
                 </div>
                 <div className="contact-short1">
                   <div className="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <h1>
-                      Trip to
-                      {plan.name}
+                    <h2>
+                      Trip to {plan.name}
                       <span> </span>
-                    </h1>
+                    </h2>
                   </div>
                 </div>
                 <h1 className="alignCenter quicksand20">Itinerary</h1>
