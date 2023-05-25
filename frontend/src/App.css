@@ -463,6 +463,12 @@ justify-content:center;
   border-color: #909090 ;
   width:500px;
  }
+.carousel-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 
 
 .but{
@@ -539,6 +545,12 @@ max-width: 600px;
 .fit{
   padding-top: 10px;
 }
+.carousel-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 
 
 
