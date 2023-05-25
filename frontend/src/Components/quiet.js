@@ -1,26 +1,6 @@
-import React from "react";
-import GridContainer from "./gridContainer";
-import Grid from "./grid";
-import Column from "./column";
-import imga from "./images/boud.jpg";
-import imgb from "./images/chit.webp";
-import imgc from "./images/bkt.jpg";
-import AddPlace from "./addPlace";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { toast } from "react-hot-toast";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import {
-  Box,
-  Button,
-  Flex,
-  Input,
-  SkeletonText,
-} from "@chakra-ui/react";
-import { FaLocationArrow, FaTimes } from "react-icons/fa";
-
+import { SkeletonText, Box } from "@chakra-ui/react";
 import {
   useJsApiLoader,
   GoogleMap,
@@ -28,47 +8,49 @@ import {
   Autocomplete,
   DirectionsRenderer,
 } from "@react-google-maps/api";
-import { useRef, useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export default function LoginHome(props) {
-  
   const { id } = useParams();
-const [plan, setPlan] = useState("");
+  const [plan, setPlan] = useState("");
 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`http://localhost:4000/plans/plan/${id}`);
-      setPlan(response.data.details);
-      console.log("This is the data from the backend >>>>>>>", response.data);
-    } catch (error) {
-      console.error("Error fetching plan data:", error);
-    }
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:4000/plans/plan/${id}`
+        );
+        setPlan(response.data.details);
+        console.log(
+          "This is the data from the backend >>>>>>>",
+          response.data
+        );
+      } catch (error) {
+        console.error("Error fetching plan data:", error);
+      }
+    };
 
-  fetchData();
-}, [id]);
+    fetchData();
+  }, [id]);
 
   const [lat1, setlat1] = useState(27.7172);
   const [lng1, setlng1] = useState(85.324);
   const center = { lat: lat1, lng: lng1 };
   const location = useLocation();
-  const { destination } = location.state || {};
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q",
+    googleMapsApiKey: "YOUR_API_KEY",
     libraries: ["places"],
   });
 
-  const [map, setMap] = useState(/** @type google.maps.Map */ (null));
+  const [map, setMap] = useState(null);
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
 
-  /** @type React.MutableRefObject<HTMLInputElement> */
-   const originRef = useRef();
-  // /** @type React.MutableRefObject<HTMLInputElement> */
-   const destiantionRef = useRef();
+  const originRef = useRef();
+  const destinationRef = useRef();
   const locationRef = useRef();
   const data = ["item 1", "item 2", "item 3"];
 
@@ -77,13 +59,13 @@ useEffect(() => {
       return;
     }
 
-    const apiKey = "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q";
+    const apiKey = "YOUR_API_KEY";
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${locationRef.current.value}&key=${apiKey}`
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("dfghjk",data);
+        console.log("dfghjk", data);
         if (data.status === "OK") {
           const { lat, lng } = data.results[0].geometry.location;
           setlat1(lat);
@@ -96,247 +78,69 @@ useEffect(() => {
       });
   }
 
-
-  
-
   if (!isLoaded) {
     return <SkeletonText />;
   }
 
   console.log(props.result);
   Point1();
-  
+
   return (
-    
     <div className="fit">
-      <div className="grid-container ">
-        <div className="column1">
-          <div className="accordion" id="accordionExample11">
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne11"
-                  aria-expanded="true"
-                  aria-controls="collapseOne11"
-                >
-                  Overview
-                </button>
-              </h2>
-              <div
-                id="collapseOne11"
-                className="accordion-collapse collapse show"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body">
-                  <strong>This is the first item's accordion body.</strong> It
-                  is shown by default, until the collapse plugin adds the
-                  appropriate classes that we use to style each element. These
-                  classes control the overall appearance, as well as the showing
-                  and hiding via CSS transitions. You can modify any of this
-                  with custom CSS or overriding our default variables. It's also
-                  worth noting that just about any HTML can go within the{" "}
-                  <code>.accordion-body</code>, though the transition does limit
-                  overflow.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo22"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo22"
-                >
-                  Itinerary
-                </button>
-              </h2>
-              <div
-                id="collapseTwo22"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body quicksand13">
-                  <strong>
-                    <ul style={{ listStyleType: "disc" }}>
-                      <li>12th June 2023</li>
-                      <li>13th June 2023</li>
-                      <li>14th June 2023</li>
-                      <li>15th June 2023</li>
-                    </ul>
-                  </strong>
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseThree33"
-                  aria-expanded="false"
-                  aria-controls="collapseThree33"
-                >
-                  Expenses
-                </button>
-              </h2>
-              <div
-                id="collapseThree33"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> It
-                  is hidden by default, until the collapse plugin adds the
-                  appropriate classes that we use to style each element. These
-                  classes control the overall appearance, as well as the showing
-                  and hiding via CSS transitions. You can modify any of this
-                  with custom CSS or overriding our default variables. It's also
-                  worth noting that just about any HTML can go within the{" "}
-                  <code>.accordion-body</code>, though the transition does limit
-                  overflow.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="column2">
-          <GridContainer>
-            <Grid>
-              <Column>
-                <div
-                  id="carouselExampleAutoplaying"
-                  className="carousel slide "
-                  data-bs-ride="carousel"
-                >
-                  <div className="carousel-inner">
-                    <div className="carousel-item active fixx">
-                      <img src={imga} className="d-block w-100" alt="..." />
+      {/* Rest of your code */}
+      <div className="column2">
+        {/* Rest of your code */}
+        <GridContainer>
+          <Grid>
+            <Column>
+              <div className="carousel-inner">
+                {plan && plan.addresses ? (
+                  plan.addresses.map((address, index) => (
+                    <div
+                      key={index}
+                      className={`carousel-item ${index === 0 ? "active" : ""}`}
+                    >
+                      <img
+                        src={`https://maps.googleapis.com/maps/api/streetview?size=600x300&location=${address.lat},${address.lng}&key=YOUR_API_KEY`}
+                        className="d-block w-100"
+                        alt="Street View"
+                      />
                     </div>
-                    <div className="carousel-item fixx">
-                      <img src={imgb} className="d-block w-100" alt="..." />
-                    </div>
-                    <div className="carousel-item fixx">
-                      <img src={imgc} className="d-block w-100" alt="..." />
-                    </div>
-                  </div>
-                  <button
-                    className="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleAutoplaying"
-                    data-bs-slide="prev"
-                  >
-                    <span
-                      className="carousel-control-prev-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Previous</span>
-                  </button>
-                  <button
-                    className="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleAutoplaying"
-                    data-bs-slide="next"
-                  >
-                    <span
-                      className="carousel-control-next-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Next</span>
-                  </button>
-                </div>
-                <div className="contact-short1">
-                  <div className="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <h2>
-                      Trip to {plan.name}
-                      <span> </span>
-                    </h2>
-                  </div>
-                </div>
-                <h1 className="alignCenter quicksand20">Itinerary</h1>
-                <br />
-                {data.map((item, index) => (
-                  <p key={index}>
-                    {" "}
-                    <AddPlace />{" "}
-                  </p>
-                ))}
-                <Box flexGrow={1}>
-                  <Autocomplete>
-                    <Input
-                      type="text"
-                      placeholder="Add a place"
-                      ref={locationRef}
-                    />
-                  </Autocomplete>
-                </Box>{" "}
-                <Button colorScheme="purple" type="submit" onClick={Point}>
-                  Submit
-                </Button>
-              </Column>
-            </Grid>
-          </GridContainer>
-        </div>
-        <div className="column3">
-          <Flex
-            position="relative"
-            flexDirection="column"
-            alignItems="center"
-            h="100vh"
-          >
-            <Box position="absolute" left={0} top={0} h="100%" w="100%">
-              {/* Google Map Box */}
-              <GoogleMap
-                center={center}
-                zoom={13}
-                mapContainerStyle={{ width: "100%", height: "100%" }}
-                options={{
-                  zoomControl: true,
-                  streetViewControl: true,
-                  mapTypeControl: true,
-                  fullscreenControl: false,
-                }}
-                onLoad={(map) => setMap(map)}
-              >
-                <Marker position={center} />
-                {directionsResponse && (
-                  <DirectionsRenderer directions={directionsResponse} />
+                  ))
+                ) : (
+                  <div>No addresses found</div>
                 )}
-              </GoogleMap>
-            </Box>
-          </Flex>
-        </div>
+              </div>
+              {/* Rest of your code */}
+            </Column>
+          </Grid>
+        </GridContainer>
       </div>
+      {/* Rest of your code */}
     </div>
   );
+
   function Point1() {
-      if (plan.name === "") {
-        return;
-      }
-  
-      const apiKey = "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q";
-      fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${plan.name}&key=${apiKey}`
-      )
+    if (plan.name === "") {
+      return;
+    }
+
+    const apiKey = "YOUR_API_KEY";
+    fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${plan.name}&key=${apiKey}`
+    )
       .then((response) => response.json())
       .then((data) => {
-          console.log("dfghjk",data);
-          if (data.status === "OK") {
-            const { lat, lng } = data.results[0].geometry.location;
-            setlat1(lat);
-            setlng1(lng);
-          } else {
-            console.log(
-              "Geocoding failed. Please check the address and API key."
-            );
-          }
-        });
-    }
+        console.log("dfghjk", data);
+        if (data.status === "OK") {
+          const { lat, lng } = data.results[0].geometry.location;
+          setlat1(lat);
+          setlng1(lng);
+        } else {
+          console.log(
+            "Geocoding failed. Please check the address and API key."
+          );
+        }
+      });
+  }
 }
-
