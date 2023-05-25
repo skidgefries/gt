@@ -11,8 +11,7 @@ import Carousel1 from "./Components/Carousel";
 import Loginhome from "./Components/LoginHome";
 import LoginScreen from "./Components/LoginScreen";
 import { Toaster } from "react-hot-toast";
-import Map from './Components/map'; 
-import Afterlogin from "./Components/afterlogin";
+import Afterlogin from "./Components/Afterlogin";
 //import Carousel1 from "./Components/Carousel";
 // import axios from 'axios';
 
@@ -81,27 +80,25 @@ function App() {
             />
             <Route path="/About" element={<About />} />
             <Route path="/Register" element={<Register />} />
-            <Route path="/Profile" element={<afterlogin />} />
+            {/* <Route path="/Profile" element={<afterlogin />} /> */}
             <Route path="/LoginScreen" element={<LoginScreen />} />
-            <Route path="/Afterlogin" element={<afterlogin/>} />
+            <Route path="/Afterlogin" element={<Afterlogin/>} />
             {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
           </Routes>
         </Router>
       </div>
 
-      <div>
-        <Map apiKey={apiKey} /> 
-      </div>
+     
 
       {/* <div>
         <ProfileScreen/>
       </div> */}
 
-      <div>
+      {/*<div>
         <h1>POPULAR DESTINATIONSs</h1>
         <Carousel1/>
       </div>
-        <Afterlogin/>
+        <Afterlogin/> */} 
       
       {/* <div>
         <h1>POPULAR DESTINATIONS</h1>

@@ -504,6 +504,11 @@ justify-content:center;
   grid-gap: 10px; 
 }
 
+.containe{
+  border: 1px solid black ;
+  
+}
+
 .column1 {
   background-color: #f2f2f2;
  min-width:300px;
@@ -522,6 +527,15 @@ justify-content:center;
 max-width: 600px;
   min-width: 600px;
   max-height: 800px;
+
+}
+
+.column4 {
+  background-color: #f2f2f2;
+  max-width: 900px;
+  min-width: 900px;
+  max-height: 200px;
+  min-height: 200px;
 
 }
 
