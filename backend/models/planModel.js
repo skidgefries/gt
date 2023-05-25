@@ -9,6 +9,7 @@ const planSchema = new mongoose.Schema({
     ref:'User'
   },
 
+
   plan_id:{
     type:mongoose.Schema.Types.ObjectId,
     required:false,

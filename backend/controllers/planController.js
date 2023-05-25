@@ -52,6 +52,7 @@ module.exports.getPlan=async function getPlan(req,res){
 module.exports.createPlan=async function createPlan(req,res){
     try{
         let planData=req.body;
+        console.log(planData);
         let createPlan=await Plan.create(planData)
         return res.json({
             planId:createPlan.id,
@@ -60,7 +61,7 @@ module.exports.createPlan=async function createPlan(req,res){
         })
     }
     catch (err) {
-        console.log('here', err.message)
+        console.log('Error : ', err.message)
     
         return res.status(400).json({
           message: err.message,
