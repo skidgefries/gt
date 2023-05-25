@@ -6,37 +6,44 @@ import About from "./Components/About";
 import Navbar1 from "./Components/Navbar";
 import Navbar2 from "./Components/afterLoginNavbar";
 import Home from "./Components/Home";
-import { Toaster } from "react-hot-toast";
+import Carousel1 from "./Components/Carousel";
+//import ProfileScreen from "./Components/ProfileScreen";
 import Loginhome from "./Components/LoginHome";
 import Settings from "./Components/settings";
 import AddPlace from "./Components/addPlace";
 import DateCalculator from "./Components/planTrip";
-import Places from "./Components/map";
 
+// import LoginScreen from "./Components/LoginScreen";
+import { Toaster } from "react-hot-toast";
+import Afterlogin from "./Components/afterlogin";
+//import Carousel1 from "./Components/Carousel";
 // import axios from 'axios';
+
 
 import { Login } from "./Components/Login";
 import { Register } from "./Components/Register";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginHome from "./Components/LoginHome";
-import PlanTrip from "./Components/planTrip";
-// import ProfileScreen from "./Components/ProfileScreen";
 
 function App() {
+
+  const apiKey = 'AIzaSyDnqzvG0A1JmiMvayhbt_T_5IXtRO0DiHQ';
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
   const [currentForm, setCurrentForm] = useState(
     localStorage.getItem("accesstoken")
       ? localStorage.getItem("accessToken")
       : "home"
   );
+  
   const toggleForm = (forName) => {
     if (forName === "home") {
       setCurrentForm("home");
       localStorage.removeItem("accessToken");
+      localStorage.removeItem("userId");
     } else {
       setCurrentForm(forName);
       localStorage.setItem("accessToken", forName);
+      // localStorage.setItem("userId", forName);
     }
   };
   const toggleMode = () => {
@@ -68,7 +75,7 @@ function App() {
 
           <Routes>
             {localStorage.getItem("accessToken") ? (
-              <Route path="/" element={<LoginHome />} />
+              <Route path="/" element={<Home modal={modal} setmodal={setmodal} />} />
             ) : (
               <Route
                 path="/"
@@ -105,8 +112,6 @@ function App() {
               path="/addPlace"
               element={<AddPlace data={data} setData={setData} />}
             />
-            <Route path="/About" element={<PlanTrip />} />
-            <Route path="/Map" element={<Places />} />
             <Route
               path="/Register"
               element={<Register modal={modal} setmodal={setmodal} />}
@@ -115,9 +120,31 @@ function App() {
               path="/Settings"
               element={<Settings modal={modal} setmodal={setmodal} />}
             />
+            <Route path="/About" element={<About />} />
+            {/* <Route path="/Profile" element={<afterlogin />} /> */}
+            <Route path="/Dashboard/:id" element={<Afterlogin/>} />
+            {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
           </Routes>
         </Router>
       </div>
+
+     
+
+      {/* <div>
+        <ProfileScreen/>
+      </div> */}
+
+      {/*<div>
+        <h1>POPULAR DESTINATIONSs</h1>
+        <Carousel1/>
+      </div>
+        <Afterlogin/> */} 
+      
+      {/* <div>
+        <h1>POPULAR DESTINATIONS</h1>
+        <Carousel1/>
+      </div> */}
+
     </>
   );
 }

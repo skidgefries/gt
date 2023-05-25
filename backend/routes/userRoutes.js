@@ -21,9 +21,8 @@ const {
 } = require("../controllers/authController");
 const { index } = require("../models/planModel");
 
-const validateToken = require("../middleware/validateTokenHandler");
+// const {validateToken} = require("../middleware/validateTokenHandler");
 
-// userRouter.use(validateToken);
 
 // userRouter.route("/:id").patch(updateUsers).delete(deleteUsers);
 
@@ -32,17 +31,29 @@ const validateToken = require("../middleware/validateTokenHandler");
 // .patch(updateUsers)   //done
 // .delete(deleteUsers); //done
 
-userRouter.route("/userProfile/:id").get(getUser);
 
+//public
 userRouter.route("/signup").post(signup);  //done
-
-userRouter.route("/login").post(login);  //done
 
 userRouter.route("/forgetpassword").post(forgetpassword);
 
 userRouter.route("/resetpassword/:token").post(resetpassword);
 
+userRouter.route("/login").post(login);  //done
+
+
+//protected
+
+// userRouter.use(validateToken)
+
 userRouter.route("/logout").get(logout);
+
+// userRouter.route("/userProfile/:id",validateToken).get(getUser);
+
+userRouter.route("/userProfile/:id")
+.patch(updateUsers)   //done
+.delete(deleteUsers)//done
+.get(getUser);
 
 // //multer for fileupload
 // const multerStorage=multer.diskStorage({
@@ -77,10 +88,6 @@ userRouter.route("/logout").get(logout);
 //profile page
 // app.use(protectRoute);
 
-userRouter.route("/userProfile/:id")
-.patch(updateUsers)   //done
-.delete(deleteUsers)//done
-.get(getUser);
 
 
 module.exports = userRouter;

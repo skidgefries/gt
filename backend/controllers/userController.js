@@ -5,7 +5,9 @@ module.exports.getUser=async function getUser(req, res){
     let id=req.params.id;
     let user=await User. findById(id);
    if(user){
-        return res.json(user);
+        return res.json({
+            details: user
+        });
     }
     else{
         return res.json({
