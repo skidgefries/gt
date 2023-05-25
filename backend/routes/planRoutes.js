@@ -15,12 +15,13 @@ const {
   deletePlacesItinerary,
   deleteNoteInPlacesItinerary,
 } = require("../controllers/planController");
+const {validateToken}=require("../middleware/validateTokenHandler")
 
 // planRouter.route('/allPlans')
 // .get(getAllPlans)
 
 //own plan
-// planRouter.use(protectRoute)//needs to be logged in
+// planRouter.use(validateToken)//needs to be logged in
 planRouter.route("/plan/:id").get(getPlan);
 
 // planRouter.use(isAuthorized(['admin','user']));

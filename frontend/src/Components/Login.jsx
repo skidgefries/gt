@@ -15,6 +15,8 @@ export const Login = (props) => {
 
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
 
   async function Submit(e) {
     e.preventDefault();
@@ -31,15 +33,20 @@ export const Login = (props) => {
         toast.error(res.error);
       } else {
         props.onFormSwitch(res.data.accessToken);
-        // localStorage.setItem("token", res.data.accessToken);
+        localStorage.setItem("userId", res.data.user_id);
         toast.success("Logged in successfully");
-        history("/LoginHome");
+        const userId = localStorage.getItem("userId");
+        history(`/Dashboard/${userId}`);
       }
     } catch (err) {
       toast.error("error")
       console.log(err);
     }
   }
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="center2">
       <div className=" bg5 ">

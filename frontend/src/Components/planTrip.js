@@ -98,8 +98,8 @@ const PlacesAutocomplete = ({ setSelected }) => {
       if (res.error) {
         toast.error(res.error);
       } else {
-        localStorage.setItem("Id", res.data.planId);
-        const ID = localStorage.getItem("Id");
+        localStorage.setItem("planId", res.data.planId);
+        const ID = localStorage.getItem("planId");
         toast.success("Start Planing");
         history(`/LoginHome/plans/plan/${ID}`);
       }
