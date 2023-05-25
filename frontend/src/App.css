@@ -602,3 +602,7 @@ max-width: 600px;
 .column h2 {
   margin-bottom: 10px;
 }
+
+/* .custom-autocomplete .dropdown-menu {
+  z-index: 9999 !important;
+} */

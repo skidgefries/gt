@@ -6,8 +6,14 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { Autocomplete, useJsApiLoader, GoogleMap, GoogleApiWrapper } from "@react-google-maps/api";
-import { SkeletonText} from "@chakra-ui/react";
+import {
+  Autocomplete,
+  useJsApiLoader,
+  GoogleMap,
+  GoogleApiWrapper,
+} from "@react-google-maps/api";
+import { SkeletonText } from "@chakra-ui/react";
+import '../App.css'
 
 export default function PlanTrip(props) {
   // const [date, setDate] = useState("");
@@ -16,7 +22,7 @@ export default function PlanTrip(props) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [result, setResult] = useState(null);
-  
+
   const history = useNavigate();
 
   const { isLoaded } = useJsApiLoader({
@@ -26,10 +32,16 @@ export default function PlanTrip(props) {
   });
 
   if (!isLoaded) {
-    return < SkeletonText />;
+    return <SkeletonText />;
   }
 
+  const handleDestinationChange = (e) => {
+    setDestination(e.target.value);
+  };
 
+  const handleDestinationSelect = (selectedValue) => {
+    setDestination(selectedValue);
+  };
 
   const handleChange1 = (e) => {
     setStartDate(e.target.value);
@@ -43,7 +55,7 @@ export default function PlanTrip(props) {
     try {
       console.log(destination);
       const values = {
-        name:destination,
+        name: destination,
         startDate,
         endDate,
       };
@@ -51,16 +63,14 @@ export default function PlanTrip(props) {
       const res = await axios.post("http://localhost:4000/plans/plan", values);
       if (res.error) {
         toast.error(res.error);
-      }
-      else {
+      } else {
         localStorage.setItem("Id", res.data.planId);
         const ID = localStorage.getItem("Id");
-        // const id=JSON.stringify(res.data.plan_Id)
         toast.success("Start Planing");
         history(`/LoginHome/plans/plan/${ID}`);
       }
     } catch (err) {
-      toast.error("error")
+      toast.error("error");
       console.log(err);
     }
   }
@@ -71,15 +81,15 @@ export default function PlanTrip(props) {
     const days = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
     setResult(days);
   };
-  console.log(startDate, endDate)
-  console.log(result)
-
- 
+  console.log(startDate, endDate);
+  console.log(result);
 
   return (
+    
     <div className="center2">
       <div className=" bg5 ">
-        {/* <Modal
+      
+        {/*<Modal
           className="pop3"
           contentClassName="pop3"
           size="lg"
@@ -87,75 +97,72 @@ export default function PlanTrip(props) {
           toggle={() => props.setmodal(!props.modal)}
         >
           <ModalHeader>
-            {" "} */}
-            <div className="cross1">
-              <NavLink className="nav-link " to="../Home">
-                <AiFillCloseCircle />
-              </NavLink>{" "}
-            </div>{" "}
-            <div className="quicksand20">
-              <b>Plan a New Trip</b>
-            </div>
-          {/* </ModalHeader>{" "} */}
-          <br />
-          <form
-            action="POST"
-            className="login-form"
-            onSubmit={Submit}
-            novalidate
+  {" "} */}
+        <div className="cross1">
+          <NavLink className="nav-link " to="../Home">
+            <AiFillCloseCircle />
+          </NavLink>{" "}
+        </div>{" "}
+        <div className="quicksand20">
+          <b>Plan a New Trip</b>
+        </div>
+         {/*</ModalHeader>{" "}*/ }
+        <br />
+        <form action="POST" className="login-form" onSubmit={Submit} novalidate>
+          <label htmlFor="destination" className="form-label"></label>
+          <Autocomplete
+            value={destination}
+            onChange={handleDestinationChange}
+            onSelect={handleDestinationSelect}
+            pac-container={{ zIndex: 10000 }}
           >
-            <label htmlFor="destination" className="form-label"></label>
-            <Autocomplete>
-
-              <input
-              onChange={(e) => setDestination(e.target.value)}
+            <input
               type="text"
               placeholder="Where?"
               id="destination"
               name="destination"
-              className="email "
-              value={destination}
+              className="email"
               required
-              />
-         
-              </Autocomplete>
-
-            <label htmlFor="startDate" className="form-label quicksand18">
-              <b>Start Date*</b>
-            </label>
-            <input
-              type="date"
-              className="email "
-              id="startDate"
-              onChange={handleChange1}
-              ref={dateInputRef}
             />
+          </Autocomplete>
 
-            <label htmlFor="endDate" className="form-label quicksand18">
-              <b>End Date*</b>
-            </label>
-            <input
-              type="date"
-              className="email "
-              id="endDate"
-              onChange={handleChange2}
-              ref={dateInputRef}
-            />
-            {/*<p>Selected Date: {date}</p>*/}
-            <br />
-            <div className="aligncenter1">
-       
-                <button type="submit" onClick={calculateDaysBetweenDates} className="btn btn-danger btn-lg">
-                  Start Planning
-                </button>
-            
-            </div>
-            <br />
-            <br />
-          </form>
-      {/* </Modal> */}
+          <label htmlFor="startDate" className="form-label quicksand18">
+            <b>Start Date*</b>
+          </label>
+          <input
+            type="date"
+            className="email "
+            id="startDate"
+            onChange={handleChange1}
+            ref={dateInputRef}
+          />
+
+          <label htmlFor="endDate" className="form-label quicksand18">
+            <b>End Date*</b>
+          </label>
+          <input
+            type="date"
+            className="email "
+            id="endDate"
+            onChange={handleChange2}
+            ref={dateInputRef}
+          />
+          {/*<p>Selected Date: {date}</p>*/}
+          <br />
+          <div className="aligncenter1">
+            <button
+              type="submit"
+              onClick={calculateDaysBetweenDates}
+              className="btn btn-danger btn-lg"
+            >
+              Start Planning
+            </button>
+          </div>
+          <br />
+          <br />
+        </form>
+      {/*  </Modal> */}
       </div>
     </div>
   );
 }
-              
