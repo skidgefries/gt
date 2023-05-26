@@ -1,7 +1,7 @@
 const User=require("../models/userModel")
 
 module.exports.getUser=async function getUser(req, res){
-    // console. log('getUsercalled');
+    console. log('getUsercalled');
     let id=req.params.id;
     let user=await User. findById(id);
    if(user){
@@ -29,6 +29,7 @@ module.exports.updateUsers=async function updateUser(req,res){
     // console. log(" req. body-> ", req.body);
     //update data in users obj
     try{
+        console.log("Update Called")
         let id=req.params.id;
         let user=await User.findById(id);
         let dataToBeUpdated = req.body;
@@ -49,11 +50,12 @@ module.exports.updateUsers=async function updateUser(req,res){
         }
         else{
             res.json({
-                message:"User Not Found"
+                error:"User Not Found"
             });
         }
     }
     catch(err){
+        console.log("update ko error : ",err);
         message :err.message
     }
 }

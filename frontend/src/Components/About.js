@@ -1,138 +1,25 @@
-import React, { useState } from "react"; //rfc(react function based component shortcut)
-import {useLocation,useNavigate} from 'react-router-dom'
+import React from "react";
+import "../App.css"; // Import the CSS file
 
 export default function About() {
-
-  const location=useLocation()
-
-    const [myStyle, setMyStyle] = useState(    {
-        color: 'white',
-        backgroundColor: 'black'
-    })
-    const[btnText,setBtnText] = useState("Enable Light Mode")
-    const toggleStyle = ()=>{
-        if(myStyle.color==='white'){
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnText("Enable Dark Mode")
-        }
-        else{
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black'
-            })
-            setBtnText("Enable Light Mode")
-        }
-    }
-
-
-    return (
-    <div className="container" style={myStyle}>
-        <h1>About Us</h1>
-      <div className="accordion" id="accordionExample">
-        <div className="accordion-item">
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button"
-              style={myStyle}
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-            >
-              Accordion Item #1
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            style={myStyle}
-            className="accordion-collapse collapse show"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item">
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button collapsed"
-              style={myStyle}
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              Accordion Item #2
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            className="accordion-collapse collapse"
-            style={myStyle}
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item">
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button collapsed"
-              style={myStyle}
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree"
-            >
-              Accordion Item #3
-            </button>
-          </h2>
-          <div
-            id="collapseThree"
-            className="accordion-collapse collapse"
-            style={myStyle}
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="container my-3">
-      <button type="button" onClick={toggleStyle} className="btn btn-primary">{btnText}</button>
-      </div>
-      
+  return (
+    <div className="about-container">
+      <h1>About Us</h1>
+      <p>Welcome to Guided Travels, your ultimate travel companion!</p>
+      <p>
+        We aim to provide you with the best travel experiences and make your
+        trips memorable. Whether you're a solo traveler, a couple, or a group of
+        friends, Guided Travels has got you covered.
+      </p>
+      <p>
+        Our team of experienced travel experts is dedicated to curating
+        exceptional travel itineraries and providing personalized assistance to
+        ensure you have a hassle-free journey.
+      </p>
+      <p>
+        Explore new destinations, discover hidden gems, and create lifelong
+        memories with Guided Travels. Start your adventure today!
+      </p>
     </div>
   );
 }

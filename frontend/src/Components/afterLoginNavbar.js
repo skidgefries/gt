@@ -93,7 +93,7 @@ export default function Navbar(props) {
                     <a className="dropdown-item" href="/">
                     <NavLink
                     className="nav-link "
-                    to="./settings"
+                    to={`./Dashboard/settings/${userId}`}
                   >
                     Settings
                   </NavLink>

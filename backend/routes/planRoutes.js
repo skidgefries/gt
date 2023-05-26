@@ -21,7 +21,7 @@ const {validateToken}=require("../middleware/validateTokenHandler")
 // .get(getAllPlans)
 
 //own plan
-// planRouter.use(validateToken)//needs to be logged in
+planRouter.use(validateToken)//needs to be logged in
 planRouter.route("/plan/:id").get(getPlan);
 
 // planRouter.use(isAuthorized(['admin','user']));

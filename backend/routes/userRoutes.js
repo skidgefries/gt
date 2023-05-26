@@ -21,7 +21,7 @@ const {
 } = require("../controllers/authController");
 const { index } = require("../models/planModel");
 
-// const {validateToken} = require("../middleware/validateTokenHandler");
+const {validateToken} = require("../middleware/validateTokenHandler");
 
 
 // userRouter.route("/:id").patch(updateUsers).delete(deleteUsers);
@@ -44,11 +44,11 @@ userRouter.route("/login").post(login);  //done
 
 //protected
 
-// userRouter.use(validateToken)
+userRouter.use(validateToken)
 
 userRouter.route("/logout").get(logout);
 
-// userRouter.route("/userProfile/:id",validateToken).get(getUser);
+// userRouter.route("/userProfile/:id").get(getUser);
 
 userRouter.route("/userProfile/:id")
 .patch(updateUsers)   //done

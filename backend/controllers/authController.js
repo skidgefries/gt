@@ -140,39 +140,7 @@ module.exports.login = async function loginUser(req, res) {
 //   };
 // };
 
-//protect route
-// module.exports.protectRoute = async function protectRoute(req, res, next) {
-//   try {
-//     let token;
-//     if (req.cookies.login) {
-//       console.log(req.cookies);
-//       token = req.cookie.login;
-//       let payload = jwt.verify(token, JWT_KEY);
-//       if (payload) {
-//         const user = await User.findbyId(payload);
-//         req.role = user.role;
-//         req.id = user.id;
-//         next();
-//       } else {
-//         res.json({
-//           message: "Please Login Again",
-//         });
-//       }
-//     } else {
-//       const client = req.get("User-Agent");
-//       if (client.include("Mozilla" == true)) {
-//         return res.redirect("/login");
-//       }
-//       res.json({
-//         message: "please login",
-//       });
-//     }
-//   } catch (err) {
-//     return res.json({
-//       message: err.message,
-//     });
-//   }
-// };
+
 
 //forget password
 module.exports.forgetpassword = async function forgetpassword(req, res) {
