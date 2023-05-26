@@ -12,6 +12,8 @@ import Carousel1 from "./Components/Carousel";
 import Loginhome from "./Components/LoginHome";
 import Settings from "./Components/settings";
 import AddPlace from "./Components/addPlace";
+import ForgetPW from "./Components/forgetPW";
+import ConfirmPW from "./Components/ConfirmPW";
 import DateCalculator from "./Components/planTrip";
 import PlanTrip from "./Components/planTrip";
 import NotFound from "./Components/NotFound";
@@ -64,15 +66,15 @@ function App() {
       // localStorage.setItem("userId", forName);
     }
   };
-  const toggleMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "#212529";
-    } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-    }
-  };
+  // const toggleMode = () => {
+  //   if (mode === "light") {
+  //     setMode("dark");
+  //     document.body.style.backgroundColor = "#212529";
+  //   } else {
+  //     setMode("light");
+  //     document.body.style.backgroundColor = "white";
+  //   }
+  // };
   const [result, setResult] = useState(null);
   const [modal, setmodal] = useState(false);
   const [data, setData] = useState(null);
@@ -82,12 +84,12 @@ function App() {
         <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
         <Router>
         {!localStorage.getItem("accessToken") && !localStorage.getItem("userId") ? (
-            <Navbar1 mode={mode} toggleMode={toggleMode} setmodal={setmodal} />
+            <Navbar1 mode={mode}  setmodal={setmodal} />
           ) : (
             <Navbar2
               mode={mode}
               onFormSwitch={toggleForm}
-              toggleMode={toggleMode}
+              
             />
           )}
 
@@ -158,6 +160,28 @@ function App() {
                 </Protected>
               }
             />
+
+            <Route
+            path="/forgetPw"
+            element={
+            
+                <ForgetPW                   
+                modal={modal}
+                setmodal={setmodal} />
+              
+            }
+          />
+
+          <Route
+          path="/confirmPW"
+          element={
+          
+              <ConfirmPW                   
+              modal={modal}
+              setmodal={setmodal} />
+            
+          }
+        />
 
             <Route
               path="/Register"
