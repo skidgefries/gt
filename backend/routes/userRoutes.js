@@ -8,6 +8,7 @@ const {
   deleteUsers,
   getAllUser,
   updateProfileImage,
+  getFile
 } = require("../controllers/userController");
 
 const {

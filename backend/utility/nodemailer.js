@@ -24,7 +24,7 @@ module.exports.sendMail=async function sendMail(str,data) {
   if(str=='signup'){
     Osubject= `Thank you for signing ${data.nam})`;
     Ohtml=`
-    <h1>Welcome to GuidedTravels.com/h1>
+    <h1>Welcome to GuidedTravels.com</h1>
     Hope you have a good time
     Here are your details-
     Name - ${data.name}
@@ -36,6 +36,8 @@ module.exports.sendMail=async function sendMail(str,data) {
     Ohtml=`
     <h1>GuidedTravels.com/h1>
     Here is your Link to reset your password !
+    <br/>
+    
     ${data.resetPasswordLink}
     `
   }
