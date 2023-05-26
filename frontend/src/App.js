@@ -12,6 +12,7 @@ import Loginhome from "./Components/LoginHome";
 import Settings from "./Components/settings";
 import AddPlace from "./Components/addPlace";
 import DateCalculator from "./Components/planTrip";
+import PlanTrip from "./Components/planTrip"
 
 // import LoginScreen from "./Components/LoginScreen";
 import { Toaster } from "react-hot-toast";
@@ -121,6 +122,8 @@ function App() {
               element={<Settings modal={modal} setmodal={setmodal} />}
             />
             <Route path="/About" element={<About />} />
+
+            <Route path="/PlanTrip" element={<PlanTrip />} />
             {/* <Route path="/Profile" element={<afterlogin />} /> */}
             <Route path="/Dashboard/:id" element={<Afterlogin/>} />
             {/* <Route path="/ProfileScreen" element={<ProfileScreen />} /> */}
