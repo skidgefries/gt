@@ -13,12 +13,12 @@ import { Link } from "react-router-dom";
 
 export default function Home(props) {
   // const [modal2,setmodal2] = useState(false)
- props.setmodal(true);
+  props.setmodal(true);
 
   return (
     <>
       <div className="center">
-        <div  className="bg">
+        <div className="bg">
           <div className="align">
             <br />
             <br />
@@ -26,7 +26,7 @@ export default function Home(props) {
             <br />
             THE
             <br />
-            <div  style={{ color: "#FFFFFF" }}>
+            <div style={{ color: "#FFFFFF" }}>
               "LAND OF THE MOUNTAINS" <br />
               <br />
               <br /> <br />
@@ -67,7 +67,7 @@ export default function Home(props) {
             </div>
           </div> 
               </div>
-      </div>*/}
+        </div>*/}
             <div className="row">
               <div className="col-lg-6 mb-4">
                 <div
@@ -533,60 +533,119 @@ export default function Home(props) {
                   </div>
                 </div>
               </div>
-            </div><br/>
+            </div>
+            <br />
             <hr className="line" />
-            <br/>
+            <br />
             {/*Newwwwwwww */}
             <div id="carouselExampleCaptions" className="carousel slide">
-  <div className="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div className="carousel-inner">
-    <div className="carousel-item active ">
-      <img src={imga} className="d-block w-100" alt="..."                 
-      height="700"
-      style={{
-        borderRadius: 50,
-      }}/>
-      <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-    <div className="carousel-item  ">
-    <img src={imgb} className="d-block w-100" alt="..." height="700"     style={{
-      borderRadius: 50,
-    }}/>
-    <div className="carousel-caption d-none d-md-block">
-      <h5>First slide label</h5>
-      <p>Some representative placeholder content for the first slide.</p>
-    </div>
-  </div>
-  <div className="carousel-item ">
-  <img src={imgc} className="d-block w-100" alt="..." height="700"     style={{
-    borderRadius: 50,
-  }}/>
-  <div className="carousel-caption d-none d-md-block">
-    <h5>First slide label</h5>
-    <p>Some representative placeholder content for the first slide.</p>
-  </div>
-</div>
-  </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
-<br/>
-<hr className="line" />
-<br/>
-           <div className="bg3">
+              <div className="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="0"
+                  className="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div className="carousel-inner">
+                <div className="carousel-item active ">
+                  <img
+                    src={imga}
+                    className="d-block w-100"
+                    alt="..."
+                    height="700"
+                    style={{
+                      borderRadius: 50,
+                    }}
+                  />
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>
+                      Some representative placeholder content for the first
+                      slide.
+                    </p>
+                  </div>
+                </div>
+                <div className="carousel-item  ">
+                  <img
+                    src={imgb}
+                    className="d-block w-100"
+                    alt="..."
+                    height="700"
+                    style={{
+                      borderRadius: 50,
+                    }}
+                  />
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>
+                      Some representative placeholder content for the first
+                      slide.
+                    </p>
+                  </div>
+                </div>
+                <div className="carousel-item ">
+                  <img
+                    src={imgc}
+                    className="d-block w-100"
+                    alt="..."
+                    height="700"
+                    style={{
+                      borderRadius: 50,
+                    }}
+                  />
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>
+                      Some representative placeholder content for the first
+                      slide.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev"
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next"
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Next</span>
+              </button>
+            </div>
+            <br />
+            <hr className="line" />
+            <br />
+            <div className="bg3">
               <br />
               <br />
               <div className="align6">
@@ -594,8 +653,8 @@ export default function Home(props) {
                 EXPLORE
               </div>
               <div className="align7"> NEPAL</div>
-                  </div>
-                  <br/>
+            </div>
+            <br />
             <div className="align8">
               Discover your next favorite destination
             </div>
@@ -605,8 +664,8 @@ export default function Home(props) {
                 src={img5}
                 alt="Logo"
                 style={{
-                  height:600,
-                  width:600,
+                  height: 600,
+                  width: 600,
                   borderRadius: 300,
                 }}
               />
@@ -620,9 +679,9 @@ export default function Home(props) {
                 src={img2}
                 alt="Logo"
                 style={{
-                  alignItems:'right',
-                  height:600,
-                  width:600,
+                  alignItems: "right",
+                  height: 600,
+                  width: 600,
                   borderRadius: 300,
                 }}
               />
@@ -647,7 +706,7 @@ export default function Home(props) {
                 scenery and taste the delicious cuisine of this vibrant nation.
               </div>
             </div>
-            <Footer   />
+            <Footer />
           </div>
         </div>
       </div>

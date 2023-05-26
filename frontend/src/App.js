@@ -122,6 +122,19 @@ function App() {
                 </Protected>
               }
             />
+             <Route
+              path="/LoginHome"
+              element={
+                <Protected>
+                  <Loginhome
+                    data={data}
+                    setData={setData}
+                    result={result}
+                    setResult={setResult}
+                  />
+                </Protected>
+              }
+            />
             {/* </Route> */}
             <Route
               path="/Login"
