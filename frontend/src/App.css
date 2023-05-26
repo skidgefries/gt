@@ -115,6 +115,15 @@
   display: flex;
 }
 
+.bg6{
+  background-image:url(./Components/images/hh.jpg);
+  width: 1530px;
+  height: 795px;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  display: flex;
+}
 
 .align{
   text-align: center;
@@ -229,6 +238,10 @@
 .aligncenter1{
   align-items: center;
   text-align: center;
+  justify-content: center;
+  margin-top:25px ;
+  margin-left: 200px;
+  margin-right:190px;
 }
 
 
@@ -251,22 +264,15 @@
   font-size: calc(60px + 2vmin);
 }
 
-.alignLeft1{
-  align-items: left;
-  justify-content: left;
-  text-align: right;
-  margin-left: 100px;
+.alignRight1{
+
   font-family :nunito;
   font-size: calc(60px + 2vmin);
   flex: display;
 }
 
 
-.alignRight1{
-  align-items: right;
-  justify-content: right;
-  text-align: left;
-  margin-right: 10px;
+.alignLeft1{
   font-family :nunito;
   font-size: calc(60px + 2vmin);
   flex: display;
@@ -337,6 +343,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color:#E4E4E4;
   height:795px;
 }
 .foot{
@@ -344,7 +351,9 @@
   font-family :nunito;
   font-size: calc(40px + 2vmin);
 }
-
+.black{
+  color: #ffffff;
+}
 .contact-short{
   max-width:50vw;
   margin: auto;
@@ -389,13 +398,18 @@
   font-family: quicksand;
 }
 
+.quicksand10{
+  font-family: quicksand;
+  font-size: calc(8px + 1vmin);
+}
+
 .quicksand18{
   font-family: quicksand;
-  font-size: calc(5px + 2vmin);
+  font-size: calc(8px + 2vmin);
 }
 .quicksand20{
   font-family: quicksand;
-  font-size: calc(30px + 2vmin);
+  font-size: calc(50px + 2vmin);
   text-align: center;
 }
 
@@ -474,7 +488,7 @@ justify-content:center;
   display:flex;
  }
  .pop2{
-  height:720px;
+  height:750px;
   width:2px;
   top:6%;
   align-items: center;
@@ -500,6 +514,17 @@ justify-content:center;
   width:500px;
  }
 
+ .email1{
+  font-family :quicksand;
+  font-size: calc(8px + 2vmin);
+  background-color: #ffffff;
+  box-shadow: rgba(100,100,111,0.2) 0px 0px 5px 0px;
+  border-radius: 7px ;
+  border-color: #909090 ;
+  color: #6a6a6b;
+  width:500px;
+ }
+
 
 .but{
   width: 200px;
@@ -517,7 +542,7 @@ justify-content:center;
   margin-right: 0;
   display: flex;
   font-size: calc(25px + 1vmin);
-  color:#909090;
+  color:#4f4b4b;
   
 }
 .cross1{
