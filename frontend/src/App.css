@@ -9,6 +9,7 @@
 }
 
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -308,11 +309,22 @@
   text-align: left;
 }
 
-.center {
+/* #root{
+  flex-grow: 1;
   display: flex;
   justify-content: center;
+  align-items: center;  
+} */
+
+.center {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  max-width: 100%;
+  justify-content: center;
   align-items: center;
-  height: 100vh; /* Set the height of the container to full screen height */
+  min-height: 100vh; /* Set the height of the container to full screen height */
+  /* outline: #152A3E dotted; */
 }
 
 .center1 {
@@ -384,12 +396,17 @@
 .quicksand20{
   font-family: quicksand;
   font-size: calc(30px + 2vmin);
-  
+  text-align: center;
+}
+
+.btn btn-danger btn-lg{
+  padding-top: 60%;
 }
 
 .auth-form-container, .login-form, .register-form{
   display: flex ;
   flex-direction: column ;
+  justify-content: center;
    
 }
 

@@ -154,12 +154,9 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
         <div className=" bg5 ">
           <div className="cross1">
             <NavLink className="nav-link " to="../Home">
-              <AiFillCloseCircle />
+              
             </NavLink>{" "}
           </div>{" "}
-          <div className="quicksand20">
-            <b>Plan a New Trip</b>
-          </div>
           <br />
           <form
             action="POST"
@@ -167,6 +164,9 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
             onSubmit={Submit}
             novalidate
           >
+          <div className="quicksand20">
+            <b>Plan a New Trip</b>
+          </div>
             <Combobox onSelect={handleSelect}>
               <label htmlFor="destination" className="form-label quicksand18">
                 <b>Destination</b>
@@ -214,8 +214,8 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
             <div className="places-container">
 
             </div>
-
             <div className="aligncenter1">
+              <br/>
               <button
                 type="submit"
                 // onClick={calculateDaysBetweenDates}
