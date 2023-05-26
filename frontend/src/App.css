@@ -241,11 +241,32 @@
 
 .alignRight{
   align-items: right;
+  text-align: left;
   justify-content: right;
-  text-align: right;
   margin-right: 100px;
   font-family :nunito;
   font-size: calc(60px + 2vmin);
+}
+
+.alignLeft1{
+  align-items: left;
+  justify-content: left;
+  text-align: right;
+  margin-left: 100px;
+  font-family :nunito;
+  font-size: calc(60px + 2vmin);
+  flex: display;
+}
+
+
+.alignRight1{
+  align-items: right;
+  justify-content: right;
+  text-align: left;
+  margin-right: 10px;
+  font-family :nunito;
+  font-size: calc(60px + 2vmin);
+  flex: display;
 }
 
 .line{
@@ -358,10 +379,6 @@
   font-family: quicksand;
   font-size: calc(5px + 2vmin);
 }
-.quicksand13{
-  font-family: quicksand;
-  font-size: calc(3px + 2vmin);
-}
 .quicksand20{
   font-family: quicksand;
   font-size: calc(30px + 2vmin);
@@ -463,12 +480,6 @@ justify-content:center;
   border-color: #909090 ;
   width:500px;
  }
-.carousel-container {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
 
 
 .but{
@@ -504,11 +515,6 @@ justify-content:center;
   grid-gap: 10px; 
 }
 
-.containe{
-  border: 1px solid black ;
-  
-}
-
 .column1 {
   background-color: #f2f2f2;
  min-width:300px;
@@ -530,16 +536,6 @@ max-width: 600px;
 
 }
 
-/* .column4 {
-  background-color: #f2f2f2;
-  max-width: 900px;
-  min-width: 900px;
-  max-height: 400px;
-  min-height: 400px;
-  outline: red dashed 1px;
-
-} */
-
 
 .grid-container1 {
   display: flex;
@@ -560,12 +556,6 @@ max-width: 600px;
 .fit{
   padding-top: 10px;
 }
-.carousel-container {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
 
 
 
@@ -585,13 +575,13 @@ max-width: 600px;
 
 /* settings.css */
 
-.settings-container {
+/* .settings-container {
   display: flex;
   justify-content: center;
 }
 
 .side-panel {
-  /* justify-content: left; */
+   justify-content: left; 
   width: 15%;
   background-color: #f5f5f5;
   padding: 20px;
@@ -607,7 +597,7 @@ max-width: 600px;
   margin-bottom: 10px;
   background-color: transparent !important;
   /* border: 1px solid #ccc; */
-  /* border-radius: 4px; */
+  /* border-radius: 4px; 
   cursor: pointer;
 }
 
@@ -628,7 +618,7 @@ max-width: 600px;
 
 .column h2 {
   margin-bottom: 10px;
-}
+} */
 
 /* .custom-autocomplete .dropdown-menu {
   z-index: 9999 !important;

@@ -4,6 +4,7 @@ import React from "react";
 import "./App.css";
 import About from "./Components/About";
 import Navbar1 from "./Components/Navbar";
+import Plan from "./Components/planTrip";
 import Navbar2 from "./Components/afterLoginNavbar";
 import Home from "./Components/Home";
 import Carousel1 from "./Components/Carousel";
@@ -113,6 +114,14 @@ function App() {
               path="/addPlace"
               element={<AddPlace data={data} setData={setData} />}
             />
+            <Route
+            path="/plantrip"
+            element={<Plan data={data} setData={setData} />}
+          />
+            <Route
+            path="/loginHome"
+            element={<Loginhome data={data} setData={setData} />}
+          />
             <Route
               path="/Register"
               element={<Register modal={modal} setmodal={setmodal} />}

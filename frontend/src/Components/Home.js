@@ -26,7 +26,7 @@ export default function Home(props) {
             <br />
             THE
             <br />
-            <div style={{ color: "#FFFFFF" }}>
+            <div  style={{ color: "#FFFFFF" }}>
               "LAND OF THE MOUNTAINS" <br />
               <br />
               <br /> <br />
@@ -600,29 +600,30 @@ export default function Home(props) {
               Discover your next favorite destination
             </div>
             <br />
-            <div className="alignLeft">
+            <div className="alignLeft1">
               <img
                 src={img5}
                 alt="Logo"
-                width="500"
-                height="500"
                 style={{
-                  borderRadius: 250,
+                  height:600,
+                  width:600,
+                  borderRadius: 300,
                 }}
               />
-              <span>{"  "}</span>BREATHTAKING VIEWS{" "}
+              BREATHTAKING VIEWS
             </div>
             <br />
-            <br />{" "}
-            <div className="alignRight">
-              MAJESTICS TEMPLES<span> </span>
+            <br />
+            <div className="alignRight1">
+              MAJESTICS TEMPLES
               <img
                 src={img2}
                 alt="Logo"
-                width="500"
-                height="500"
                 style={{
-                  borderRadius: 250,
+                  alignItems:'right',
+                  height:600,
+                  width:600,
+                  borderRadius: 300,
                 }}
               />
               <br />
