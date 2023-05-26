@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // import { Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./store";
+import {store} from "./redux/store";
 import { ChakraProvider, theme } from '@chakra-ui/react'
 import 'bootstrap/dist/css/bootstrap.css'
 

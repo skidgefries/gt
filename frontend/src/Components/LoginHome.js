@@ -24,13 +24,23 @@ import {
   DirectionsRenderer,
 } from "@react-google-maps/api";
 import { useRef, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import AddedPlace from "./AddedPlace";
 
 export default function LoginHome(props) {
   const { id } = useParams();
   const [plan, setPlan] = useState("");
   const [carouselImages, setCarouselImages] = useState("");
+  const tripDetail = useSelector((state) => state.tripSlice);
+  const itinerary = useSelector((state) => state.itinerarySlice.itinerary);
 
+  // const itinerary = [{name: "Boudha"}, {name: "Patan"}]
   //const [streetViewImageUrl, setStreetViewImageUrl] = useState("");
+  useEffect(() => {
+    if (tripDetail?.noOfDays) {
+      setPlan(Array.from({ length: tripDetail.noOfDays }));
+    }
+  }, [tripDetail?.noOfDays]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +48,7 @@ export default function LoginHome(props) {
         const response = await axios.get(
           `http://localhost:4000/plans/plan/${id}`
         );
-        setPlan(response.data.details);
+        // setPlan(response.data.details);
         console.log("This is the data from the backend >>>>>>>", response.data);
       } catch (error) {
         console.error("Error fetching plan data:", error);
@@ -53,7 +63,7 @@ export default function LoginHome(props) {
       try {
         const imageUrl = await getPlaceImage(
           "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q",
-          plan.name,
+          tripDetail?.location,
           3
         );
         setCarouselImages([imageUrl]);
@@ -65,7 +75,7 @@ export default function LoginHome(props) {
     };
 
     fetchPlaceImage();
-  }, [plan.name]);
+  }, [tripDetail?.location]);
 
   const [lat1, setlat1] = useState(27.7172);
   const [lng1, setlng1] = useState(85.324);
@@ -88,7 +98,7 @@ export default function LoginHome(props) {
   // /** @type React.MutableRefObject<HTMLInputElement> */
   // const destiantionRef = useRef();
   const locationRef = useRef();
-  const data = ["item 1", "item 2", "item 3"];
+  // const data = ["item 1", "item 2", "item 3"];
 
   function Point() {
     if (locationRef.current.value === "") {
@@ -118,7 +128,13 @@ export default function LoginHome(props) {
     return <SkeletonText />;
   }
 
+  if (!tripDetail.location || !tripDetail.geoLocation) return;
+
   Point1();
+
+  const handleSubmit = () => {
+    console.log("Itinerary", itinerary);
+  };
 
   return (
     <div className="fit">
@@ -223,64 +239,48 @@ export default function LoginHome(props) {
           <GridContainer>
             <Grid>
               <Column>
-                {/* <div
-                  id="carouselExampleAutoplaying"
-                  className="carousel slide "
-                  data-bs-ride="carousel"
-                >
-                   <div className="carousel-inner">
-
-                   {/* {carouselImages.length > 0 ? (
-                      carouselImages.map((imageUrl, index) => (
-                        <div
-                          className={`carousel-item ${index === 0 ? "active" : ""}`}
-                          key={index}
-                        >
-                          <img src={imageUrl} className="d-block w-100" alt={`Place ${index + 1}`} />
-                        </div>
-                      ))
-                    ) : (
-                      <div className="carousel-item active">
-                        <img src={imgb} className="d-block w-100" alt="Default" />
-                      </div>
-                    )} */}
-                {/*<div className="carousel-item active fixx">
-                    <img src={imga} className="d-block w-100" alt="..." />
-                    </div>
-                    <div className="carousel-item fixx">
-                      <img src={imgb} className="d-block w-100" alt="..." />
-                    </div>
-                    <div className="carousel-item fixx">
-                      <img src={imgc} className="d-block w-100" alt="..." />
-                    </div>
-                  </div> 
-                 
-                  <button
-                    className="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleAutoplaying"
-                    data-bs-slide="prev"
-                  >
-                    <span
-                      className="carousel-control-prev-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Previous</span>
-                  </button>
-                  <button
-                    className="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleAutoplaying"
-                    data-bs-slide="next"
-                  >
-                    <span
-                      className="carousel-control-next-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Next</span>
-                  </button>
-                </div> */}
-                <div
+              <div
+              id="carouselExampleAutoplaying"
+              className="carousel slide "
+              data-bs-ride="carousel"
+            >
+              <div className="carousel-inner">
+                <div className="carousel-item active fixx">
+                  <img src={imga} className="d-block w-100" alt="..." />
+                </div>
+                <div className="carousel-item fixx">
+                  <img src={imgb} className="d-block w-100" alt="..." />
+                </div>
+                <div className="carousel-item fixx">
+                  <img src={imgc} className="d-block w-100" alt="..." />
+                </div>
+              </div>
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev"
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next"
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Next</span>
+              </button>
+            </div>
+{/*                <div
                   id="carouselExampleAutoplaying"
                   className="carousel slide"
                   data-bs-ride="carousel"
@@ -335,33 +335,38 @@ export default function LoginHome(props) {
                     ></span>
                     <span className="visually-hidden">Next</span>
                   </button>
-                </div>
+                    </div>*/}
                 <div className="contact-short1">
                   <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                     <h2>
-                      Trip to {plan.name}
+                      Trip to {tripDetail.location}
                       <span> </span>
                     </h2>
                   </div>
                 </div>
                 <h1 className="alignCenter quicksand20">Itinerary</h1>
                 <br />
-                {data.map((item, index) => (
+                {/*Array.isArray(plan) &&
+                plan?.map((_, index) => (
                   <p key={index}>
-                    {" "}
-                    <AddPlace />{" "}
+                    <AddPlace data={index+1} setlat1={setlat1} setlng1={setlat1}/>
+                  </p>
+                ))}*/}
+                {itinerary?.map((item, index) => (
+                  <p key={item}>
+                    <AddPlace
+                      data={item}
+                      index={index+1}
+                      setlat1={setlat1}
+                      setlng1={setlat1}
+                    />
                   </p>
                 ))}
-                <Box flexGrow={1}>
-                  <Autocomplete>
-                    <Input
-                      type="text"
-                      placeholder="Add a place"
-                      ref={locationRef}
-                    />
-                  </Autocomplete>
-                </Box>{" "}
-                <Button colorScheme="purple" type="submit" onClick={Point}>
+                <Button
+                  colorScheme="purple"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
                   Submit
                 </Button>
               </Column>
@@ -424,13 +429,13 @@ export default function LoginHome(props) {
 
   //
   function Point1() {
-    if (!plan.name) {
-      return;
-    }
+    // if (!plan.name) {
+    //   return;
+    // }
     ////console.log("hi", plan.name);
 
     const apiKey = "AIzaSyAOP6ZstiSFhfdwwvXy8c2dtWU7U8i-Q4Q";
-    const placeName = plan.name;
+    const placeName = tripDetail?.location;
 
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(

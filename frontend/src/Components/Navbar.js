@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 export default function Navbar(props) {
+ 
   // const [popup, setpopup] = useState('close');
   // const open=()=>{
   //   switch(popup){
