@@ -575,7 +575,7 @@ max-width: 600px;
 
 /* settings.css */
 
-/* .settings-container {
+.settings-container {
   display: flex;
   justify-content: center;
 }
@@ -587,19 +587,14 @@ max-width: 600px;
   padding: 20px;
 }
 
-.side-panel-button {
-  :hover{
-    background-color: #0080f8;
-  }
+.side-panel-button{
   display: block;
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   background-color: transparent !important;
-  /* border: 1px solid #ccc; */
-  /* border-radius: 4px; 
-  cursor: pointer;
 }
+
 
 .settings-content {
   display: flex;
@@ -608,7 +603,7 @@ max-width: 600px;
   padding: 20px;
 }
 
-.column {
+.column-setting {
   flex: 1;
   background-color: #fff;
   padding: 20px;
@@ -616,9 +611,9 @@ max-width: 600px;
   border-radius: 4px;
 }
 
-.column h2 {
+.column-setting h2 {
   margin-bottom: 10px;
-} */
+}
 
 /* .custom-autocomplete .dropdown-menu {
   z-index: 9999 !important;

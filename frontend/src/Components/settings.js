@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import "../App.css"
+import img5 from "./images/pkh.webp";
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -66,8 +67,15 @@ export default function Settings() {
         </button>
       </div>
       <div className="settings-content">
-        <div className="column">
-          
+        <div className="column-setting">
+                <img
+                src={img5}
+                alt="Logo"
+                style={{
+                  height:200,
+                  width:200,
+                  borderRadius: 100,
+                }}/>
         </div>
       </div>
     </div>
