@@ -10,7 +10,7 @@ export default function Navbar(props) {
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} `}
     >
-      <div className="container-fluid">
+      <div className="container-fluid NewNavbarContent">
         <NavLink className="navbar-brand" to="/Dashboard/:id">
           <img
             src={logo}
@@ -34,8 +34,7 @@ export default function Navbar(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className=" navbar-nav me-auto mb-2 mb-lg-0  ">
-
-               <li className="nav-item">
+              <li className="nav-item">
                 <NavLink
                   className="nav-link "
                   style={{ font: "Montserrat", fontSize: 30 }}
@@ -69,13 +68,11 @@ export default function Navbar(props) {
                 <ul className="dropdown-menu">
                   <li>
                     <NavLink
-                    to={`Dashboard/settings/${userId}`}
-                    className="dropdown-item "
-                    
-                  >
-                    Settings
-                  </NavLink>
-                  
+                      to={`Dashboard/settings/${userId}`}
+                      className="dropdown-item "
+                    >
+                      Settings
+                    </NavLink>
                   </li>
                   <li>
                     <NavLink
@@ -92,7 +89,7 @@ export default function Navbar(props) {
               {/* <li className="nav-item">
                 <a className="nav-link disabled" href="/" tabIndex="-1" aria-disabled="true">Disabled</a>
                 </li>
-</ul>*/}
+                  </ul>*/}
 
               <div
                 className={`form-check form-switch form-check-reverse text-${

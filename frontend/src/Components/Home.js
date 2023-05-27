@@ -17,7 +17,7 @@ export default function Home(props) {
 
   return (
     <>
-      <div className="center">
+      <div className="center page-content">
         <div className="bg">
           <div className="align">
             <br />

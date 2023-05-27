@@ -38,7 +38,7 @@ export const Register = (props) => {
   }
 
   return (
-    <div className="center2">
+    <div className="center2 page-content">
       <div className="bg5 ">
         <Modal
           className="pop2"

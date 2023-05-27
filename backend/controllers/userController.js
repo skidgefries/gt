@@ -1,7 +1,7 @@
 const User=require("../models/userModel")
 
 module.exports.getUser=async function getUser(req, res){
-    console. log('getUsercalled');
+    // console. log('getUsercalled');
     let id=req.params.id;
     let user=await User. findById(id);
    if(user){

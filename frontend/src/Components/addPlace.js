@@ -14,6 +14,42 @@ export default function AddPlace({ data, index , setlat1, setlng1 }) {
 
   const locationRef = useRef();
 
+
+
+  const axios = require('axios');
+
+
+//  nearby attraction
+async function getAttractions() {
+  const options = {
+    method: 'GET',
+    url: 'https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng',
+    params: {
+      // longitude: lng,
+      // latitude: lat,
+      lunit: 'km',
+      currency: 'USD',
+      lang: 'en_US'
+    },
+    headers: {
+      'X-RapidAPI-Key': '2ec6dc2e3dmshae279616c761506p1b9054jsnaa780b25c89e',
+      'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
+    }
+  };
+
+  try {
+    const attractions = await axios.request(options);
+    console.log(attractions.data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// getAttractions();
+
+
+
+
   function Point(index) {
     if (locationRef.current.value === "") {
       return;
@@ -52,7 +88,7 @@ console.log(index)
               className="accordion-button"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target={`#collapse-${data}`}
+              data-bs-target={`#collapse-${index}`}
               aria-expanded="true"
               aria-controls={`collapse-${data}`}
             >
