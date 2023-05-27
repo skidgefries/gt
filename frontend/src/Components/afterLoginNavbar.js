@@ -11,7 +11,7 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} `}
     >
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/Dashboard/:id">
+        <NavLink className="navbar-brand" to="/LoginHome">
           <img
             src={logo}
             alt="Logo"
@@ -34,8 +34,30 @@ export default function Navbar(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className=" navbar-nav me-auto mb-2 mb-lg-0  ">
-
-               <li className="nav-item">
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  style={{ font: "Montserrat", fontSize: 30 }}
+                  href="/"
+                >
+                  <input
+                    className="form-check-input"
+                    style={{ font: "Montserrat", fontSize: 33 }}
+                    onClick={props.toggleMode}
+                    type="checkbox"
+                    role="switch"
+                    id="flexSwitchCheckReverse"
+                  />
+                  <label
+                    className="form-check-label"
+                    style={{ font: "Montserrat", fontSize: 30 }}
+                    htmlFor="flexSwitchCheckReverse"
+                  >
+                    ENABLE DARKMODE
+                  </label>
+                </a>
+              </li>
+              <li className="nav-item">
                 <NavLink
                   className="nav-link "
                   style={{ font: "Montserrat", fontSize: 30 }}
@@ -68,20 +90,24 @@ export default function Navbar(props) {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
+                    <a className="dropdown-item" href="/">
                     <NavLink
-                    to={"/Dashboard/settings/${userId}"}
-                    className="dropdown-item "
-                    
+                    className="nav-link "
+                    to={`./Dashboard/settings/${userId}`}
                   >
                     Settings
                   </NavLink>
-                  
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
                   </li>
                   <li>
                     <NavLink
                       to="/Home"
                       onClick={() => props.onFormSwitch("home")}
                       className="dropdown-item"
+                      href="/"
                     >
                       Log Out
                     </NavLink>

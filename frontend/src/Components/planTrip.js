@@ -151,7 +151,7 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
   return (
     <div>
       <div className="center2">
-        <div className=" bg6">
+        <div className=" bg5 ">
           <div className="cross1">
             <NavLink className="nav-link " to="../Home">
               
@@ -164,19 +164,19 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
             onSubmit={Submit}
             novalidate
           >
-          <div className="quicksand20 black">
+          <div className="quicksand20">
             <b>Plan a New Trip</b>
           </div>
             <Combobox onSelect={handleSelect}>
               <label htmlFor="destination" className="form-label quicksand18">
-                <b>Destination*</b>
+                <b>Destination</b>
               </label>
               <br />
               <ComboboxInput
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 disabled={!ready}
-                className="email1"
+                className="email"
                 placeholder="Where?"
               />
               <ComboboxPopover>
@@ -194,7 +194,7 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
             </label>
             <input
               type="date"
-              className="email1 "
+              className="email "
               id="startDate"
               onChange={handleChange1}
               ref={dateInputRef}
@@ -205,7 +205,7 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
             </label>
             <input
               type="date"
-              className="email1 "
+              className="email "
               id="endDate"
               onChange={handleChange2}
               ref={dateInputRef}

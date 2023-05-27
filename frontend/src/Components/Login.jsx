@@ -6,7 +6,7 @@ import { Modal, ModalHeader } from "reactstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { NavLink , Link} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import img1 from "./images/navLogo.png";
 
@@ -109,7 +109,7 @@ export const Login = (props) => {
               </button>
               <br />{" "}
               <button className="btn btn-link">
-                <Link to="../forgetPw"><h5>Forgot Password?</h5></Link>
+                <h5>Forgot Password?</h5>
               </button>
               <br />
               <NavLink to="../Register">
