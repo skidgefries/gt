@@ -1,15 +1,16 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import "../App.css";
+import { Modal, ModalHeader } from "reactstrap";
 import Button from "react-bootstrap/Button";
 import img from "./images/defaultuser.png";
 import Upload from "./images/Upload-icon.png";
 import { useParams } from "react-router-dom";
+import img1 from "./images/navLogo.png";
 
-export default function Settings() {
+export default function Settings(props) {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   // const [pass, setPass] = useState("");
@@ -94,79 +95,143 @@ export default function Settings() {
   };
 
   return (
-    <div className="settings-container">
-      <div className="side-panel">
-        <h1 className="Settings Title">Settings</h1>
-        <h6>Account</h6>
-      </div>
-      <div className="settings-content">
-        <div className="column-setting">
-          <div className="image-container">
-            <img src={imgSrc} alt="Logo" className="logo-image" />
-            <div className="upload-logo">
-              <label htmlFor="upload-input" className="upload-button">
-                <span className="upload-button-text">
-                  <img src={Upload} alt="Update Logo" className="upload-icon" />
-                </span>
-                <input
-                  id="upload-input"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  style={{ display: "none" }}
-                />
-              </label>
+    <>
+    <Modal
+          className="pop1"
+          contentClassName="pop1"
+          size="lg"
+          isOpen={false}
+          toggle={() => props.setmodal(!props.modal)}
+        >
+          <ModalHeader>
+            {" "}
+
+            <img
+              src={img1}
+              className=" card-img-top"
+              alt="Logo"
+              width="400"
+              height="250"
+            />
+          </ModalHeader>{" "}
+          <br />{" "}
+          <h4 className="quicksand18 alignCenter" style={{  color:'grey' }}><b>Please enter your email address<br/> to recover your account.</b></h4>
+          <form
+            action="POST"
+            className="login-form"
+            // onSubmit={Submit}
+            novalidate
+          >
+            <label htmlFor="email" className="form-label"></label>
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="E-mail"
+              id="email"
+              name="email"
+              className="email "
+              value={email}
+              required
+            />
+            <br />
+
+            <br />
+            <div className="text-center">
+
+              <button type="submit" className=" but btn btn-primary  " onCLi>
+                <h5>Submit</h5>
+              </button>
+      
             </div>
-          </div>
+          </form>
+        </Modal>
+    <div className="container gap ">
+      <div className="row">
+        <div className="col-md-3 ">
+          <h1 className="quicksand20">Settings</h1>
+          <hr />
+          <h6 className="quicksand17 alignCenter">Account</h6>
+        </div>
+
+        <div className="col-md-6 ">
+        <div className="circle ">
+          <img
+            src={imgSrc}
+            alt="Logo"
+            className="logo-image "
+            height="200px"
+            width="200px"
+          /></div>
+          {/*<div className="upload-logo">*/}
+          <label htmlFor="upload-input" className="upload-button shift">
+            <span className="upload-button-text">
+              <img
+                src={Upload}
+                alt="Update Logo"
+                className="upload-icon"
+                height="60px"
+                width="60px"
+              />
+            </span>
+            <input
+              id="upload-input"
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              style={{ display: "none" }}
+            />
+          </label>
 
           <br />
-          <form className="Settings-form" onSubmit={handleSubmit} noValidate>
-            <label htmlFor="Name" className="form-label">
-              FullName
-            </label>
-            <input
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              className="email form-control"
-              id="Name"
-              value={name}
-              placeholder={user.name}
-              required
-            />
-            <br />
-            <label htmlFor="Username" className="form-label">
-              Username
-            </label>
-            <input
-              onChange={(e) => setUname(e.target.value)}
-              placeholder={user.username}
-              type="text"
-              id="Username"
-              className="email form-control"
-              value={uname}
-              required
-            />
-            <br />
-            <label htmlFor="email" className="form-label">
-              E-mail
-            </label>
-            <input
-              value={email}
-              placeholder={user.email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-              type="text"
-              id="email"
-              className="email form-control"
-            />
+          <form className="quicksand15" onSubmit={handleSubmit}>
+            <strong>
+              <label htmlFor="Name" className="form-label">
+                FullName
+              </label>
+              <input
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                className=" form-control"
+                id="Name"
+                value={name || user.name }
+               
+                
+              />
+              <br />
+              <label htmlFor="Username" className="form-label">
+                Username
+              </label>
+              <input
+                onChange={(e) => setUname(e.target.value)}
+                type="text"
+                id="Username"
+                className=" form-control"
+                value={uname||user.username}
+                
+              />
+              <br />
+              <label htmlFor="email" className="form-label">
+                E-mail
+              </label>
+              <input
+                value={email|| user.email}
+             
+                required
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                id="email"
+                className=" form-control"
+                
+              />
 
-            <div className="button-container">
-              <button type="submit" className="btn btn-success btn-lg">
+              <br />
+         
+              <button type="submit" className="btn btn-success btn-lg" >
                 Save
               </button>
-            </div>
+              <br />
 
-            {/* <br />
+              {/* <br />
             <label htmlFor="password" className="form-label">
               Password
             </label>
@@ -195,20 +260,23 @@ export default function Settings() {
               className="email form-control"
             /> */}
 
-            <br />
-            <div className="Settings-DU-button">
-              <button >
-                Update Password
-              </button>{" "}
-              <h6>
-              </h6>
-              <button >
-                Delete Account
-              </button>
-            </div>
+              <br />
+            
+                <button type="submit" className="btn btn-success btn-lg">
+                  Update Password
+                </button>
+                <br/>
+                <br/>
+                <button type="submit" className="btn btn-success btn-lg">
+                  Delete Account
+                </button>
+         
+              
+            </strong>
           </form>
         </div>
       </div>
     </div>
+    </>
   );
 }

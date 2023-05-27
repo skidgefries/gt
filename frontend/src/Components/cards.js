@@ -1,7 +1,39 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function Card1() {
+
+  const [user, setUser] = useState("");
+
+  const { id } = useParams();
+  const token = localStorage.getItem("accessToken");
+  const headers = {
+    Authorization: token,
+    "Content-Type": "application/json",
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:4000/user/userProfile/${id}`,
+          { headers }
+        );
+        setUser(response.data.details);
+        console.log("This is the data from the backend >>>>>>>", response.data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+
+
   return (
     <>
       <div className="container">

@@ -49,6 +49,29 @@ module.exports.getPlan=async function getPlan(req,res){
     }
 }
 
+
+module.exports.getPlanByUserId = async function getPlanByUserId(req, res) {
+  const userId = req.params.id; // Assuming the user ID is passed as a parameter
+
+  try {
+    const plans = await Plan.find({ user_id: userId });
+    const planCount = plans.length; // Calculate the number of plans
+    const details = ({
+
+      plans,
+      planCount
+    })
+    res.json({
+      details
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
+
 module.exports.createPlan=async function createPlan(req,res){
     try{
         let planData=req.body;

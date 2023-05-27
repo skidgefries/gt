@@ -2,6 +2,7 @@ import React from "react";
 import img from "./images/navLogo.png";
 import {Link} from 'react-router-dom'
 
+
 export default function FooterAbout() {
   return (
     <>

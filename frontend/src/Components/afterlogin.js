@@ -66,22 +66,30 @@ export default function Afterlogin(props) {
   }
 
   return (
-    <div className="container">
-      <div className="user-details">
-        <div className="profile-box">
-          <div className="profile-image">
-            <img src={imgSrc} alt="Profile" className="circular-image" />
+    <div className="Dashboard-container">
+      <div className="Dashboard-user-details">
+        <div className="Dashboard-profile-box">
+          <div className="Dashboard-profile-image">
+            <img
+              src={imgSrc}
+              alt="Profile"
+              className="Dashboard-circular-image"
+            />
           </div>
-          <div className="user-info">
-            <div className="full-name">{user.name}</div>
-            <div className="user-name">@{user.username}</div>
+          <div className="Dashboard-user-info">
+            <div className="Dashboard-full-name">
+              <h5>{user.name}</h5>
+            </div>
+            <div className="user-name">
+              <h5>@{user.username}</h5>
+            </div>
+            <div className="user-name">
+              <h5>{user.email}</h5>
+            </div>
           </div>
-          <Button variant="secondary" onClick={handleEdit}>
-            Edit
-          </Button>
         </div>
 
-        <div className="map">
+        <div className="Dashboard-map">
           <Flex position="relative" alignItems="center" h="100%">
             <Box w="100%" h="100%">
               <GoogleMap
@@ -101,12 +109,10 @@ export default function Afterlogin(props) {
           </Flex>
         </div>
       </div>
-   
 
       <div className="trip-section">
-
         <div>
-          <h2>Your Trips</h2>  <button> + New Trip</button>
+          <h2>Your Trips</h2> <button> + New Trip</button>
           <Carousel1 />
         </div>
 

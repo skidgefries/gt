@@ -14,6 +14,7 @@ const {
   deleteDayNote,
   deletePlacesItinerary,
   deleteNoteInPlacesItinerary,
+  getPlanByUserId,
 } = require("../controllers/planController");
 const {validateToken}=require("../middleware/validateTokenHandler")
 
@@ -23,6 +24,8 @@ const {validateToken}=require("../middleware/validateTokenHandler")
 //own plan
 planRouter.use(validateToken)//needs to be logged in
 planRouter.route("/plan/:id").get(getPlan);
+planRouter.route("/user/plan/:id").get(getPlanByUserId);
+
 
 // planRouter.use(isAuthorized(['admin','user']));
 // planRouter
