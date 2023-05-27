@@ -48,7 +48,6 @@ import {
 
 function App() {
   const apiKey = "AIzaSyDnqzvG0A1JmiMvayhbt_T_5IXtRO0DiHQ";
-  const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
   const [currentForm, setCurrentForm] = useState(
     localStorage.getItem("accesstoken")
       ? localStorage.getItem("accessToken")
@@ -66,18 +65,12 @@ function App() {
       // localStorage.setItem("userId", forName);
     }
   };
-  const toggleMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "#212529";
-    } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-    }
-  };
+
   const [result, setResult] = useState(null);
   const [modal, setmodal] = useState(false);
+  const [modal1, setmodal1] = useState(false);
   const [data, setData] = useState(null);
+  
   return (
     <>
       <div>
@@ -85,12 +78,12 @@ function App() {
         <Router>
           {!localStorage.getItem("accessToken") &&
           !localStorage.getItem("userId") ? (
-            <Navbar1 mode={mode} toggleMode={toggleMode} setmodal={setmodal} />
+            <Navbar1 mode="light" setmodal={setmodal} />
           ) : (
             <Navbar2
-              mode={mode}
+              mode="light"
               onFormSwitch={toggleForm}
-              toggleMode={toggleMode}
+              
             />
           )}
 
@@ -185,7 +178,7 @@ function App() {
               path="/Dashboard/settings/:id"
               element={
                 <Protected>
-                  <Settings modal={modal} setmodal={setmodal} />
+                  <Settings modal1={modal1} setmodal1={setmodal1} />
                 </Protected>
               }
             />

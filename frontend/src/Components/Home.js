@@ -6,7 +6,7 @@ import img4 from "./images/chit.webp";
 import img5 from "./images/pkh.webp";
 import imga from "./images/boud.jpg";
 import imgb from "./images/chit.webp";
-import imgc from "./images/pkh.webp";
+import imgc from "./images/bkt.jpg";
 import Footer from "./footer";
 import { useState } from "react";
 import { Link } from "react-router-dom";

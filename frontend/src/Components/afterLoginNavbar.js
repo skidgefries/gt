@@ -78,7 +78,7 @@ export default function Navbar(props) {
                     <NavLink
                       to="/Home"
                       onClick={() => props.onFormSwitch("home")}
-                      className="dropdown-item"
+                      className="dropdown-item  "
                     >
                       Log Out
                     </NavLink>
@@ -86,33 +86,13 @@ export default function Navbar(props) {
                 </ul>
               </li>
 
-              {/* <li className="nav-item">
-                <a className="nav-link disabled" href="/" tabIndex="-1" aria-disabled="true">Disabled</a>
-                </li>
-                  </ul>*/}
+              
 
-              <div
-                className={`form-check form-switch form-check-reverse text-${
-                  props.mode === "light" ? "dark" : "light"
-                }`}
-              ></div>
             </ul>
           </div>
         </div>
       </div>
-      {/*<div className="right">
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-success" type="submit">
-              Search
-            </button>
-          </form>
-              </div>*/}
+
     </nav>
   );
 }

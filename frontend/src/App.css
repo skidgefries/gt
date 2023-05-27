@@ -390,7 +390,10 @@
 
 .quicksand17 {
   font-family: quicksand;
-  font-size: calc(20px + 2vmin);
+  font-size: calc(15px + 2vmin);
+}
+.grey{
+  background-color: #e4e4e4;
 }
 
 .quicksand20 {

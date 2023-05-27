@@ -91,7 +91,7 @@ export default function Navbar(props) {
                     style={{ font: "Montserrat", fontSize: 30 }}
                     to="./Login"
                   >
-                    <span> </span>LOGIN
+                    LOGIN
                   </NavLink>
                 </li>
                 {/*<li className="nav-item dropdown">
