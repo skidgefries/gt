@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 // import { PropTypes } from "prop-types";
 import { toast } from "react-hot-toast";
@@ -6,46 +7,42 @@ import { Modal, ModalHeader } from "reactstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { NavLink , Link} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import img1 from "./images/navLogo.png";
 
-export const Login = (props) => {
-  const history = useNavigate();
+export default function ForgetPW(props) {
+//   const history = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
 
 
-  async function Submit(e) {
-    e.preventDefault();
-    try {
-      console.log(email);
-      console.log("gjk");
-      const values = {
-        email,
-        password: pass,
-      };
-      console.log(values);
-      const res = await axios.post("http://localhost:4000/user/login", values);
-      if (res.error) {
-        toast.error(res.error);
-      } else {
-        props.onFormSwitch(res.data.accessToken);
-        localStorage.setItem("userId", res.data.user_id);
-        toast.success("Logged in successfully");
-        const userId = localStorage.getItem("userId");
-        history(`/Dashboard/${userId}`);
-      }
-    } catch (err) {
-      toast.error("error")
-      console.log(err);
-    }
-  }
-  const handlePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+
+//   async function Submit(e) {
+//     e.preventDefault();
+//     try {
+//       console.log(email);
+//       const values = {
+//         email,
+
+//       };
+//       console.log(values);
+//       const res = await axios.post("http://localhost:4000/user/login", values);
+//       if (res.error) {
+//         toast.error(res.error);
+//       } else {
+//         props.onFormSwitch(res.data.accessToken);
+//         localStorage.setItem("userId", res.data.user_id);
+//         toast.success("Logged in successfully");
+//         const userId = localStorage.getItem("userId");
+//         history(`/Dashboard/${userId}`);
+//       }
+//     } catch (err) {
+//       toast.error("error");
+//       console.log(err);
+//     }
+//   }
+
 
   return (
     <div className="center2">
@@ -73,10 +70,11 @@ export const Login = (props) => {
             />
           </ModalHeader>{" "}
           <br />{" "}
+          <h4 className="quicksand18 alignCenter" style={{  color:'grey' }}><b>Please enter your email address<br/> to recover your account.</b></h4>
           <form
             action="POST"
             className="login-form"
-            onSubmit={Submit}
+            // onSubmit={Submit}
             novalidate
           >
             <label htmlFor="email" className="form-label"></label>
@@ -91,31 +89,15 @@ export const Login = (props) => {
               required
             />
             <br />
-            <label htmlFor="password" className="form-label"></label>
-            <input
-              value={pass}
-              required
-              onChange={(e) => setPass(e.target.value)}
-              type="password"
-              placeholder="Password"
-              id="password"
-              name="password "
-              className="email "
-            />
+
             <br />
             <div className="text-center">
+            <NavLink
+            to="/confirmPW"
+          >
               <button type="submit" className=" but btn btn-primary  ">
-                Login
+                <h5>Submit</h5>
               </button>
-              <br />{" "}
-              <button className="btn btn-link">
-                <Link to="../forgetPw"><h5>Forgot Password?</h5></Link>
-              </button>
-              <br />
-              <NavLink to="../Register">
-                <button type="button" class="btn btn-success">
-                  Create New Account
-                </button>
               </NavLink>
             </div>
           </form>

@@ -659,34 +659,50 @@ export default function Home(props) {
               Discover your next favorite destination
             </div>
             <br />
-            <div className="alignLeft1">
+            <br/>
+            <br/>
+            <div className="content-box-lg">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-6">
               <img
                 src={img5}
                 alt="Logo"
                 style={{
+                 
                   height: 600,
                   width: 600,
                   borderRadius: 300,
                 }}
               />
-              BREATHTAKING VIEWS
             </div>
+            <div className="col-md-6 alignLeft1"><br/><br/>BREATHTAKING VIEWS</div>
             <br />
+            <br />            
+            <br /> 
+            </div></div></div>   
+            <div className="content-box-lg">
+            <div className="container">
+                <div className="row">
+                <div className="col-md-6 alignRight1"><br/><br/>MAJESTIC TEMPLES</div>        
+            <div className="col-md-6">
             <br />
-            <div className="alignRight1">
-              MAJESTICS TEMPLES
+            <br />            
+            <br /> 
               <img
                 src={img2}
                 alt="Logo"
                 style={{
-                  alignItems: "right",
                   height: 600,
                   width: 600,
                   borderRadius: 300,
                 }}
               />
-              <br />
+              <br/>
             </div>
+            </div></div></div>
+            <br />
+
             <br />
             <br />
             <hr className="line" />
@@ -696,7 +712,7 @@ export default function Home(props) {
               <br />- Dalai Lama
             </div>
             <hr className="line" />
-            <br />
+            <br /><br/>
             <div className="align9">
               GUIDED TRAVELS
               <div className="align10">

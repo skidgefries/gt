@@ -128,7 +128,7 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
     const diffInMilliseconds = Math.abs(end - start);
-    const days = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+    const days = Math.floor((diffInMilliseconds / (1000 * 60 * 60 * 24))+1);
     console.log(days);
     setResult(days);
     const tripDetail ={ 
@@ -144,14 +144,14 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
     console.log()
     if (value && days){ 
       navigate("/LoginHome");
-      dispatch(setItinerary(days))};
+      dispatch(setItinerary(days));};
   }
 
 
   return (
     <div>
       <div className="center2">
-        <div className=" bg5 ">
+        <div className=" bg6">
           <div className="cross1">
             <NavLink className="nav-link " to="../Home">
               
@@ -164,19 +164,19 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
             onSubmit={Submit}
             novalidate
           >
-          <div className="quicksand20">
+          <div className="quicksand20 black">
             <b>Plan a New Trip</b>
           </div>
             <Combobox onSelect={handleSelect}>
               <label htmlFor="destination" className="form-label quicksand18">
-                <b>Destination</b>
+                <b>Destination*</b>
               </label>
               <br />
               <ComboboxInput
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 disabled={!ready}
-                className="email"
+                className="email1"
                 placeholder="Where?"
               />
               <ComboboxPopover>
@@ -194,7 +194,7 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
             </label>
             <input
               type="date"
-              className="email "
+              className="email1 "
               id="startDate"
               onChange={handleChange1}
               ref={dateInputRef}
@@ -205,7 +205,7 @@ const PlacesAutocomplete = ({ selected, setSelected }) => {
             </label>
             <input
               type="date"
-              className="email "
+              className="email1 "
               id="endDate"
               onChange={handleChange2}
               ref={dateInputRef}

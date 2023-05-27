@@ -11,6 +11,8 @@ import Carousel1 from "./Components/Carousel";
 //import ProfileScreen from "./Components/ProfileScreen";
 import Loginhome from "./Components/LoginHome";
 import Settings from "./Components/settings";
+import ForgetPW from "./Components/forgetPW";
+import ConfirmPW from "./Components/ConfirmPW";
 import AddPlace from "./Components/addPlace";
 import DateCalculator from "./Components/planTrip";
 import PlanTrip from "./Components/planTrip";
@@ -81,7 +83,8 @@ function App() {
       <div>
         <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
         <Router>
-        {!localStorage.getItem("accessToken") && !localStorage.getItem("userId") ? (
+          {!localStorage.getItem("accessToken") &&
+          !localStorage.getItem("userId") ? (
             <Navbar1 mode={mode} toggleMode={toggleMode} setmodal={setmodal} />
           ) : (
             <Navbar2
@@ -122,7 +125,7 @@ function App() {
                 </Protected>
               }
             />
-             <Route
+            <Route
               path="/LoginHome"
               element={
                 <Protected>
@@ -157,6 +160,16 @@ function App() {
                   <Plan data={data} setData={setData} />
                 </Protected>
               }
+            />
+
+            <Route
+              path="/forgetPw"
+              element={<ForgetPW modal={modal} setmodal={setmodal} />}
+            />
+
+            <Route
+              path="/confirmPW"
+              element={<ConfirmPW modal={modal} setmodal={setmodal} />}
             />
 
             <Route
