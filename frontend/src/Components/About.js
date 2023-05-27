@@ -4,57 +4,90 @@ import Footer from "./footerAbout";
 
 export default function About() {
   return (
-  
-  <div className="aligncenter1">
-  
-
-    <section id="about">
+    <div className="aligncenter1">
+      <section id="about">
         <div className="quicksand18">
-            <h1 style={{fontSize:'100px'}}> ABOUT US</h1>
-            <p>Welcome to our movie recommendation website! We're excited to help you find your next favorite film. So, kick back, grab some popcorn, and let us help you discover your next favorite movie.</p>
+          <h1 style={{ fontSize: "100px" }}>ABOUT US</h1>
+          <p>
+            Welcome to GuidedTravels! We're excited to assist you in planning
+            your next adventure. Whether you're a seasoned traveler or a
+            first-time explorer, our goal is to provide you with personalized
+            trip recommendations that cater to your preferences and interests.
+            So, get ready to embark on unforgettable journeys with
+            GuidedTravels.
+          </p>
         </div>
         <div id="about-2">
-        <br/>
-            <div className="content-box-lg">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-4">
-                            <div className="about-item text-center">
-                    
-                                <h1>MISSION</h1>
-                                <hr/>
-                                <p className="quicksand10">At our site, we strive to provide you with personalized movie recommendations that match your preferences and tastes. We understand that everyone's movie taste is unique, which is why we use a variety of data and algorithms to analyze your movie preferences and suggest the perfect movie for you. Our website aims to help users discover new movies they may not have otherwise found, and to make the process of finding and selecting high-quality movies as easy and enjoyable as possible.  </p>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="about-item text-center">
-                                
-                                <h1>FEATURES</h1>
-                                <hr/>
-                                <p className="quicksand10">Users can search for movies by genre, their mood, cast, directors to find movies that match their interests. A registered user can also rate movies that they have watched and also create a watchlist of movies that they want to watch and keep track of movies they have already watched. Our site includes features such as "Recommended Movies", all curated to give you a diverse selection of movies to choose from. We take pride in our user-friendly interface, which makes finding and selecting movies quick and easy.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-md-4">
-                            <div className="about-item text-center">
-                             
-                                <h1>FUTURE UPDATES</h1>
-                                <hr/>
-                                <p className="quicksand10">Some potential future enhancements for our website include integration with popular streaming services like Netflix, Hulu, to allow users to easily access recommended movies directly from their streaming accounts. The website could allow users to submit their own movie reviews, creating a community of movie lovers who can share their thoughts and opinions. The website could also expand its content by allowing users to search for series, documentaries and short films that match their interests.</p>
-                            </div>
-                        </div>
-                    </div>
+          <br />
+          <div className="content-box-lg">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-4">
+                  <div className="about-item text-center">
+                    <h1>MISSION</h1>
+                    <hr />
+                    <p className="quicksand10">
+                      At GuidedTravels, our mission is to simplify the process
+                      of trip planning and provide you with personalized travel
+                      recommendations. We understand that each traveler has
+                      unique preferences and desires when it comes to their
+                      journeys. That's why we leverage a combination of data
+                      analysis and algorithms to analyze your travel preferences
+                      and suggest the perfect destinations and experiences for
+                      you. Our website aims to inspire and guide travelers,
+                      helping them discover new destinations and create
+                      memorable travel experiences effortlessly.
+                    </p>
+                  </div>
                 </div>
+                <div className="col-md-4">
+                  <div className="about-item text-center">
+                    <h1>FEATURES</h1>
+                    <hr />
+                    <p className="quicksand10">
+                      GuidedTravels offers a range of features to enhance your
+                      travel planning experience. Users can search for
+                      destinations based on their interests, such as adventure,
+                      culture, nature, or relaxation. Our platform allows
+                      registered users to save and rate their favorite trips,
+                      enabling them to create personalized travel itineraries
+                      and keep track of their past adventures. With features
+                      like "Recommended Trips," we strive to provide a diverse
+                      selection of travel options to cater to every traveler's
+                      preferences. Our user-friendly interface ensures that
+                      finding and selecting your dream destinations is quick and
+                      hassle-free.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="about-item text-center">
+                    <h1>FUTURE UPDATES</h1>
+                    <hr />
+                    <p className="quicksand10">
+                      We have exciting plans for the future of GuidedTravels.
+                      One of our potential enhancements includes integrating
+                      with renowned travel services, allowing users to
+                      seamlessly book flights, accommodations, and activities
+                      directly through our platform. We also aspire to create a
+                      community of passionate travelers who can share their
+                      travel stories, tips, and recommendations. Additionally,
+                      we plan to expand our offerings beyond traditional trips
+                      and incorporate unique travel experiences, such as
+                      eco-tours, culinary adventures, and wellness retreats.
+                      Stay tuned for these exciting updates!
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-    <hr/>
-    <br/>
-    <br/>
-    <h1 className="quicksand20"><i>*Hope You Enjoy Your Visit*</i></h1>
-
-<Footer/>
-        </div>
-        
+      </section>
+      <h1 className="quicksand20" style={{ marginTop: "0" }}>
+        <i>*Hope You Enjoy Your Journeys with GuidedTravels*</i>
+      </h1>
+      <Footer />
+    </div>
   );
 }
