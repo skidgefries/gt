@@ -50,6 +50,10 @@ export default function Settings(props) {
 
     fetchData();
   }, [id]);
+  const handleUnameChange = (e) => {
+    e.preventDefault()
+    setUname(e.target.value)
+  }
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0]; // Get the selected file
@@ -103,10 +107,10 @@ export default function Settings(props) {
         className="pop1"
         contentClassName="pop1"
         size="lg"
-        
+
         isOpen={props.modal1}
         toggle={() => props.setmodal1(!props.modal1)}
-        
+
       >
         <ModalHeader>
           {" "}
@@ -238,7 +242,7 @@ export default function Settings(props) {
                   Username
                 </label>
                 <input
-                  onChange={(e) => setUname(e.target.value)}
+                  onChange={handleUnameChange}
                   type="text"
                   id="Username"
                   className=" form-control"
