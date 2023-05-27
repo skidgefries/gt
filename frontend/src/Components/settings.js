@@ -1,18 +1,22 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import "../App.css";
-import img5 from "./images/pkh.webp";
+import Button from "react-bootstrap/Button";
+import img from "./images/defaultuser.png";
+import Upload from "./images/Upload-icon.png";
 import { useParams } from "react-router-dom";
 
 export default function Settings() {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  // const [pass, setPass] = useState("");
   const [name, setName] = useState("");
   const [uname, setUname] = useState("");
-  const [cpass, setcPass] = useState("");   
+  // const [cpass, setcPass] = useState("");
+  const [imgSrc, setImgSrc] = useState(img);
 
   const navigate = useNavigate();
 
@@ -22,9 +26,10 @@ export default function Settings() {
 
   const headers = {
     Authorization: token,
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   };
-  // fetching image andname from database
+
+  // fetching image and name from database
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,28 +47,32 @@ export default function Settings() {
     fetchData();
   }, [id]);
 
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    preferences: {
-      theme: "",
-      language: "",
-    },
-  });
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0]; // Get the selected file
+    if (file) {
+      // Create a FileReader object
+      const reader = new FileReader();
 
-  async function Submit(e) {
+      reader.onload = () => {
+        // Update the image source with the selected file
+        setImgSrc(reader.result);
+      };
+
+      reader.readAsDataURL(file); // Read the file as data URL
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const values = {
       name,
       username: uname,
       email,
-      password: pass,
-      confirmPassword: cpass,
+      // password: pass,
+      // confirmPassword: cpass,
     };
 
     try {
-      
       // Send the updated settings to the backend API
       const { data } = await axios.patch(
         `http://localhost:4000/user/userProfile/${id}`,
@@ -82,38 +91,36 @@ export default function Settings() {
       const errorMessage = error.response.data.message;
       toast.error(errorMessage);
     }
-  }
-
-
-
- 
- 
+  };
 
   return (
     <div className="settings-container">
       <div className="side-panel">
         <h1 className="Settings Title">Settings</h1>
-        <h6>
-          Account
-        </h6>
+        <h6>Account</h6>
       </div>
       <div className="settings-content">
         <div className="column-setting">
-          <img
-            src={img5}
-            alt="Logo"
-            style={{
-              height: 200,
-              width: 200,
-              borderRadius: 100,
-            }}
-          />
-          <form
-            action="PATCH"
-            className="login-form needs-validation"
-            onSubmit={Submit}
-            novalidate
-          >
+          <div className="image-container">
+            <img src={imgSrc} alt="Logo" className="logo-image" />
+            <div className="upload-logo">
+              <label htmlFor="upload-input" className="upload-button">
+                <span className="upload-button-text">
+                  <img src={Upload} alt="Update Logo" className="upload-icon" />
+                </span>
+                <input
+                  id="upload-input"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  style={{ display: "none" }}
+                />
+              </label>
+            </div>
+          </div>
+
+          <br />
+          <form className="Settings-form" onSubmit={handleSubmit} noValidate>
             <label htmlFor="Name" className="form-label">
               FullName
             </label>
@@ -126,7 +133,7 @@ export default function Settings() {
               placeholder={user.name}
               required
             />
-
+            <br />
             <label htmlFor="Username" className="form-label">
               Username
             </label>
@@ -139,7 +146,7 @@ export default function Settings() {
               value={uname}
               required
             />
-
+            <br />
             <label htmlFor="email" className="form-label">
               E-mail
             </label>
@@ -153,6 +160,13 @@ export default function Settings() {
               className="email form-control"
             />
 
+            <div className="button-container">
+              <button type="submit" className="btn btn-success btn-lg">
+                Save
+              </button>
+            </div>
+
+            {/* <br />
             <label htmlFor="password" className="form-label">
               Password
             </label>
@@ -166,10 +180,11 @@ export default function Settings() {
               name="password "
               className="email form-control"
             />
-
+            <br />
             <label htmlFor="confirmpassword" className="form-label">
               Confirm Password*
             </label>
+
             <input
               value={cpass}
               required
@@ -178,12 +193,19 @@ export default function Settings() {
               id="confirmpassword"
               name="Confirmpassword "
               className="email form-control"
-            />
+            /> */}
 
             <br />
-            <button type="Submit" className="btn btn-success btn-lg">
-              Update
-            </button>
+            <div className="Settings-DU-button">
+              <button >
+                Update Password
+              </button>{" "}
+              <h6>
+              </h6>
+              <button >
+                Delete Account
+              </button>
+            </div>
           </form>
         </div>
       </div>
