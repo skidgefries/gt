@@ -72,14 +72,14 @@ export default function Settings(props) {
       name,
       username: uname,
       email,
-      // password: pass,
-      // confirmPassword: cpass,
+      password: pass,
+      //confirmPassword: cpass,
     };
 
     try {
       // Send the updated settings to the backend API
       const { data } = await axios.patch(
-        `http://localhost:4000/user/userProfile/${id}`,
+        `http://localhost:4000/user/userProfile/:id}`,
         values,
         { headers }
       );
@@ -126,7 +126,7 @@ export default function Settings(props) {
         <form
           action="POST"
           className="login-form"
-          // onSubmit={Submit}
+          onSubmit={handleSubmit}
           novalidate
         >
           <label htmlFor="email" className="form-label"></label>
@@ -305,3 +305,6 @@ export default function Settings(props) {
     </>
   );
 }
+
+//  export default Settings;
+

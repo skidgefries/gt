@@ -28,36 +28,32 @@ module.exports.getUser=async function getUser(req, res){
 module.exports.updateUsers=async function updateUser(req,res){
     // console. log(" req. body-> ", req.body);
     //update data in users obj
-    try{
-        console.log("Update Called")
-        let id=req.params.id;
-        let user=await User.findById(id);
-        let dataToBeUpdated = req.body;
-        if(user){
-            const keys=[];
-            for(key in dataToBeUpdated){
-                keys.push(key);
-            }
-
-            for(let i=0;i<keys. length;i++){
-                user [keys [i]] =dataToBeUpdated [keys [i]];
-            }
-            const updatedData=await user.save();
-            res. json({
-             message: "data update successfully",
-             data:user
-            }); 
-        }
-        else{
-            res.json({
-                error:"User Not Found"
-            });
-        }
-    }
-    catch(err){
-        console.log("update ko error : ",err);
-        message :err.message
-    }
+    
+    try {
+      const userId = req.params.id;
+      const userDataToUpdate = req.body;
+  
+      const user = await User.findById(userId);
+  
+      if (user) {
+        // Update the user object with the new data
+        Object.assign(user, userDataToUpdate);
+  
+        // Save the updated user data
+        const updatedUser = await user.save();
+  
+        res.json({
+          message: "Account information updated successfully",
+          data: updatedUser,
+        });
+      } else {
+        res.status(404).json({ error: "User not found" });
+      }
+    } catch (error) {
+      console.error("Error updating account information:", error);
+      res.status(500).json({ error: "Internal server error" });
+ 
+}
 }
 
 module.exports.deleteUsers=async function deleteUser(req,res) {
