@@ -9,13 +9,16 @@ import img from "./images/defaultuser.png";
 import Upload from "./images/Upload-icon.png";
 import { useParams } from "react-router-dom";
 import img1 from "./images/navLogo.png";
+import { NavLink } from "react-router-dom";
 
 export default function Settings(props) {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
+  const [mod, setMod] = useState("false");
   // const [pass, setPass] = useState("");
   const [name, setName] = useState("");
   const [uname, setUname] = useState("");
+  const [pass, setPass] = useState("");
   // const [cpass, setcPass] = useState("");
   const [imgSrc, setImgSrc] = useState(img);
 
@@ -96,142 +99,175 @@ export default function Settings(props) {
 
   return (
     <>
-    <Modal
-          className="pop1"
-          contentClassName="pop1"
-          size="lg"
-          isOpen={false}
-          toggle={() => props.setmodal(!props.modal)}
-        >
-          <ModalHeader>
-            {" "}
-
-            <img
-              src={img1}
-              className=" card-img-top"
-              alt="Logo"
-              width="400"
-              height="250"
-            />
-          </ModalHeader>{" "}
-          <br />{" "}
-          <h4 className="quicksand18 alignCenter" style={{  color:'grey' }}><b>Please enter your email address<br/> to recover your account.</b></h4>
-          <form
-            action="POST"
-            className="login-form"
-            // onSubmit={Submit}
-            novalidate
-          >
-            <label htmlFor="email" className="form-label"></label>
-            <input
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="E-mail"
-              id="email"
-              name="email"
-              className="email "
-              value={email}
-              required
-            />
-            <br />
-
-            <br />
-            <div className="text-center">
-
-              <button type="submit" className=" but btn btn-primary  " onCLi>
-                <h5>Submit</h5>
-              </button>
-      
-            </div>
-          </form>
-        </Modal>
-    <div className="container gap ">
-      <div className="row">
-        <div className="col-md-3 ">
-          <h1 className="quicksand20">Settings</h1>
-          <hr />
-          <h6 className="quicksand17 alignCenter">Account</h6>
-        </div>
-
-        <div className="col-md-6 ">
-        <div className="circle ">
+      <Modal
+        className="pop1"
+        contentClassName="pop1"
+        size="lg"
+        
+        isOpen={props.modal1}
+        toggle={() => props.setmodal1(!props.modal1)}
+        
+      >
+        <ModalHeader>
+          {" "}
           <img
-            src={imgSrc}
+            src={img1}
+            className=" card-img-top"
             alt="Logo"
-            className="logo-image "
-            height="200px"
-            width="200px"
-          /></div>
-          {/*<div className="upload-logo">*/}
-          <label htmlFor="upload-input" className="upload-button shift">
-            <span className="upload-button-text">
-              <img
-                src={Upload}
-                alt="Update Logo"
-                className="upload-icon"
-                height="60px"
-                width="60px"
-              />
-            </span>
-            <input
-              id="upload-input"
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-              style={{ display: "none" }}
-            />
-          </label>
+            width="400"
+            height="250"
+          />
+        </ModalHeader>{" "}
+        <br />{" "}
+        <h4 className="quicksand18 alignCenter" style={{ color: "grey" }}>
+          <b>Please enter your password.</b>
+        </h4>
+        <br />
+        <form
+          action="POST"
+          className="login-form"
+          // onSubmit={Submit}
+          novalidate
+        >
+          <label htmlFor="email" className="form-label"></label>
+          <input
+            value={pass}
+            required
+            onChange={(e) => setPass(e.target.value)}
+            type="password"
+            id="password"
+            name="password "
+            placeholder="Enter-Password"
+            className="email "
+          />
+          <br />
 
           <br />
-          <form className="quicksand15" onSubmit={handleSubmit}>
-            <strong>
-              <label htmlFor="Name" className="form-label">
-                FullName
-              </label>
-              <input
-                onChange={(e) => setName(e.target.value)}
-                type="text"
-                className=" form-control"
-                id="Name"
-                value={name || user.name }
-               
-                
-              />
-              <br />
-              <label htmlFor="Username" className="form-label">
-                Username
-              </label>
-              <input
-                onChange={(e) => setUname(e.target.value)}
-                type="text"
-                id="Username"
-                className=" form-control"
-                value={uname||user.username}
-                
-              />
-              <br />
-              <label htmlFor="email" className="form-label">
-                E-mail
-              </label>
-              <input
-                value={email|| user.email}
-             
-                required
-                onChange={(e) => setEmail(e.target.value)}
-                type="text"
-                id="email"
-                className=" form-control"
-                
-              />
+          <div className="text-center">
+            <button type="submit" className=" but btn btn-primary  " onCLi>
+              <h5>Submit</h5>
+            </button>
+          </div>
+        </form>
+      </Modal>
+      <div className="container gap ">
+        <div className="row">
+          <div className="col-md-3 ">
+            <h1 className="quicksand20">Settings</h1>
+            <hr />
 
-              <br />
-         
-              <button type="submit" className="btn btn-success btn-lg" >
-                Save
-              </button>
-              <br />
+            <ul className=" navbar-nav me-auto mb-2 mb-lg-0 quicksand17  ">
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link "
+                  style={{ font: "Montserrat", fontSize: 30 }}
+                  to={`/Dashboard/settings/${id}`}
+                >
+                  My Profile
+                </NavLink>
+              </li>
 
-              {/* <br />
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link "
+                  style={{ font: "Montserrat", fontSize: 30 }}
+                  to="/confirmPW"
+                >
+                  Edit Password
+                </NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  onClick={() => props.setmodal(true)}
+                  style={{ font: "Montserrat", fontSize: 30 }}
+                  to={`/Dashboard/settings/${id}`}
+                >
+                  Delete Account
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-md-6 ">
+            <div className="circle ">
+              <img
+                src={imgSrc}
+                alt="Logo"
+                className="logo-image "
+                height="200px"
+                width="200px"
+              />
+            </div>
+            {/*<div className="upload-logo">*/}
+            <label htmlFor="upload-input" className="upload-button shift">
+              <span className="upload-button-text">
+                <img
+                  src={Upload}
+                  alt="Update Logo"
+                  className="upload-icon"
+                  height="60px"
+                  width="60px"
+                />
+              </span>
+              <input
+                id="upload-input"
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                style={{ display: "none" }}
+              />
+            </label>
+
+            <br />
+            <form className="quicksand15" onSubmit={handleSubmit}>
+              <strong>
+                <label htmlFor="Name" className="form-label">
+                  FullName
+                </label>
+                <input
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  className=" form-control"
+                  id="Name"
+                  value={name || user.name}
+                />
+                <br />
+                <label htmlFor="Username" className="form-label">
+                  Username
+                </label>
+                <input
+                  onChange={(e) => setUname(e.target.value)}
+                  type="text"
+                  id="Username"
+                  className=" form-control"
+                  value={uname || user.username}
+                />
+                <br />
+                <label htmlFor="email" className="form-label">
+                  E-mail
+                </label>
+                <input
+                  value={email || user.email}
+                  required
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  id="email"
+                  className=" form-control"
+                />
+
+                <br />
+
+                <button
+                  type="submit"
+                  className="btn btn-success btn-lg"
+                  onClick={() => props.setmodal1(true)}
+                >
+                  Save
+                </button>
+
+                {/* <br />
             <label htmlFor="password" className="form-label">
               Password
             </label>
@@ -260,23 +296,12 @@ export default function Settings(props) {
               className="email form-control"
             /> */}
 
-              <br />
-            
-                <button type="submit" className="btn btn-success btn-lg">
-                  Update Password
-                </button>
-                <br/>
-                <br/>
-                <button type="submit" className="btn btn-success btn-lg">
-                  Delete Account
-                </button>
-         
-              
-            </strong>
-          </form>
+                <br />
+              </strong>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

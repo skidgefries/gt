@@ -25,7 +25,7 @@ export default function Navbar(props) {
 
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} `}>
-    <div className="container-fluid">
+    <div className="container-fluid ">
           <NavLink className="navbar-brand" to="/">
             <img
               src={logo}
@@ -91,7 +91,7 @@ export default function Navbar(props) {
                     style={{ font: "Montserrat", fontSize: 30 }}
                     to="./Login"
                   >
-                    <span> </span>LOGIN
+                    LOGIN
                   </NavLink>
                 </li>
                 {/*<li className="nav-item dropdown">

@@ -17,6 +17,8 @@ export default function ConfirmPW(props) {
 const [pass, setPass] = useState("");
 const [cpass, setcPass] = useState("");
 
+const id = localStorage.getItem("userId");
+
 
 
 //   async function Submit(e) {
@@ -58,7 +60,7 @@ const [cpass, setcPass] = useState("");
           <ModalHeader>
             {" "}
             <div className="cross">
-              <NavLink className="nav-link " to="../Home">
+              <NavLink className="nav-link " to={`/Dashboard/settings/${id}`}>
                 <AiFillCloseCircle />
               </NavLink>{" "}
             </div>{" "}
