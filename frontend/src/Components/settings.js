@@ -83,7 +83,7 @@ export default function Settings(props) {
     try {
       // Send the updated settings to the backend API
       const { data } = await axios.patch(
-        `http://localhost:4000/user/userProfile/:id}`,
+        `http://localhost:4000/user/userProfile/:${id}`,
         values,
         { headers }
       );

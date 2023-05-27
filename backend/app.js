@@ -4,7 +4,7 @@ const connectDb = require("./config/dbConnection");
 const cors = require("cors")
 const errorHandler = require("./middleware/errorHandler")
 const port = '4000'
-const dotenv = require("dotenv").config({ path: '.ENV' });
+const dotenv = require("dotenv").config();
 const cookieParser = require("cookie-parser")
 
 
