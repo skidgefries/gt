@@ -153,7 +153,7 @@ module.exports.forgetpassword = async function forgetpassword(req, res) {
         "host"
       )}/resetpassword/${resetToken}`; // //domain name for reset password link
       //send email to user
-      // nodemailer
+      //nodemailer
       let obj = {
         resetPasswordLink: resetPasswordLink,
         email: email,

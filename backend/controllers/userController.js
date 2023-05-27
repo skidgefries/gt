@@ -16,10 +16,6 @@ module.exports.getUser=async function getUser(req, res){
     }
 }
 
-module.exports.getFile = function(req, res) {
-    res.download('../images/'+req.params.path)
-}
-
 // module.exports.postUsers=function postUser( req, res){
 //     console. log(req.body);
 //     users = req. body;
